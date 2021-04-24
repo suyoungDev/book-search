@@ -1,25 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled, { ThemeProvider } from 'styled-components';
+import { lightTheme, darkTheme, GlobalStyles } from './theme';
+
+const Box = styled.section`
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.fontColor};
+`;
 
 function App() {
+  const [theme, setTheme] = React.useState('light');
+
+  const themeToggler = () => {
+    theme === 'light' ? setTheme('dark') : setTheme('light');
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      <GlobalStyles />
+      <div>
+        하이
+        <button onClick={themeToggler}>토글</button>
+      </div>
+    </ThemeProvider>
   );
 }
 
