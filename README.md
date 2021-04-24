@@ -11,6 +11,7 @@
 - 무한 스크롤
 - bright / dark theme
 - typeScript
+- redux
 - 검색어 자동완성
 - 이전 검색어
 - 를 집중적으로 공부해 보는 게 목적

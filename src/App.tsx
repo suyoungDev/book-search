@@ -1,10 +1,14 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme, GlobalStyles } from './theme';
+import { IconContext } from 'react-icons';
 
-const Box = styled.section`
-  background-color: ${(props) => props.theme.body};
-  color: ${(props) => props.theme.fontColor};
+import LandingPage from './Page/LandingPage/LandingPage';
+import Header from './Page/Header/Head';
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 
 function App() {
@@ -16,11 +20,13 @@ function App() {
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-      <GlobalStyles />
-      <div>
-        하이
-        <button onClick={themeToggler}>토글</button>
-      </div>
+      <IconContext.Provider value={{ className: 'icons' }}>
+        <GlobalStyles />
+        <Container>
+          <Header toggle={themeToggler} />
+          <LandingPage />
+        </Container>
+      </IconContext.Provider>
     </ThemeProvider>
   );
 }
