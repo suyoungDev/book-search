@@ -4,7 +4,7 @@ import { GoSearch } from 'react-icons/go';
 
 export const InputContainer = styled.div`
   padding: 1em;
-  background-color: ${(props) => props.theme.colors.input};
+  background-color: ${(props) => props.theme.colors.inputBg};
   height: 48px;
   display: flex;
   align-items: center;
@@ -14,13 +14,13 @@ export const InputContainer = styled.div`
   border-radius: 24px;
 
   .icons {
-    color: ${(props) => props.theme.colors.ink02};
+    color: ${(props) => props.theme.colors.ink50};
     margin-right: 1rem;
   }
 `;
 
 export const InputBox = styled.input`
-  background-color: ${(props) => props.theme.colors.input};
+  background-color: ${(props) => props.theme.colors.inputBg};
   border: none;
   outline: none;
   font-size: 0.8rem;

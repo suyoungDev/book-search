@@ -1,7 +1,34 @@
-import { createGlobalStyle } from 'styled-components';
+import 'styled-components';
+import { createGlobalStyle, DefaultTheme } from 'styled-components';
+
+declare module 'styled-components' {
+  export interface DefaultTheme {
+    colors: {
+      body50: string;
+      body60: string;
+      ink40: string;
+      ink50: string;
+      ink60: string;
+      primary50: string;
+      primary60: string;
+      secondary50: string;
+      secondary60: string;
+      inputBg: string;
+      inputBorder: string;
+    };
+    size: {
+      padding50: string;
+    };
+    media: {
+      desktop: string;
+      tablet: string;
+      phone: string;
+    };
+  }
+}
 
 const customMediaQuery = (minWidth: number): string => {
-  return `@media screen and (min-width:${minWidth}px)`;
+  return `@media screen and (max-width:${minWidth}px)`;
 };
 
 const media = {
@@ -10,7 +37,7 @@ const media = {
   phone: customMediaQuery(576),
 };
 
-export const lightTheme = {
+export const lightTheme: DefaultTheme = {
   colors: {
     body50: '#fff',
     body60: '#E5E7EB',
@@ -21,7 +48,7 @@ export const lightTheme = {
     primary60: '#116A56',
     secondary50: '#D6CAAF',
     secondary60: '#905E4F',
-    input: '#fff',
+    inputBg: '#fff',
     inputBorder: '#747474',
   },
   size: {
@@ -34,7 +61,7 @@ export const lightTheme = {
   },
 };
 
-export const darkTheme = {
+export const darkTheme: DefaultTheme = {
   colors: {
     body50: '#333332',
     body60: '#282828',
@@ -45,8 +72,7 @@ export const darkTheme = {
     primary60: '#116A56',
     secondary50: '#D6CAAF',
     secondary60: '#905E4F',
-    gray50: '#747474',
-    input: '#747474',
+    inputBg: '#747474',
     inputBorder: '#747474',
   },
   size: {
