@@ -24,13 +24,20 @@ export const InputBox = styled.input`
   border: none;
   outline: none;
   font-size: 0.8rem;
+  ::placeholder {
+    color: ${(props) => props.theme.colors.ink40};
+  }
 `;
 
-const Input: React.FC = () => {
+interface Props {
+  placeholder: string;
+}
+
+const Input: React.FC<Props> = ({ placeholder }) => {
   return (
     <InputContainer>
       <GoSearch />
-      <InputBox placeholder='검색해보세요' />
+      <InputBox placeholder={placeholder} />
     </InputContainer>
   );
 };
