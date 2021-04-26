@@ -17,7 +17,7 @@ const Logo: React.FC = () => {
   return (
     <Wrapper>
       <h1>
-        <a>Book</a>
+        <a>READ</a>
       </h1>
     </Wrapper>
   );

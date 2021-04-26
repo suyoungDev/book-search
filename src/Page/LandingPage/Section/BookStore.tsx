@@ -96,7 +96,7 @@ const BookStore = () => {
     <Container>
       <ContextContainer>
         <Wrapper>
-          <h1>무엇이든 검색해보세요.</h1>
+          <h1>읽었던 책을 기록으로 남기세요.</h1>
           <div>
             <p>새로운 책을 발견하고, 새로운 세상을 접하세요.</p>
             <p>세상의 모든 책을 읽어보세요.</p>

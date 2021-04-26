@@ -34,17 +34,7 @@ const Nav: React.FC = () => {
         </li>
         <li>
           <a>
-            <span>랭킹</span>
-          </a>
-        </li>
-        <li>
-          <a>
-            <span>연재</span>
-          </a>
-        </li>
-        <li>
-          <a>
-            <span>오디오북</span>
+            <span>기록</span>
           </a>
         </li>
       </ul>
