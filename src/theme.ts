@@ -4,6 +4,10 @@ import { createGlobalStyle, DefaultTheme } from 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     colors: {
+      body10: string;
+      body20: string;
+      body30: string;
+      body40: string;
       body50: string;
       body60: string;
       ink40: string;
@@ -15,11 +19,13 @@ declare module 'styled-components' {
       secondary60: string;
       inputBg: string;
       inputBorder: string;
+      border: string;
     };
     size: {
       padding50: string;
     };
     media: {
+      desktopL: string;
       desktop: string;
       tablet: string;
       phone: string;
@@ -28,20 +34,25 @@ declare module 'styled-components' {
 }
 
 const customMediaQuery = (minWidth: number): string => {
-  return `@media screen and (max-width:${minWidth}px)`;
+  return `@media screen and (min-width:${minWidth}px)`;
 };
 
 const media = {
-  desktop: customMediaQuery(922),
+  desktopL: customMediaQuery(1440),
+  desktop: customMediaQuery(1024),
   tablet: customMediaQuery(768),
   phone: customMediaQuery(576),
 };
 
 export const lightTheme: DefaultTheme = {
   colors: {
+    body10: '#fff',
+    body20: '#fff',
+    body30: '#fff',
+    body40: '#fff',
     body50: '#fff',
-    body60: '#E5E7EB',
-    ink40: 'gray',
+    body60: '#f0f0f0',
+    ink40: '#4b4b4b',
     ink50: '#333332',
     ink60: '#282828',
     primary50: '#45AE9E',
@@ -49,12 +60,14 @@ export const lightTheme: DefaultTheme = {
     secondary50: '#D6CAAF',
     secondary60: '#905E4F',
     inputBg: '#fff',
-    inputBorder: '#747474',
+    inputBorder: '#c4c4c4',
+    border: '#BDC1C6',
   },
   size: {
     padding50: '1rem',
   },
   media: {
+    desktopL: media.desktopL,
     desktop: media.desktop,
     tablet: media.tablet,
     phone: media.phone,
@@ -63,8 +76,12 @@ export const lightTheme: DefaultTheme = {
 
 export const darkTheme: DefaultTheme = {
   colors: {
-    body50: '#333332',
-    body60: '#282828',
+    body10: '#c4c4c4',
+    body20: '#999999',
+    body30: '#717171',
+    body40: '#4b4b4b',
+    body50: '#282828',
+    body60: '#1f1f1f',
     ink40: '#BDC1C6',
     ink50: '#E5E7EB',
     ink60: '#BDC1C6',
@@ -74,11 +91,13 @@ export const darkTheme: DefaultTheme = {
     secondary60: '#905E4F',
     inputBg: '#747474',
     inputBorder: '#747474',
+    border: '#747474',
   },
   size: {
     padding50: '1rem',
   },
   media: {
+    desktopL: media.desktopL,
     desktop: media.desktop,
     tablet: media.tablet,
     phone: media.phone,
