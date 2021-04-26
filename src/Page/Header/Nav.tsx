@@ -2,19 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 
 const NavWrapper = styled.nav`
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   margin-top: 5rem;
+  width: 100%;
 
   ul {
     display: flex;
     flex-direction: column;
+    list-style: none;
+
     li {
-      display: inline-block;
       padding: 0.8rem;
       :not(:first-of-type) {
         margin-top: 1rem;
