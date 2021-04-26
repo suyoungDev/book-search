@@ -5,10 +5,12 @@ import { IconContext } from 'react-icons';
 
 import LandingPage from './Page/LandingPage/LandingPage';
 import Header from './Page/Header/Head';
+import RightSection from './Page/RightSection/RightSection';
 
 const Container = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 `;
 
 function App() {
@@ -25,6 +27,7 @@ function App() {
         <Container>
           <Header toggle={themeToggler} />
           <LandingPage />
+          <RightSection />
         </Container>
       </IconContext.Provider>
     </ThemeProvider>

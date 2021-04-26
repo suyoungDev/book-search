@@ -4,15 +4,20 @@ import Logo from './Logo';
 import Nav from './Nav';
 import Toggle, { Props } from './Toggle';
 import { LeftWrapper } from '../../Components/SideWrapper';
+import styled from 'styled-components';
+
+const Container = styled.header`
+  width: 100%;
+`;
 
 const Header: React.FC<Props> = ({ toggle }) => {
   return (
-    <LeftWrapper width={20} maxWidth={250}>
-      <header>
+    <LeftWrapper>
+      <Container>
         <Logo />
         <Nav />
         <Toggle toggle={toggle} />
-      </header>
+      </Container>
     </LeftWrapper>
   );
 };

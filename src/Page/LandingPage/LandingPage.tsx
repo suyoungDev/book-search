@@ -1,20 +1,22 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Wrapper } from '../../Components/Wrapper';
-import Side from '../Side/Side';
-import Input from '../../Components/Input';
+import styled from 'styled-components';
+import Title from './Section/Title';
+import BookStore from './Section/BookStore';
 
-const LandingPage = () => {
+const Main = styled.main`
+  width: 100%;
+`;
+
+const LandingPage: React.FC = () => {
   return (
-    <main>
+    <Main>
+      <Title />
       <Wrapper>
-        <label>하이</label>
-        <Input />
+        <BookStore />
+        <div> 이번엔 어떤걸 추가해야할까 ..^^</div>
       </Wrapper>
-      <Wrapper>
-        <Side />
-      </Wrapper>
-    </main>
+    </Main>
   );
 };
 
