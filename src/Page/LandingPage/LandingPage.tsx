@@ -3,7 +3,7 @@ import { Wrapper } from '../../Components/Wrapper';
 import styled from 'styled-components';
 import Title from './Section/Title';
 import BookStore from './Section/BookStore';
-
+import SearchModule from '../Search/SearchModule';
 const Main = styled.main`
   width: 100%;
 `;
@@ -14,7 +14,7 @@ const LandingPage: React.FC = () => {
       <Title />
       <Wrapper>
         <BookStore />
-        <div> 이번엔 어떤걸 추가해야할까 ..^^</div>
+        <SearchModule />
       </Wrapper>
     </Main>
   );

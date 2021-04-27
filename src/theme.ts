@@ -24,6 +24,7 @@ declare module 'styled-components' {
     };
     size: {
       padding50: string;
+      borderRadius50: string;
     };
     media: {
       desktopL: string;
@@ -67,6 +68,7 @@ export const lightTheme: DefaultTheme = {
   },
   size: {
     padding50: '1rem',
+    borderRadius50: '0.6rem',
   },
   media: {
     desktopL: media.desktopL,
@@ -98,6 +100,7 @@ export const darkTheme: DefaultTheme = {
   },
   size: {
     padding50: '1rem',
+    borderRadius50: '0.6rem',
   },
   media: {
     desktopL: media.desktopL,
