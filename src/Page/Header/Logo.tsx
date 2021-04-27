@@ -16,9 +16,7 @@ const Wrapper = styled.div`
 const Logo: React.FC = () => {
   return (
     <Wrapper>
-      <h1>
-        <a>READ</a>
-      </h1>
+      <h1>READ</h1>
     </Wrapper>
   );
 };

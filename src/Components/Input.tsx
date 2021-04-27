@@ -1,6 +1,8 @@
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import React from 'react';
 import { GoSearch } from 'react-icons/go';
+
+import useSearch from '.././hook/useSearch';
 
 export const InputContainer = styled.div`
   padding: 1em;
@@ -30,14 +32,27 @@ export const InputBox = styled.input`
 `;
 
 interface Props {
-  placeholder: string;
+  placeholder?: string;
 }
 
 const Input: React.FC<Props> = ({ placeholder }) => {
+  const [query, setQuery] = useState('');
+
+  const handleSearch = (e: any) => {
+    setQuery(e.currentTarget.value);
+  };
+
+  useSearch(query);
+
   return (
     <InputContainer>
       <GoSearch />
-      <InputBox placeholder={placeholder} />
+      <InputBox
+        placeholder={placeholder}
+        type='text'
+        value={query}
+        onChange={handleSearch}
+      />
     </InputContainer>
   );
 };

@@ -28,14 +28,10 @@ const Nav: React.FC = () => {
     <NavWrapper>
       <ul>
         <li>
-          <a>
-            <span>홈</span>
-          </a>
+          <span>홈</span>
         </li>
         <li>
-          <a>
-            <span>기록</span>
-          </a>
+          <span>기록</span>
         </li>
       </ul>
     </NavWrapper>

@@ -2,6 +2,7 @@
   "name": "book-search",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://openapi.naver.com",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -11,6 +12,7 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/styled-components": "^5.1.9",
+    "axios": "^0.21.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",

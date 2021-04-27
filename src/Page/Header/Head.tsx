@@ -1,11 +1,11 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import Logo from './Logo';
 import Nav from './Nav';
 import Info from './Info';
-import Toggle, { Props } from './Toggle';
+import { Props } from './Toggle';
 import { LeftWrapper } from '../../Components/SideWrapper';
-import styled from 'styled-components';
 
 const Container = styled.header`
   width: 100%;

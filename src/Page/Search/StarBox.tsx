@@ -4,7 +4,6 @@ import {
   TiStarHalfOutline,
   TiStarFullOutline,
 } from 'react-icons/ti';
-import styled from 'styled-components';
 import { RowStars } from '../../Components/Row';
 
 const StarBox: React.FC = () => {
