@@ -20,6 +20,7 @@ declare module 'styled-components' {
       inputBg: string;
       inputBorder: string;
       border: string;
+      invert: string;
     };
     size: {
       padding50: string;
@@ -62,6 +63,7 @@ export const lightTheme: DefaultTheme = {
     inputBg: '#fff',
     inputBorder: '#c4c4c4',
     border: '#BDC1C6',
+    invert: '#E5E7EB',
   },
   size: {
     padding50: '1rem',
@@ -92,6 +94,7 @@ export const darkTheme: DefaultTheme = {
     inputBg: '#747474',
     inputBorder: '#747474',
     border: '#747474',
+    invert: '#282828',
   },
   size: {
     padding50: '1rem',

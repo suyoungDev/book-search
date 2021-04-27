@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 const Option = styled.div`
   width: 100%;
-  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,11 +13,7 @@ export interface Props {
 }
 
 const Side: React.FC<Props> = ({ toggle }) => {
-  return (
-    <Option>
-      <button onClick={toggle}>토글</button>
-    </Option>
-  );
+  return <button onClick={toggle}>토글</button>;
 };
 
 export default Side;

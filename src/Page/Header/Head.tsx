@@ -2,12 +2,14 @@ import React from 'react';
 
 import Logo from './Logo';
 import Nav from './Nav';
+import Info from './Info';
 import Toggle, { Props } from './Toggle';
 import { LeftWrapper } from '../../Components/SideWrapper';
 import styled from 'styled-components';
 
 const Container = styled.header`
   width: 100%;
+  position: relative;
 `;
 
 const Header: React.FC<Props> = ({ toggle }) => {
@@ -16,7 +18,7 @@ const Header: React.FC<Props> = ({ toggle }) => {
       <Container>
         <Logo />
         <Nav />
-        <Toggle toggle={toggle} />
+        <Info toggle={toggle} />
       </Container>
     </LeftWrapper>
   );
