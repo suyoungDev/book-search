@@ -37,12 +37,15 @@ interface Props {
 
 const Input: React.FC<Props> = ({ placeholder }) => {
   const [query, setQuery] = useState('');
+  const [pageNumber, setPageNumber] = useState(1);
 
   const handleSearch = (e: any) => {
     setQuery(e.currentTarget.value);
+    setPageNumber(1);
   };
 
-  useSearch(query);
+  const { books, hasMore, loading, error } = useSearch(query, pageNumber);
+  console.log(books);
 
   return (
     <InputContainer>
@@ -53,6 +56,11 @@ const Input: React.FC<Props> = ({ placeholder }) => {
         value={query}
         onChange={handleSearch}
       />
+      {books?.map((item) => (
+        <div key={item.title}>{item.title}</div>
+      ))}
+      {loading && '로딩'}
+      {error && '에러'}
     </InputContainer>
   );
 };
