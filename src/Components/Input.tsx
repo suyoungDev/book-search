@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { GoSearch } from 'react-icons/go';
 
-import useSearch from '.././hook/useSearch';
+// import useSearch from '.././hook/useSearch';
+import { fetchBooks } from '../actions/book.actions';
+import { useDispatch } from 'react-redux';
 
 export const InputContainer = styled.div`
   padding: 1em;
@@ -38,14 +40,17 @@ interface Props {
 const Input: React.FC<Props> = ({ placeholder }) => {
   const [query, setQuery] = useState('');
   const [pageNumber, setPageNumber] = useState(1);
+  const dispatch = useDispatch();
 
-  const handleSearch = (e: any) => {
-    setQuery(e.currentTarget.value);
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(event.target.value);
     setPageNumber(1);
   };
 
-  const { books, hasMore, loading, error } = useSearch(query, pageNumber);
-  console.log(books);
+  // const { books, hasMore, loading, error } = useSearch(query, pageNumber);
+  const searched = () => {
+    dispatch(fetchBooks(query));
+  };
 
   return (
     <InputContainer>
@@ -56,11 +61,7 @@ const Input: React.FC<Props> = ({ placeholder }) => {
         value={query}
         onChange={handleSearch}
       />
-      {books?.map((item) => (
-        <div key={item.title}>{item.title}</div>
-      ))}
-      {loading && '로딩'}
-      {error && '에러'}
+      <button onClick={searched}>찾기</button>
     </InputContainer>
   );
 };
