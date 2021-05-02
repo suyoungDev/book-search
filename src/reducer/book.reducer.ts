@@ -27,6 +27,7 @@ const BookReducer = (
 
     case FETCH_SUCCESS:
       const { books } = action.payload;
+
       return {
         ...state,
         success: true,
