@@ -8,8 +8,6 @@ import BookStore from './Section/BookStore';
 import SearchModule from '../Search/SearchModule';
 
 import { RootReducerType } from '../../reducer/store';
-import BookReducer from '../../reducer/book.reducer';
-// import { fetchBooks } from '../../actions/book.actions';
 
 const Main = styled.main`
   width: 100%;
@@ -21,6 +19,7 @@ const LandingPage: React.FC = () => {
   const booksReducer = useSelector(
     (state: RootReducerType) => state.bookReducer
   );
+
   console.log(booksReducer);
 
   return (
@@ -29,6 +28,10 @@ const LandingPage: React.FC = () => {
       <Wrapper>
         <BookStore />
         <SearchModule />
+        {booksReducer.success &&
+          booksReducer.book?.map((item) => (
+            <div key={item.isbn}>{item.title}</div>
+          ))}
       </Wrapper>
     </Main>
   );

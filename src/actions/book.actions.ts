@@ -5,7 +5,7 @@ import {
   FETCH_SUCCESS,
   FETCH_FAIL,
 } from './book.actions.types';
-import KEY from '../hook/key';
+import KEY from '../key';
 
 const URL = '/v1/search/book.json';
 

@@ -1,10 +1,6 @@
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAIL = 'FETCH_FAIL';
 
-export type BookType = {
-  books: Book[];
-};
-
 export type Book = {
   author: string;
   description: string;
@@ -26,9 +22,7 @@ export interface fetchFailDispatch {
 // 성공
 export interface fetchSuccessDispatch {
   type: typeof FETCH_SUCCESS;
-  payload: {
-    books: Book[];
-  };
+  payload: Book[];
 }
 
 export type fetchDispatchType = fetchFailDispatch | fetchSuccessDispatch;

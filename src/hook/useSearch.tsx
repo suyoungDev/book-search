@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import KEY from './key';
+import KEY from '../key';
 
 const URL = '/v1/search/book.json';
 

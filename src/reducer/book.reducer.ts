@@ -1,13 +1,13 @@
 import {
   FETCH_FAIL,
   FETCH_SUCCESS,
-  BookType,
+  Book,
   fetchDispatchType,
 } from '../actions/book.actions.types';
 
 interface InitialState {
   success: boolean;
-  book?: BookType;
+  book?: Book[];
 }
 
 const initialState: InitialState = {
@@ -26,14 +26,10 @@ const BookReducer = (
       };
 
     case FETCH_SUCCESS:
-      const { books } = action.payload;
-
       return {
         ...state,
         success: true,
-        book: {
-          books,
-        },
+        book: action.payload,
       };
 
     default:
