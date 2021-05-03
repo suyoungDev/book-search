@@ -4,14 +4,14 @@ export const FETCH_FAIL = 'FETCH_FAIL';
 export type Book = {
   author: string;
   description: string;
-  discount: string;
   image: string;
-  isbn: string;
-  link: string;
-  price: string;
   pubdate: string;
-  publisher: string;
   title: string;
+  discount?: string;
+  publisher?: string;
+  isbn?: string;
+  link?: string;
+  price?: string;
 };
 
 // 실패

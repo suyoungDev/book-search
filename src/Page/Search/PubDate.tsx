@@ -2,6 +2,11 @@ import React, { useLayoutEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-end;
+
   font-size: 0.7rem;
   font-weight: 200;
   color: ${(props) => props.theme.colors.ink40};
@@ -13,10 +18,10 @@ const Container = styled.div`
 `;
 
 interface Props {
-  children: string;
+  pubdate: string;
 }
 
-const PubDate: React.FC<Props> = ({ children }) => {
+const PubDate: React.FC<Props> = ({ pubdate }) => {
   const [date, setDate] = useState({
     year: '',
     month: '',
@@ -33,8 +38,8 @@ const PubDate: React.FC<Props> = ({ children }) => {
   };
 
   useLayoutEffect(() => {
-    settingDate(children);
-  }, [children]);
+    settingDate(pubdate);
+  }, [pubdate]);
 
   return (
     <Container>
