@@ -26,7 +26,9 @@ const SearchModule: React.FC<Book> = ({
         <TitleBook>
           <p dangerouslySetInnerHTML={{ __html: title }} />
         </TitleBook>
-        <AuthorBook>{author}</AuthorBook>
+        <AuthorBook>
+          <p dangerouslySetInnerHTML={{ __html: author }} />
+        </AuthorBook>
         <Description>
           <p dangerouslySetInnerHTML={{ __html: description }} />
         </Description>
