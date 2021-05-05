@@ -9,13 +9,13 @@ const Box = styled.div`
 `;
 
 const SearchList: React.FC = () => {
-  const { book } = useSelector((state: RootReducerType) => state.bookReducer);
+  const { data } = useSelector((state: RootReducerType) => state.bookReducer);
 
-  if (!Number(book)) return <Box>검색결과가 없습니다.</Box>;
+  if (!data?.length) return <Box>검색결과가 없습니다.</Box>;
 
   return (
-    <div>
-      {book?.map((item) => (
+    <>
+      {data?.map((item) => (
         <SearchModule
           key={item.isbn}
           image={item.image}
@@ -25,7 +25,7 @@ const SearchList: React.FC = () => {
           description={item.description}
         />
       ))}
-    </div>
+    </>
   );
 };
 

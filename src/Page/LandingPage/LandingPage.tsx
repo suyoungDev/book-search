@@ -13,7 +13,7 @@ const Main = styled.main`
 `;
 
 const LandingPage: React.FC = () => {
-  const { success } = useSelector(
+  const { success, isLoading } = useSelector(
     (state: RootReducerType) => state.bookReducer
   );
 
@@ -22,7 +22,8 @@ const LandingPage: React.FC = () => {
       <Title />
       <LandingWrapper>
         {!success && <BookStore />}
-        {success && <SearchList />}
+        {isLoading && <div>데이터를 가져오는 중..</div>}
+        {!isLoading && success && <SearchList />}
       </LandingWrapper>
     </Main>
   );

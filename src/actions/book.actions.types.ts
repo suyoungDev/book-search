@@ -1,3 +1,4 @@
+export const FETCH = 'FETCH';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAIL = 'FETCH_FAIL';
 
@@ -14,6 +15,11 @@ export type Book = {
   price?: string;
 };
 
+// 시도
+export interface fetchDispatch {
+  type: typeof FETCH;
+}
+
 // 실패
 export interface fetchFailDispatch {
   type: typeof FETCH_FAIL;
@@ -22,7 +28,10 @@ export interface fetchFailDispatch {
 // 성공
 export interface fetchSuccessDispatch {
   type: typeof FETCH_SUCCESS;
-  payload: Book[];
+  data: Book[];
 }
 
-export type fetchDispatchType = fetchFailDispatch | fetchSuccessDispatch;
+export type fetchDispatchType =
+  | fetchFailDispatch
+  | fetchSuccessDispatch
+  | fetchDispatch;

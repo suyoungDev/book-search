@@ -4,6 +4,7 @@ import {
   fetchDispatchType,
   FETCH_SUCCESS,
   FETCH_FAIL,
+  FETCH,
 } from './book.actions.types';
 import KEY from '../key';
 
@@ -12,8 +13,10 @@ const URL = '/v1/search/book.json';
 export const fetchBooks = (query: string) => async (
   dispatch: Dispatch<fetchDispatchType>
 ) => {
-  let cancel;
+  dispatch({ type: FETCH });
+
   try {
+    let cancel;
     const response = await axios.get(URL, {
       params: { query, display: 10, start: 1 },
       headers: {
@@ -29,7 +32,7 @@ export const fetchBooks = (query: string) => async (
 
     dispatch({
       type: FETCH_SUCCESS,
-      payload: items,
+      data: items,
     });
   } catch (error) {
     if (axios.isCancel(error)) return;

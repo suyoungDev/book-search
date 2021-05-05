@@ -1,6 +1,7 @@
 import {
   FETCH_FAIL,
   FETCH_SUCCESS,
+  FETCH,
   Book,
   fetchDispatchType,
 } from '../actions/book.actions.types';
@@ -9,11 +10,12 @@ interface InitialState {
   success: boolean;
   isLoading?: boolean;
   hasMore?: boolean;
-  book?: Book[];
+  data?: Book[];
 }
 
 const initialState: InitialState = {
   success: false,
+  isLoading: false,
 };
 
 const BookReducer = (
@@ -21,9 +23,16 @@ const BookReducer = (
   action: fetchDispatchType
 ): InitialState => {
   switch (action.type) {
+    case FETCH:
+      return {
+        ...state,
+        isLoading: true,
+      };
+
     case FETCH_FAIL:
       return {
         ...state,
+        isLoading: false,
         success: false,
       };
 
@@ -31,7 +40,8 @@ const BookReducer = (
       return {
         ...state,
         success: true,
-        book: action.payload,
+        isLoading: false,
+        data: action.data,
       };
 
     default:
