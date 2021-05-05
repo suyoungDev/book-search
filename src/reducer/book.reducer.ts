@@ -7,6 +7,8 @@ import {
 
 interface InitialState {
   success: boolean;
+  isLoading?: boolean;
+  hasMore?: boolean;
   book?: Book[];
 }
 
