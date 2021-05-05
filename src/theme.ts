@@ -10,6 +10,7 @@ declare module 'styled-components' {
       body40: string;
       body50: string;
       body60: string;
+      ink30: string;
       ink40: string;
       ink50: string;
       ink60: string;
@@ -54,6 +55,7 @@ export const lightTheme: DefaultTheme = {
     body40: '#fff',
     body50: '#fff',
     body60: '#f0f0f0',
+    ink30: '#c4c4c4',
     ink40: '#4b4b4b',
     ink50: '#333332',
     ink60: '#282828',
@@ -86,6 +88,7 @@ export const darkTheme: DefaultTheme = {
     body40: '#4b4b4b',
     body50: '#282828',
     body60: '#1f1f1f',
+    ink30: '#c4c4c4',
     ink40: '#BDC1C6',
     ink50: '#E5E7EB',
     ink60: '#BDC1C6',

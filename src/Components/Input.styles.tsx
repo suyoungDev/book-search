@@ -12,8 +12,8 @@ export const InputContainer = styled.div`
   border-radius: 24px;
 
   .icons {
-    color: ${(props) => props.theme.colors.ink50};
-    margin-right: 1rem;
+    font-size: 1rem;
+    color: ${(props) => props.theme.colors.ink30};
   }
 `;
 
@@ -22,7 +22,32 @@ export const InputBox = styled.input`
   border: none;
   outline: none;
   font-size: 0.8rem;
+  padding: 0 0.8rem;
+
   ::placeholder {
     color: ${(props) => props.theme.colors.ink40};
+  }
+`;
+
+export const Button = styled.button`
+  outline: none;
+  border: none;
+  background-color: transparent;
+  width: 2em;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+
+  .icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+
+    :hover {
+      color: ${(props) => props.theme.colors.primary50};
+    }
+
+    transition: color ease 0.5s;
   }
 `;
