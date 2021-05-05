@@ -13,12 +13,10 @@ interface Props {
 
 const Input: React.FC<Props> = ({ placeholder }) => {
   const [query, setQuery] = useState('');
-  const [pageNumber, setPageNumber] = useState(1);
   const dispatch = useDispatch();
 
-  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
-    setPageNumber(1);
   };
 
   // const { books, hasMore, loading, error } = useSearch(query, pageNumber);
@@ -33,7 +31,7 @@ const Input: React.FC<Props> = ({ placeholder }) => {
         placeholder={placeholder}
         type='text'
         value={query}
-        onChange={handleSearch}
+        onChange={onChange}
       />
       <button onClick={onSearch}>찾기</button>
     </InputContainer>
