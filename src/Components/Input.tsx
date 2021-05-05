@@ -15,19 +15,26 @@ const Input: React.FC<Props> = ({ placeholder }) => {
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
+    dispatch(fetchBooks(event.target.value));
+  };
+
+  const submit = (event: any) => {
+    event.preventDefault();
     dispatch(fetchBooks(query));
   };
 
   return (
-    <InputContainer>
-      <GoSearch />
-      <InputBox
-        placeholder={placeholder}
-        type='text'
-        value={query}
-        onChange={onChange}
-      />
-    </InputContainer>
+    <form onSubmit={submit}>
+      <InputContainer>
+        <GoSearch />
+        <InputBox
+          placeholder={placeholder}
+          type='text'
+          value={query}
+          onChange={onChange}
+        />
+      </InputContainer>
+    </form>
   );
 };
 
