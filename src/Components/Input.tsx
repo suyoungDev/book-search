@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BiX, BiSearch } from 'react-icons/bi';
 
@@ -13,9 +13,9 @@ const Input: React.FC<Props> = ({ placeholder }) => {
   const [query, setQuery] = useState('');
   const dispatch = useDispatch();
 
-  React.useEffect(() => {
-    dispatch(fetchBooks(query));
-  }, [query]);
+  useEffect(() => {
+    if (query.length) dispatch(fetchBooks(query));
+  }, [query, dispatch]);
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);

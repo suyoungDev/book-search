@@ -10,11 +10,13 @@ interface InitialState {
   success: boolean;
   isLoading?: boolean;
   hasMore?: boolean;
+  isError?: boolean;
   data?: Book[] | null;
 }
 
 const initialState: InitialState = {
   isLoading: false,
+  isError: false,
   success: false,
   data: null,
 };
@@ -29,6 +31,7 @@ const BookReducer = (
         ...state,
         isLoading: true,
         data: null,
+        isError: false,
       };
 
     case FETCH_FAIL:
@@ -36,7 +39,7 @@ const BookReducer = (
         ...state,
         isLoading: false,
         success: false,
-        data: null,
+        isError: true,
       };
 
     case FETCH_SUCCESS:
@@ -45,6 +48,7 @@ const BookReducer = (
         isLoading: false,
         success: true,
         data: action.data,
+        isError: false,
       };
 
     default:
