@@ -6,3 +6,8 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
+export const LandingWrapper = styled(Wrapper)`
+  height: 92vh;
+  overflow-y: auto;
+`;
