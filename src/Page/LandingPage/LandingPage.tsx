@@ -21,7 +21,7 @@ const LandingPage: React.FC = () => {
     <Main>
       <Title />
       <LandingWrapper>
-        {!success && <BookStore />}
+        {!success && !isLoading && <BookStore />}
         {isLoading && <div>데이터를 가져오는 중..</div>}
         {!isLoading && success && <SearchList />}
       </LandingWrapper>
