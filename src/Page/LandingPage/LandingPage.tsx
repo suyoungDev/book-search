@@ -6,7 +6,7 @@ import { RootReducerType } from '../../reducer/store';
 import { LandingWrapper, SmallWrapper } from '../../Components/Wrapper';
 import Title from './Section/Title';
 import BookStore from './Section/BookStore';
-import SearchList from '../Search/SearchList';
+import SearchResultContainer from '../Search/SearchResultContainer';
 
 const Main = styled.main`
   width: 100%;
@@ -23,7 +23,7 @@ const LandingPage: React.FC = () => {
       <LandingWrapper>
         {!success && !isLoading && <BookStore />}
         {isLoading && <SmallWrapper>데이터를 가져오는 중..</SmallWrapper>}
-        {!isLoading && success && <SearchList />}
+        {!isLoading && success && <SearchResultContainer />}
         {isError && <SmallWrapper>에러가 발생했습니다.</SmallWrapper>}
       </LandingWrapper>
     </Main>

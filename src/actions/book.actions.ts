@@ -5,6 +5,9 @@ import {
   FETCH_SUCCESS,
   FETCH_FAIL,
   FETCH,
+  LOAD_MORE,
+  LOAD_MORE_FAIL,
+  LOAD_MORE_SUCCESS,
 } from './book.actions.types';
 import KEY from '../key';
 
@@ -30,11 +33,19 @@ export const fetchBooks = (query: string, page = 1) => async (
       cancelToken: new axios.CancelToken((c) => (cancel = c)),
     });
 
-    dispatch({
-      type: FETCH_SUCCESS,
-      data: items,
-      hasMore: page * 10 < total,
-    });
+    if (page === 1) {
+      dispatch({
+        type: FETCH_SUCCESS,
+        data: items,
+        hasMore: page * 10 < total,
+      });
+    } else {
+      dispatch({
+        type: LOAD_MORE_SUCCESS,
+        data: items,
+        hasMore: page * 10 < total,
+      });
+    }
   } catch (error) {
     if (axios.isCancel(error)) return;
     dispatch({

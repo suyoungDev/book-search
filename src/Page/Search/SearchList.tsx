@@ -17,8 +17,7 @@ const ListContainer = styled.div`
 `;
 
 const SearchList: React.FC = () => {
-  const [pageNumber, setPageNumber] = useState(1);
-  const { data, isLoading, hasMore } = useSelector(
+  const { data, isLoading, hasMore, pageNumber } = useSelector(
     (state: RootReducerType) => state.bookReducer
   );
 
@@ -29,19 +28,13 @@ const SearchList: React.FC = () => {
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && hasMore) {
-          setPageNumber((prev) => prev + 1);
+          console.log(pageNumber);
         }
       });
       if (node) observer.current.observe(node);
     },
     [isLoading, hasMore]
   );
-
-  useEffect(() => {
-    // 데이터 가져오기
-  }, [pageNumber]);
-
-  if (!data?.length) return <SmallWrapper>검색결과가 없습니다.</SmallWrapper>;
 
   return (
     <ListContainer>
