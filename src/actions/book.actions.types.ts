@@ -1,5 +1,3 @@
-import { TypeOfTag } from 'typescript';
-
 // 액션 타입
 export const FETCH = 'FETCH';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';

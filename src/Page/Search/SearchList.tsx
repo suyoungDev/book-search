@@ -1,9 +1,9 @@
 import React, { useRef, useCallback, useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { SmallWrapper } from '../../Components/Wrapper';
 import { RootReducerType } from '../../reducer/store';
 import SearchModule from './SearchModule';
+import { loadMore } from '../../actions/book.actions.types';
 
 const ListContainer = styled.div`
   display: flex;
@@ -20,7 +20,7 @@ const SearchList: React.FC = () => {
   const { data, isLoading, hasMore, pageNumber } = useSelector(
     (state: RootReducerType) => state.bookReducer
   );
-
+  const dispatch = useDispatch();
   const observer = useRef<IntersectionObserver | null>(null);
   const lastElement = useCallback(
     (node) => {
@@ -28,7 +28,7 @@ const SearchList: React.FC = () => {
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && hasMore) {
-          console.log(pageNumber);
+          dispatch(loadMore());
         }
       });
       if (node) observer.current.observe(node);

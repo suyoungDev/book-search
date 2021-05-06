@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import SearchList from './SearchList';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchBooks } from '../../actions/book.actions';

@@ -87,6 +87,8 @@ const BookReducer = (
       return {
         ...state,
         data: [],
+        isLoading: false,
+        success: false,
       };
 
     default:
