@@ -22,9 +22,13 @@ const LandingPage: React.FC = () => {
       <Title />
       <LandingWrapper>
         {!success && !isLoading && <BookStore />}
-        {isLoading && <SmallWrapper>데이터를 가져오는 중..</SmallWrapper>}
-        {!isLoading && success && <SearchResultContainer />}
-        {isError && <SmallWrapper>에러가 발생했습니다.</SmallWrapper>}
+        {!success && isLoading && (
+          <SmallWrapper>데이터를 가져오는 중..</SmallWrapper>
+        )}
+        {success && <SearchResultContainer />}
+        {!success && isError && (
+          <SmallWrapper>에러가 발생했습니다.</SmallWrapper>
+        )}
       </LandingWrapper>
     </Main>
   );

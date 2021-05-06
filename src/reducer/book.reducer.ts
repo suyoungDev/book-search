@@ -2,8 +2,7 @@ import {
   FETCH_FAIL,
   FETCH_SUCCESS,
   FETCH,
-  LOAD_MORE,
-  LOAD_MORE_FAIL,
+  LOAD_MORE_DATA,
   LOAD_MORE_SUCCESS,
   CANCLE_FETCH,
   Book,
@@ -17,6 +16,8 @@ interface InitialState {
   isError?: boolean;
   data?: Book[] | null;
   pageNumber: number;
+  query: string;
+  loadMore?: boolean;
 }
 
 const initialState: InitialState = {
@@ -25,6 +26,8 @@ const initialState: InitialState = {
   success: false,
   data: null,
   pageNumber: 1,
+  query: '',
+  loadMore: false,
 };
 
 const BookReducer = (
@@ -56,31 +59,23 @@ const BookReducer = (
         data: action.data,
         isError: false,
         hasMore: action.hasMore,
+        query: action.query,
       };
 
-    case LOAD_MORE:
+    case LOAD_MORE_DATA:
       return {
         ...state,
         pageNumber: state.pageNumber + 1,
+        loadMore: true,
       };
 
     case LOAD_MORE_SUCCESS:
-      const newData = action.data;
-      // const { data } = state;
-
       return {
         ...state,
-        data: newData,
-        isLoading: false,
+        data: action.data,
         hasMore: action.hasMore,
-      };
-
-    case LOAD_MORE_FAIL:
-      return {
-        ...state,
+        loadMore: false,
         isLoading: false,
-        success: false,
-        isError: true,
       };
 
     case CANCLE_FETCH:
@@ -89,6 +84,7 @@ const BookReducer = (
         data: [],
         isLoading: false,
         success: false,
+        pageNumber: 1,
       };
 
     default:

@@ -5,8 +5,6 @@ import {
   FETCH_SUCCESS,
   FETCH_FAIL,
   FETCH,
-  LOAD_MORE,
-  LOAD_MORE_FAIL,
   LOAD_MORE_SUCCESS,
 } from './book.actions.types';
 import KEY from '../key';
@@ -25,7 +23,7 @@ export const fetchBooks = (query: string, page = 1) => async (
     const {
       data: { items, total },
     } = await axios.get(URL, {
-      params: { query, display: 10, start: page },
+      params: { query, display: 8 * page, start: page },
       headers: {
         'X-Naver-Client-Id': KEY.CLIENT_ID,
         'X-Naver-Client-Secret': KEY.CLIENT_SERVER,
@@ -37,13 +35,14 @@ export const fetchBooks = (query: string, page = 1) => async (
       dispatch({
         type: FETCH_SUCCESS,
         data: items,
-        hasMore: page * 10 < total,
+        hasMore: page * 8 < total,
+        query: query,
       });
     } else {
       dispatch({
         type: LOAD_MORE_SUCCESS,
         data: items,
-        hasMore: page * 10 < total,
+        hasMore: page * 8 < total,
       });
     }
   } catch (error) {

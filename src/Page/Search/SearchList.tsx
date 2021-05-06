@@ -1,25 +1,18 @@
-import React, { useRef, useCallback, useState, useEffect } from 'react';
+import React, { useRef, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import styled from 'styled-components';
+
 import { RootReducerType } from '../../reducer/store';
+import { loadMoreData } from '../../actions/book.actions.types';
+import { fetchBooks } from '../../actions/book.actions';
+
+import { ListContainer } from './SearchList.styles';
 import SearchModule from './SearchModule';
-import { loadMore } from '../../actions/book.actions.types';
-
-const ListContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  margin: 2rem 0 4rem 0;
-  > div {
-    margin-bottom: 1rem;
-  }
-`;
 
 const SearchList: React.FC = () => {
-  const { data, isLoading, hasMore, pageNumber } = useSelector(
+  const { data, isLoading, hasMore, query, pageNumber, loadMore } = useSelector(
     (state: RootReducerType) => state.bookReducer
   );
+
   const dispatch = useDispatch();
   const observer = useRef<IntersectionObserver | null>(null);
   const lastElement = useCallback(
@@ -28,12 +21,13 @@ const SearchList: React.FC = () => {
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && hasMore) {
-          dispatch(loadMore());
+          dispatch(loadMoreData());
+          dispatch(fetchBooks(query, pageNumber));
         }
       });
       if (node) observer.current.observe(node);
     },
-    [isLoading, hasMore]
+    [isLoading, hasMore, pageNumber]
   );
 
   return (
@@ -65,8 +59,7 @@ const SearchList: React.FC = () => {
           );
         }
       })}
-
-      {isLoading && hasMore && <div>데이터를 가져오는 중..</div>}
+      {loadMore && <div>더더더 가져오는 중</div>}
     </ListContainer>
   );
 };
