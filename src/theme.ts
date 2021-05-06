@@ -22,10 +22,13 @@ declare module 'styled-components' {
       inputBorder: string;
       border: string;
       invert: string;
+      dummy01: string;
+      dummy02: string;
     };
     size: {
       padding50: string;
       borderRadius50: string;
+      borderRadius40: string;
     };
     media: {
       desktopL: string;
@@ -67,10 +70,13 @@ export const lightTheme: DefaultTheme = {
     inputBorder: '#c4c4c4',
     border: '#BDC1C6',
     invert: '#E5E7EB',
+    dummy01: '#f0f0f0',
+    dummy02: '#f0f0f0',
   },
   size: {
     padding50: '1rem',
     borderRadius50: '0.6rem',
+    borderRadius40: '0.3rem',
   },
   media: {
     desktopL: media.desktopL,
@@ -100,9 +106,12 @@ export const darkTheme: DefaultTheme = {
     inputBorder: '#747474',
     border: '#747474',
     invert: '#282828',
+    dummy01: '#4b4b4b',
+    dummy02: '#717171',
   },
   size: {
     padding50: '1rem',
+    borderRadius40: '0.3rem',
     borderRadius50: '0.6rem',
   },
   media: {

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface ImgProps {
-  source: string;
+  source?: string;
 }
 
 export const ImgBook = styled.div<ImgProps>`
@@ -73,4 +73,37 @@ export const Description = styled.div`
   ${(props) => props.theme.media.tablet} {
     width: 100%;
   }
+`;
+
+export const DummyWrapper = styled(Container)`
+  border: 1px solid ${(props) => props.theme.colors.dummy01};
+  height: 156px;
+
+  ${(props) => props.theme.media.tablet} {
+    width: 700px;
+  }
+`;
+
+export const DummyImg = styled(ImgBook)`
+  background: ${(props) => props.theme.colors.dummy02};
+  border-radius: ${(props) => props.theme.size.borderRadius40};
+`;
+
+export const DummyTitle = styled(TitleBook)`
+  background: ${(props) => props.theme.colors.dummy02};
+  border-radius: ${(props) => props.theme.size.borderRadius40};
+  width: 70%;
+`;
+
+export const DummyAuthor = styled(AuthorBook)`
+  background: ${(props) => props.theme.colors.dummy02};
+  border-radius: ${(props) => props.theme.size.borderRadius40};
+  width: 100px;
+  height: 1rem;
+`;
+
+export const DummyDescription = styled(Description)`
+  background: ${(props) => props.theme.colors.dummy02};
+  border-radius: ${(props) => props.theme.size.borderRadius40};
+  height: 60px;
 `;

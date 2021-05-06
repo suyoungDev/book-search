@@ -7,6 +7,7 @@ import { fetchBooks } from '../../actions/book.actions';
 
 import { ListContainer } from './SearchList.styles';
 import SearchModule from './SearchModule';
+import LoadingContainer from './LoadingContainer';
 
 const SearchList: React.FC = () => {
   const { data, isLoading, hasMore, query, pageNumber, loadMore } = useSelector(
@@ -59,7 +60,7 @@ const SearchList: React.FC = () => {
           );
         }
       })}
-      {loadMore && <div>더더더 가져오는 중</div>}
+      {loadMore && <LoadingContainer />}
     </ListContainer>
   );
 };
