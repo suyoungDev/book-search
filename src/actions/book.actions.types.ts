@@ -29,6 +29,7 @@ export interface fetchFailDispatch {
 export interface fetchSuccessDispatch {
   type: typeof FETCH_SUCCESS;
   data: Book[];
+  hasMore: boolean;
 }
 
 export type fetchDispatchType =

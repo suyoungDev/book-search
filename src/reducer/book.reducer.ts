@@ -49,6 +49,7 @@ const BookReducer = (
         success: true,
         data: action.data,
         isError: false,
+        hasMore: action.hasMore,
       };
 
     default:

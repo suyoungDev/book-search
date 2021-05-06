@@ -12,7 +12,7 @@ const URL = '/v1/search/book.json';
 
 let cancel: any;
 
-export const fetchBooks = (query: string) => async (
+export const fetchBooks = (query: string, page = 1) => async (
   dispatch: Dispatch<fetchDispatchType>
 ) => {
   dispatch({ type: FETCH });
@@ -20,9 +20,9 @@ export const fetchBooks = (query: string) => async (
   cancel && cancel();
   try {
     const {
-      data: { items },
+      data: { items, total },
     } = await axios.get(URL, {
-      params: { query, display: 10, start: 1 },
+      params: { query, display: 10, start: page },
       headers: {
         'X-Naver-Client-Id': KEY.CLIENT_ID,
         'X-Naver-Client-Secret': KEY.CLIENT_SERVER,
@@ -33,6 +33,7 @@ export const fetchBooks = (query: string) => async (
     dispatch({
       type: FETCH_SUCCESS,
       data: items,
+      hasMore: page * 10 < total,
     });
   } catch (error) {
     if (axios.isCancel(error)) return;
