@@ -6,6 +6,7 @@ interface ImgProps {
 
 export const ImgBook = styled.div<ImgProps>`
   background-image: ${({ source }) => `url(${source})`};
+  background-color: ${(props) => props.theme.colors.body30};
   background-repeat: no-repeat;
   background-size: cover;
   width: 82px;
@@ -38,7 +39,7 @@ export const Container = styled.div`
   background-color: ${(props) => props.theme.colors.body40};
   padding: 1rem;
   border-radius: ${(props) => props.theme.size.borderRadius50};
-  width: 90%;
+  width: 100%;
 
   ${(props) => props.theme.media.tablet} {
     width: 100%;

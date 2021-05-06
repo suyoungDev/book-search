@@ -5,10 +5,12 @@ export const FETCH_FAIL = 'FETCH_FAIL';
 export const LOAD_MORE_DATA = 'LOAD_MORE_DATA';
 export const LOAD_MORE_SUCCESS = 'LOAD_MORE_SUCCESS';
 export const CANCLE_FETCH = 'CANCLE_FETCH';
+export const NEW_FETCH = 'NEW_FETCH';
 
 // 액션 생성 함수
 export const loadMoreData = () => ({ type: LOAD_MORE_DATA });
 export const cancleFetch = () => ({ type: CANCLE_FETCH });
+export const newFetch = () => ({ type: NEW_FETCH });
 
 // 타입
 export type Book = {
@@ -56,6 +58,9 @@ export interface loadSuccessDispatch {
 export interface cancleFetchDispatch {
   type: typeof CANCLE_FETCH;
 }
+export interface newFetchDispatch {
+  type: typeof NEW_FETCH;
+}
 
 export type fetchDispatchType =
   | fetchFailDispatch
@@ -63,4 +68,5 @@ export type fetchDispatchType =
   | fetchDispatch
   | loadDispatch
   | loadSuccessDispatch
-  | cancleFetchDispatch;
+  | cancleFetchDispatch
+  | newFetchDispatch;

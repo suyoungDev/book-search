@@ -4,7 +4,7 @@ import { BiX, BiSearch } from 'react-icons/bi';
 
 import { fetchBooks } from '../actions/book.actions';
 import { InputContainer, InputBox, Button } from './Input.styles';
-import { cancleFetch } from '../actions/book.actions.types';
+import { cancleFetch, newFetch } from '../actions/book.actions.types';
 
 interface Props {
   placeholder?: string;
@@ -15,7 +15,10 @@ const Input: React.FC<Props> = ({ placeholder }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (query.length) dispatch(fetchBooks(query));
+    if (query.length) {
+      dispatch(newFetch());
+      dispatch(fetchBooks(query, 1));
+    }
   }, [query, dispatch]);
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {

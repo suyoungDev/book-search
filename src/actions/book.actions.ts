@@ -17,6 +17,7 @@ export const fetchBooks = (query: string, page = 1) => async (
   dispatch: Dispatch<fetchDispatchType>
 ) => {
   dispatch({ type: FETCH });
+  console.log(page);
 
   cancel && cancel();
   try {

@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from 'react';
+import React, { useRef, useCallback, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { RootReducerType } from '../../reducer/store';
@@ -10,9 +10,17 @@ import SearchModule from './SearchModule';
 import LoadingContainer from './LoadingContainer';
 
 const SearchList: React.FC = () => {
+  const [searchQuery, setSearchQuery] = useState('');
   const { data, isLoading, hasMore, query, pageNumber, loadMore } = useSelector(
     (state: RootReducerType) => state.bookReducer
   );
+
+  useEffect(() => {
+    if (query !== searchQuery) {
+      setSearchQuery(query);
+      window.scrollTo(0, 0);
+    }
+  }, [query, searchQuery]);
 
   const dispatch = useDispatch();
   const observer = useRef<IntersectionObserver | null>(null);
@@ -28,7 +36,7 @@ const SearchList: React.FC = () => {
       });
       if (node) observer.current.observe(node);
     },
-    [isLoading, hasMore, pageNumber]
+    [isLoading, hasMore, pageNumber, dispatch, query]
   );
 
   return (

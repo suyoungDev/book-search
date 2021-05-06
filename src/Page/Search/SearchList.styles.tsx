@@ -1,12 +1,9 @@
 import styled from 'styled-components';
 
 export const ListContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
 
-  margin: 2rem 0 4rem 0;
-  > div {
-    margin-bottom: 1rem;
-  }
+  margin: 2rem 0;
 `;
