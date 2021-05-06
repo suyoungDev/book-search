@@ -5,6 +5,7 @@ import {
   LOAD_MORE,
   LOAD_MORE_FAIL,
   LOAD_MORE_SUCCESS,
+  CANCLE_FETCH,
   Book,
   fetchDispatchType,
 } from '../actions/book.actions.types';
@@ -60,6 +61,7 @@ const BookReducer = (
     case LOAD_MORE:
       return {
         ...state,
+        pageNumber: state.pageNumber + 1,
       };
 
     case LOAD_MORE_SUCCESS:
@@ -79,6 +81,12 @@ const BookReducer = (
         isLoading: false,
         success: false,
         isError: true,
+      };
+
+    case CANCLE_FETCH:
+      return {
+        ...state,
+        data: [],
       };
 
     default:

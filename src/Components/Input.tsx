@@ -4,6 +4,7 @@ import { BiX, BiSearch } from 'react-icons/bi';
 
 import { fetchBooks } from '../actions/book.actions';
 import { InputContainer, InputBox, Button } from './Input.styles';
+import { cancleFetch } from '../actions/book.actions.types';
 
 interface Props {
   placeholder?: string;
@@ -27,6 +28,7 @@ const Input: React.FC<Props> = ({ placeholder }) => {
   };
   const cancel = () => {
     setQuery('');
+    dispatch(cancleFetch());
   };
 
   return (
@@ -41,7 +43,7 @@ const Input: React.FC<Props> = ({ placeholder }) => {
           value={query}
           onChange={onChange}
         />
-        <Button onClick={cancel}>
+        <Button onClick={cancel} type='button'>
           <BiX />
         </Button>
       </InputContainer>
