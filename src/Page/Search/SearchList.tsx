@@ -2,8 +2,9 @@ import React, { useRef, useCallback, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { RootReducerType } from '../../reducer/store';
-import { loadMoreData } from '../../actions/book.actions.types';
+import { loadMoreData, Book } from '../../actions/book.actions.types';
 import { fetchBooks } from '../../actions/book.actions';
+import { getBookDetail } from '../../actions/detail.action';
 
 import { ListContainer } from './SearchList.styles';
 import SearchModule from './SearchModule';
@@ -39,12 +40,20 @@ const SearchList: React.FC = () => {
     [isLoading, hasMore, pageNumber, dispatch, query]
   );
 
+  const viewMoreDetail = (item: Book) => {
+    dispatch(getBookDetail(item));
+  };
+
   return (
     <ListContainer>
       {data?.map((item, index) => {
         if (data.length === index + 1) {
           return (
-            <div ref={lastElement} key={item.isbn}>
+            <div
+              ref={lastElement}
+              key={item.isbn}
+              onClick={() => viewMoreDetail(item)}
+            >
               <SearchModule
                 image={item.image}
                 title={item.title}
@@ -56,7 +65,7 @@ const SearchList: React.FC = () => {
           );
         } else {
           return (
-            <div key={item.isbn}>
+            <div key={item.isbn} onClick={() => viewMoreDetail(item)}>
               <SearchModule
                 image={item.image}
                 title={item.title}

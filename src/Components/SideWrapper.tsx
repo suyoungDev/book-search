@@ -48,8 +48,4 @@ export const UpperWrapper = styled.div`
   height: 8vh;
   background-color: ${(props) => props.theme.colors.body60};
   border-bottom: 1px solid ${(props) => props.theme.colors.border};
-
-  ${(props) => props.theme.media.desktop} {
-    justify-content: flex-start;
-  }
 `;

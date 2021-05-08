@@ -11,10 +11,6 @@ const Container = styled.div`
 const InputWrapper = styled.div`
   display: flex;
   margin-right: 2rem;
-
-  ${(props) => props.theme.media.desktop} {
-    display: none;
-  }
 `;
 
 const Title = () => {

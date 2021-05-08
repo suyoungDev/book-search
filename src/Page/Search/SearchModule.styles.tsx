@@ -14,6 +14,13 @@ export const ImgBook = styled.div<ImgProps>`
   margin-right: 1rem;
 `;
 
+export const ImgDetail = styled(ImgBook)<ImgProps>`
+  width: 164px;
+  height: 232px;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+`;
+
 export const TitleBook = styled.div`
   font-size: 1rem;
   color: ${(props) => props.theme.colors.ink50};
@@ -29,6 +36,10 @@ export const AuthorBook = styled.div`
   font-size: 0.8rem;
   color: ${(props) => props.theme.colors.ink40};
   font-weight: 200;
+`;
+
+export const AuthorDetail = styled(AuthorBook)`
+  margin: 0.5rem 0;
 `;
 
 export const Container = styled.div`
@@ -59,20 +70,25 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Description = styled.div`
+export const DescriptionDetail = styled.div`
   p {
     color: ${(props) => props.theme.colors.ink40};
     line-height: 1rem;
     font-weight: 200;
     font-size: 0.7rem;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
   }
 
   ${(props) => props.theme.media.tablet} {
     width: 100%;
+  }
+`;
+
+export const Description = styled(DescriptionDetail)`
+  p {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
   }
 `;
 
