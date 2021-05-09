@@ -10,11 +10,6 @@ export const InputContainer = styled.div`
 
   border: 1px solid ${(props) => props.theme.colors.inputBorder};
   border-radius: 24px;
-
-  .icons {
-    font-size: 1rem;
-    color: ${(props) => props.theme.colors.ink30};
-  }
 `;
 
 export const InputBox = styled.input`
@@ -39,6 +34,7 @@ export const Button = styled.button`
   justify-content: center;
 
   .icons {
+    color: ${(props) => props.theme.colors.ink40};
     display: flex;
     align-items: center;
     justify-content: center;
