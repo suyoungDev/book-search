@@ -6,9 +6,9 @@ import {
 } from 'react-icons/ti';
 import { RowStars } from '../../Components/Row';
 
-const StarBox: React.FC = () => {
+const StarBox = ({ ...props }) => {
   return (
-    <RowStars>
+    <RowStars {...props}>
       <TiStarFullOutline />
       <TiStarHalfOutline />
       <TiStarOutline />

@@ -7,6 +7,7 @@ import LandingPage from './Page/LandingPage/LandingPage';
 import Header from './Page/Header/Head';
 import RightSection from './Page/RightSection/RightSection';
 import Modal from './Components/Modal';
+import Comment from './Page/Comment/Comment';
 
 const Container = styled.div`
   display: flex;
@@ -25,7 +26,9 @@ function App() {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <IconContext.Provider value={{ className: 'icons' }}>
         <GlobalStyles />
-        <Modal />
+        <Modal>
+          <Comment />
+        </Modal>
         <Container>
           <Header toggle={themeToggler} />
           <LandingPage />

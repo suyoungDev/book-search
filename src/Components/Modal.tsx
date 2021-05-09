@@ -4,9 +4,10 @@ import { CgClose } from 'react-icons/cg';
 
 import { RootReducerType } from '../reducer/store';
 import { openModal } from '../actions/modal.action';
-import { Background, ModalWrapper } from './Modal.styles';
+import { Background, ModalWrapper, ButtonWrapper } from './Modal.styles';
+import { CirceButton } from '../Components/Button';
 
-const Modal: React.FC = () => {
+const Modal: React.FC = ({ children }) => {
   const dispatch = useDispatch();
   const { isOpen } = useSelector(
     (state: RootReducerType) => state.modalReducer
@@ -43,9 +44,12 @@ const Modal: React.FC = () => {
       {isOpen && (
         <Background ref={modalRef} onClick={closeModalOutside}>
           <ModalWrapper>
-            <button onClick={closeModal}>
-              <CgClose />
-            </button>
+            <ButtonWrapper>
+              <CirceButton onClick={closeModal}>
+                <CgClose />
+              </CirceButton>
+            </ButtonWrapper>
+            {children}
           </ModalWrapper>
         </Background>
       )}

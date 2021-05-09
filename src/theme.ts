@@ -26,6 +26,8 @@ declare module 'styled-components' {
       dummy01: string;
       dummy02: string;
       hoverBorder: string;
+      hoverButton: string;
+      modalBackground: string;
     };
     size: {
       padding50: string;
@@ -76,6 +78,8 @@ export const lightTheme: DefaultTheme = {
     dummy01: '#f0f0f0',
     dummy02: '#f0f0f0',
     hoverBorder: 'rgba(94, 183, 186, 0.5)',
+    hoverButton: 'rgba(94, 183, 186, 0.15)',
+    modalBackground: 'rgba(0,0,0,0.3)',
   },
   size: {
     padding50: '1rem',
@@ -115,6 +119,8 @@ export const darkTheme: DefaultTheme = {
     dummy01: '#4b4b4b',
     dummy02: '#717171',
     hoverBorder: 'rgba(94, 183, 186, 0.5)',
+    hoverButton: 'rgba(94, 183, 186, 0.15)',
+    modalBackground: 'rgba(255,255,255,0.15)',
   },
   size: {
     padding50: '1rem',
