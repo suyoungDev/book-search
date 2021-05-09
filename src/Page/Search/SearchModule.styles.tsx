@@ -27,9 +27,9 @@ export const TitleDetail = styled.div`
   font-weight: bold;
   display: -webkit-box;
   margin-bottom: 0.2rem;
-
+  text-align: left;
   overflow: visible;
-  word-break: keep-all;
+  word-break: normal;
 `;
 
 export const TitleBook = styled(TitleDetail)`
@@ -38,6 +38,7 @@ export const TitleBook = styled(TitleDetail)`
   overflow: hidden;
   -webkit-box-orient: vertical;
   margin-bottom: 0.2rem;
+  word-break: keep-all;
 `;
 
 export const AuthorBook = styled.div`
@@ -129,13 +130,10 @@ export const Description = styled(DescriptionDetail)`
   margin: 0;
 `;
 
-export const DummyWrapper = styled(Container)`
-  border: 1px solid ${(props) => props.theme.colors.dummy01};
-  height: 156px;
+export const DummyContainerButton = styled(ContainerButton)``;
 
-  ${(props) => props.theme.media.tablet} {
-    width: 700px;
-  }
+export const DummyContainer = styled(Container)`
+  border: 1px solid ${(props) => props.theme.colors.dummy01};
 `;
 
 export const DummyImg = styled(ImgBook)`
@@ -147,6 +145,7 @@ export const DummyTitle = styled(TitleBook)`
   background: ${(props) => props.theme.colors.dummy02};
   border-radius: ${(props) => props.theme.size.borderRadius40};
   width: 70%;
+  height: 1rem;
 `;
 
 export const DummyAuthor = styled(AuthorBook)`

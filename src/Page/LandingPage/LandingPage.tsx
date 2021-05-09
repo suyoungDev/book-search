@@ -7,6 +7,7 @@ import { LandingWrapper, SmallWrapper } from '../../Components/Wrapper';
 import Title from './Section/Title';
 import BookStore from './Section/BookStore';
 import SearchResultContainer from '../Search/SearchResultContainer';
+import LoadingContainer from '../Search/LoadingContainer';
 
 const Main = styled.main`
   width: 100%;

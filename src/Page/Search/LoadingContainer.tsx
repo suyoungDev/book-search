@@ -2,24 +2,25 @@ import React from 'react';
 import {
   DummyImg,
   Wrapper,
-  DummyWrapper,
+  DummyContainerButton,
   DummyTitle,
   DummyAuthor,
   DummyDescription,
+  DummyContainer,
 } from './SearchModule.styles';
 
-const LoadingContainer = () => {
+const LoadingContainer: React.FC = () => {
   return (
-    <div>
-      <DummyWrapper>
+    <DummyContainer>
+      <DummyContainerButton as='div'>
         <DummyImg />
         <Wrapper>
           <DummyTitle />
           <DummyAuthor />
           <DummyDescription />
         </Wrapper>
-      </DummyWrapper>
-    </div>
+      </DummyContainerButton>
+    </DummyContainer>
   );
 };
 
