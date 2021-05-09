@@ -44,7 +44,7 @@ export const RightWrapper = styled(Wrapper)`
 export const UpperWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 100%;
   height: 8vh;
   background-color: ${(props) => props.theme.colors.body60};

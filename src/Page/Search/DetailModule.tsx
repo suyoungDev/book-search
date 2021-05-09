@@ -19,7 +19,7 @@ import TitleWrapper from './section/TitleWrapper';
 const DetailModule: React.FC = () => {
   const { data } = useSelector((state: RootReducerType) => state.detailReducer);
 
-  if (!data) return <TitleWrapper title='책 소개' />;
+  if (!data) return null;
 
   return (
     <Container>
