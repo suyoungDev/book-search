@@ -1,5 +1,5 @@
 import React from 'react';
-import Bg from '../../../image/bookshop.svg';
+import { ReactComponent as Bg } from '../../../image/bookshop.svg';
 import {
   Container,
   ContextContainer,
@@ -21,7 +21,7 @@ const BookStore: React.FC = () => {
         </Content>
       </ContextContainer>
       <ImageContainer>
-        <img src={Bg} alt='책방' width='500' />
+        <Bg />
       </ImageContainer>
     </Container>
   );
