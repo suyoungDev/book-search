@@ -21,15 +21,22 @@ export const ImgDetail = styled(ImgBook)<ImgProps>`
   margin-bottom: 1.5rem;
 `;
 
-export const TitleBook = styled.div`
+export const TitleDetail = styled.div`
   font-size: 1rem;
   color: ${(props) => props.theme.colors.ink50};
   font-weight: bold;
   display: -webkit-box;
+  margin-bottom: 0.2rem;
+
+  overflow: visible;
+  word-break: keep-all;
+`;
+
+export const TitleBook = styled(TitleDetail)`
+  display: -webkit-box;
   -webkit-line-clamp: 1;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  height: 1.2rem;
   margin-bottom: 0.2rem;
 `;
 
@@ -45,30 +52,48 @@ export const AuthorDetail = styled(AuthorBook)`
   margin: 0.5rem 0;
 `;
 
-export const Container = styled.div`
+export const ContainerButton = styled.button`
   display: grid;
   grid-template-columns: 82px 1fr;
   grid-gap: 1rem;
+  background: transparent;
+
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+
+  margin: 0;
+  border: none;
+  outline: none;
+  border: 3px solid transparent;
+  border-radius: ${(props) => props.theme.size.borderRadius50};
+
+  :hover {
+    border: 3px solid ${(props) => props.theme.colors.hoverBorder};
+  }
+  :focus {
+    border: 3px solid ${(props) => props.theme.colors.hoverBorder};
+  }
+`;
+
+export const Container = styled.div`
+  display: flex;
 
   background-color: ${(props) => props.theme.colors.body40};
-  padding: 1rem;
   border-radius: ${(props) => props.theme.size.borderRadius50};
-  margin: 0 1rem;
-  border: 3px solid transparent;
 
   ${(props) => props.theme.media.tablet} {
     max-width: 700px;
   }
 
-  cursor: pointer;
-  :hover {
-    border: 3px solid ${(props) => props.theme.colors.hoverBorder};
-  }
+  margin: 0 1rem;
+  border-radius: ${(props) => props.theme.size.borderRadius50};
 `;
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   justify-content: space-around;
   width: 100%;
 
@@ -94,6 +119,7 @@ export const DescriptionDetail = styled.div`
 
 export const Description = styled(DescriptionDetail)`
   p {
+    text-align: left;
     font-size: 0.66rem;
     display: -webkit-box;
     -webkit-line-clamp: 2;

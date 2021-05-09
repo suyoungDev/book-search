@@ -4,6 +4,7 @@ import PubDate from './PubDate';
 import { Row } from '../../Components/Row';
 import {
   Container,
+  ContainerButton,
   ImgBook,
   Wrapper,
   TitleBook,
@@ -21,22 +22,24 @@ const SearchModule: React.FC<Book> = ({
 }) => {
   return (
     <Container>
-      <ImgBook source={image} />
-      <Wrapper>
-        <TitleBook>
-          <p dangerouslySetInnerHTML={{ __html: title }} />
-        </TitleBook>
-        <AuthorBook>
-          <p dangerouslySetInnerHTML={{ __html: author }} />
-        </AuthorBook>
-        <Description>
-          <p dangerouslySetInnerHTML={{ __html: description }} />
-        </Description>
-        <Row className='js-sb'>
-          <StarBox />
-          <PubDate pubdate={pubdate} />
-        </Row>
-      </Wrapper>
+      <ContainerButton>
+        <ImgBook source={image} />
+        <Wrapper>
+          <TitleBook>
+            <p dangerouslySetInnerHTML={{ __html: title }} />
+          </TitleBook>
+          <AuthorBook>
+            <p dangerouslySetInnerHTML={{ __html: author }} />
+          </AuthorBook>
+          <Description>
+            <p dangerouslySetInnerHTML={{ __html: description }} />
+          </Description>
+          <Row className='js-sb al-ct'>
+            <StarBox />
+            <PubDate pubdate={pubdate} />
+          </Row>
+        </Wrapper>
+      </ContainerButton>
     </Container>
   );
 };
