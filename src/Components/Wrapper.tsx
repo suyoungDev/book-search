@@ -11,6 +11,16 @@ export const LandingWrapper = styled(Wrapper)`
   height: 92vh;
   overflow-y: auto;
   justify-content: flex-start;
+
+  &::-webkit-scrollbar {
+    background-color: ${(props) => props.theme.colors.body40};
+
+    width: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: ${(props) => props.theme.colors.primary50};
+    border-radius: 5px;
+  }
 `;
 
 export const SmallWrapper = styled(Wrapper)`
