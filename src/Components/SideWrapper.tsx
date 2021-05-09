@@ -36,6 +36,7 @@ export const LeftWrapper = styled.div`
 `;
 
 export const RightWrapper = styled(Wrapper)`
+  align-items: center;
   border-left: 1px solid ${(props) => props.theme.colors.border};
   min-width: 350px;
 `;

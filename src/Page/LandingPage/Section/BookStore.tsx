@@ -8,7 +8,7 @@ import {
   ImageContainer,
 } from './BookStore.styles';
 
-const BookStore = () => {
+const BookStore: React.FC = () => {
   return (
     <Container>
       <ContextContainer>
