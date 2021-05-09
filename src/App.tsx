@@ -6,6 +6,7 @@ import { IconContext } from 'react-icons';
 import LandingPage from './Page/LandingPage/LandingPage';
 import Header from './Page/Header/Head';
 import RightSection from './Page/RightSection/RightSection';
+import Modal from './Components/Modal';
 
 const Container = styled.div`
   display: flex;
@@ -24,6 +25,7 @@ function App() {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <IconContext.Provider value={{ className: 'icons' }}>
         <GlobalStyles />
+        <Modal />
         <Container>
           <Header toggle={themeToggler} />
           <LandingPage />
