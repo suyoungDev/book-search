@@ -18,7 +18,7 @@ export const ImgDetail = styled(ImgBook)<ImgProps>`
   width: 164px;
   height: 232px;
   border-radius: 10px;
-  margin-bottom: 1.5rem;
+  margin: 0 0 1.5rem 0;
 `;
 
 export const TitleDetail = styled.div`
@@ -126,6 +126,7 @@ export const Description = styled(DescriptionDetail)`
     -webkit-line-clamp: 2;
     overflow: hidden;
     -webkit-box-orient: vertical;
+    height: 40px;
   }
   margin: 0;
 `;

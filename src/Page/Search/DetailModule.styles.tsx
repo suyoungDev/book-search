@@ -81,9 +81,17 @@ export const SectionContainer = styled.div`
 
 export const Section = styled.section`
   position: absolute;
-  bottom: 1rem;
+  bottom: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+
+  background: linear-gradient(
+    90deg,
+    ${(props) => props.theme.colors.body60} 0%,
+    ${(props) => props.theme.colors.body60} 100%
+  );
+
+  padding: 1rem 0;
 `;
