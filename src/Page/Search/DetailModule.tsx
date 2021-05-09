@@ -6,21 +6,20 @@ import {
   Container,
   SaveComment,
   Link,
-  TitleWrapper,
   StarContainer,
   Section,
 } from './DetailModule.styles';
 import StarBox from './StarBox';
-import { Row } from '../../Components/Row';
-import DetailSection from './DetailSection';
+import DetailSection from './section/DetailSection';
 import BookTitle from './section/BookTitle';
 import BookAuthor from './section/BookAuthor';
 import BookDescription from './section/BookDescription';
+import TitleWrapper from './section/TitleWrapper';
 
 const DetailModule: React.FC = () => {
   const { data } = useSelector((state: RootReducerType) => state.detailReducer);
 
-  if (!data) return <TitleWrapper title='책소개' />;
+  if (!data) return <TitleWrapper title='책 소개' />;
 
   return (
     <Container>

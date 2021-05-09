@@ -1,5 +1,5 @@
 import React from 'react';
-import { TitleBook } from '../SearchModule.styles';
+import { TitleDetail } from '../SearchModule.styles';
 
 interface Prop {
   title: string;
@@ -7,9 +7,9 @@ interface Prop {
 
 const BookTitle: React.FC<Prop> = ({ title }) => {
   return (
-    <TitleBook>
+    <TitleDetail>
       <p dangerouslySetInnerHTML={{ __html: title }} />
-    </TitleBook>
+    </TitleDetail>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Bar, SectionWrapper, SectionContainer } from './DetailModule.styles';
-import PubDate from './PubDate';
+import { Bar, SectionWrapper, SectionContainer } from '../DetailModule.styles';
+import PubDate from '../PubDate';
 
 interface Prop {
   price: string | undefined;
@@ -17,7 +17,9 @@ const DetailSection: React.FC<Prop> = ({ price, pubdate, publisher }) => {
       </SectionWrapper>
       <Bar />
       <SectionWrapper>
-        <p>{publisher}</p>
+        {typeof publisher === 'string' && (
+          <p dangerouslySetInnerHTML={{ __html: publisher }} />
+        )}
         <span>출판사</span>
       </SectionWrapper>
       <Bar />

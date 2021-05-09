@@ -20,17 +20,6 @@ export const Title = styled.div`
   color: ${(props) => props.theme.colors.primary50};
 `;
 
-interface TitleProp {
-  title: string;
-}
-export const TitleWrapper: React.FC<TitleProp> = ({ title }) => {
-  return (
-    <Title>
-      <h2>{title}</h2>
-    </Title>
-  );
-};
-
 export const Link = styled.div`
   a {
     color: ${(props) => props.theme.colors.primary50};
@@ -40,6 +29,8 @@ export const Link = styled.div`
       color: ${(props) => props.theme.colors.primary60};
     }
   }
+
+  margin-right: 1.5rem;
 `;
 
 export const SaveComment = styled.div`
@@ -66,6 +57,8 @@ export const SectionWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 0.5rem 0;
+  word-break: keep-all;
+  text-align: center;
 
   p {
     font-weight: bold;
