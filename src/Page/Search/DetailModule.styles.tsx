@@ -20,6 +20,17 @@ export const Title = styled.div`
   color: ${(props) => props.theme.colors.primary50};
 `;
 
+interface TitleProp {
+  title: string;
+}
+export const TitleWrapper: React.FC<TitleProp> = ({ title }) => {
+  return (
+    <Title>
+      <h2>{title}</h2>
+    </Title>
+  );
+};
+
 export const Link = styled.div`
   a {
     color: ${(props) => props.theme.colors.primary50};
@@ -47,22 +58,39 @@ export const SaveComment = styled.div`
 export const Bar = styled.div`
   height: 100%;
   width: 1px;
-  border-right: 1px solid ${(props) => props.theme.colors.ink30};
+  border-right: 1px solid ${(props) => props.theme.colors.ink20};
 `;
 
-export const Price = styled.div`
+export const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0.5rem 0;
+
   p {
-    :first-of-type {
-      font-weight: bold;
-      font-size: 1.1rem;
-      color: ${(props) => props.theme.colors.primary50};
-    }
-    :not(:first-of-type) {
-      font-size: 0.8rem;
-    }
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+    color: ${(props) => props.theme.colors.ink40};
   }
+  span {
+    font-size: 0.7rem;
+    color: ${(props) => props.theme.colors.ink30};
+  }
+`;
+
+export const SectionContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+`;
+
+export const Section = styled.section`
+  position: absolute;
+  bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 `;

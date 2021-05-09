@@ -30,15 +30,18 @@ export const TitleBook = styled.div`
   overflow: hidden;
   -webkit-box-orient: vertical;
   height: 1.2rem;
+  margin-bottom: 0.2rem;
 `;
 
 export const AuthorBook = styled.div`
   font-size: 0.8rem;
   color: ${(props) => props.theme.colors.ink40};
   font-weight: 200;
+  margin-bottom: 0.4rem;
 `;
 
 export const AuthorDetail = styled(AuthorBook)`
+  color: ${(props) => props.theme.colors.ink50};
   margin: 0.5rem 0;
 `;
 
@@ -50,19 +53,23 @@ export const Container = styled.div`
   background-color: ${(props) => props.theme.colors.body40};
   padding: 1rem;
   border-radius: ${(props) => props.theme.size.borderRadius50};
-  width: 100%;
+  margin: 0 1rem;
+  border: 3px solid transparent;
 
   ${(props) => props.theme.media.tablet} {
-    width: 100%;
     max-width: 700px;
+  }
+
+  cursor: pointer;
+  :hover {
+    border: 3px solid ${(props) => props.theme.colors.hoverBorder};
   }
 `;
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 116px;
+  justify-content: space-around;
   width: 100%;
 
   ${(props) => props.theme.media.tablet} {
@@ -81,15 +88,19 @@ export const DescriptionDetail = styled.div`
   ${(props) => props.theme.media.tablet} {
     width: 100%;
   }
+
+  margin: 2rem 0;
 `;
 
 export const Description = styled(DescriptionDetail)`
   p {
+    font-size: 0.66rem;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     overflow: hidden;
     -webkit-box-orient: vertical;
   }
+  margin: 0;
 `;
 
 export const DummyWrapper = styled(Container)`

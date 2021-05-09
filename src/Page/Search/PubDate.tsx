@@ -43,7 +43,9 @@ const PubDate: React.FC<Props> = ({ pubdate }) => {
 
   return (
     <Container>
-      {date.year}년 {date.month}월 {date.day}일
+      <p>
+        {date.year}년 {date.month}월 {date.day}일
+      </p>
     </Container>
   );
 };
