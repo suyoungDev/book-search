@@ -12,7 +12,7 @@ const Title = () => {
   return (
     <UpperWrapper>
       <InputWrapper>
-        <Input />
+        <Input placeholder='책 검색' />
       </InputWrapper>
     </UpperWrapper>
   );

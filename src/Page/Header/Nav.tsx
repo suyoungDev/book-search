@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { withRouter } from 'react-router';
 import styled from 'styled-components';
 import LinkButton from '../../Components/LinkButton';
 
@@ -35,13 +36,28 @@ const NAV_LIST = [
   },
 ];
 
-const Nav: React.FC = () => {
+interface Props {
+  history: any;
+}
+
+const Nav: React.FC<Props> = ({ history }) => {
+  const [currentPath, setCurrentPath] = useState('');
+
+  useEffect(() => {
+    const pathName = history.location.pathname;
+    setCurrentPath(pathName);
+  }, [history]);
+
   return (
     <NavWrapper>
       <ul>
         {NAV_LIST.map((item) => (
-          <li>
-            <LinkButton url={item.url} title={item.title} />
+          <li key={item.url}>
+            <LinkButton
+              url={item.url}
+              title={item.title}
+              currentPath={currentPath}
+            />
           </li>
         ))}
       </ul>
@@ -49,4 +65,4 @@ const Nav: React.FC = () => {
   );
 };
 
-export default Nav;
+export default withRouter(Nav);

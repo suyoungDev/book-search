@@ -5,9 +5,12 @@ import { IconContext } from 'react-icons';
 
 import LandingPage from './Page/LandingPage/LandingPage';
 import Header from './Page/Header/Head';
-import RightSection from './Page/RightSection/RightSection';
 import Modal from './Components/Modal';
 import Comment from './Page/Comment/Comment';
+import { Switch, Route, Redirect } from 'react-router';
+import NotFound from './Page/NotFound/NotFound';
+import RecordPage from './Page/RecordPage/RecordPage';
+import LandingResultContainer from './Page/LandingPage/Section/LandingResultContainer';
 
 const Container = styled.div`
   display: flex;
@@ -31,8 +34,17 @@ function App() {
         </Modal>
         <Container>
           <Header toggle={themeToggler} />
-          <LandingPage />
-          <RightSection />
+          <Switch>
+            <Route exact path='/' component={LandingPage} />
+            <Route
+              exact
+              path='/search/:id'
+              component={LandingResultContainer}
+            />
+            <Route exact path='/record' component={RecordPage} />
+            <Route exact path='/404' component={NotFound} />
+            <Redirect to='/404' />
+          </Switch>
         </Container>
       </IconContext.Provider>
     </ThemeProvider>

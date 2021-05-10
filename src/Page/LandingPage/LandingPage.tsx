@@ -1,28 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Redirect, Route, Switch } from 'react-router';
 
 import Title from './Section/Title';
 import LandingContainer from './Section/LandingContainer';
-import LandingResultContainer from './Section/LandingResultContainer';
-import RecordPage from '../RecordPage/RecordPage';
-import NotFound from '../NotFound/NotFound';
+import RightSection from './../RightSection/RightSection';
 
 const Main = styled.main`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+`;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 100%;
 `;
 
 const LandingPage = () => {
   return (
     <Main>
-      <Title />
-      <Switch>
-        <Route exact path='/' component={LandingContainer} />
-        <Route exact path='/search/:id' component={LandingResultContainer} />
-        <Route exact path='/record' component={RecordPage} />
-        <Route exact path='/404' component={NotFound} />
-        <Redirect to='/404' />
-      </Switch>
+      <Container>
+        <Title />
+        <LandingContainer />
+      </Container>
+      <RightSection />
     </Main>
   );
 };

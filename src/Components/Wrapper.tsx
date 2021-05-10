@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 export const LandingWrapper = styled(Wrapper)`
   height: 92vh;
   overflow-y: auto;
-  justify-content: flex-start;
+  width: 100%;
 
   &::-webkit-scrollbar {
     background-color: ${(props) => props.theme.colors.body40};
