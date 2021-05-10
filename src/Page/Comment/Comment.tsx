@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import StarBox from '../Search/StarBox';
 import { OkButton } from '../../Components/Button';
-import { Row } from '../../Components/Row';
 
 const CommentBox = styled.textarea`
   width: 100%;

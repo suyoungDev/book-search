@@ -28,6 +28,7 @@ export const Link = styled.div`
     :hover {
       color: ${(props) => props.theme.colors.primary60};
     }
+    transition: color ease 0.5s;
   }
 
   margin-right: 1.5rem;
@@ -42,6 +43,7 @@ export const SaveComment = styled.div`
   cursor: pointer;
 
   :hover {
+    transition: all ease 0.5s;
     background-color: ${(props) => props.theme.colors.primary60};
   }
 `;

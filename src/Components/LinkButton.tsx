@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { BiHomeAlt, BiHeart } from 'react-icons/bi';
 
 interface Props {
   url: string;
@@ -10,15 +11,17 @@ interface Props {
 const StyledLink = styled(Link)`
   text-decoration: none;
   padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
 
-  span {
+  .icons {
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     color: ${(props) => props.theme.colors.primary50};
   }
 
   :hover {
-    span {
+    .icons {
       color: ${(props) => props.theme.colors.primary60};
     }
   }
@@ -26,8 +29,9 @@ const StyledLink = styled(Link)`
 
 const LinkButton: React.FC<Props> = ({ url, title }) => {
   return (
-    <StyledLink to={url}>
-      <span>{title}</span>
+    <StyledLink to={url} title={title}>
+      {url === '/' && <BiHomeAlt />}
+      {url === '/record' && <BiHeart />}
     </StyledLink>
   );
 };

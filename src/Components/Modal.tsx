@@ -26,11 +26,14 @@ const Modal: React.FC = ({ children }) => {
 
   const modalRef = useRef<HTMLDivElement>(null);
 
-  const keyPress = useCallback((e) => {
-    if (e.key === 'Escape') {
-      closeModal();
-    }
-  }, []);
+  const keyPress = useCallback(
+    (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    },
+    [closeModal]
+  );
 
   useEffect(() => {
     document.addEventListener('keydown', keyPress);
