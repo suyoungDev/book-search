@@ -27,8 +27,7 @@ export const CirceButton = styled(Button)`
 `;
 
 export const OkButton = styled(Button)`
-  width: 100px;
-  padding: 0.5em 2em;
+  padding: 0.5em 1.2em;
   border-radius: 2rem;
   background-color: ${(props) => props.theme.colors.primary50};
   color: white;

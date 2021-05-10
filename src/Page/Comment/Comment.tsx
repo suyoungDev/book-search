@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import StarBox from '../Search/StarBox';
 import { OkButton } from '../../Components/Button';
+import { Row } from '../../Components/Row';
 
 const CommentBox = styled.textarea`
   width: 100%;
@@ -11,6 +12,13 @@ const CommentBox = styled.textarea`
   border: 2px solid ${(props) => props.theme.colors.hoverBorder};
   border-radius: 0.5rem;
   padding: 0.8rem;
+  background-color: ${(props) => props.theme.colors.body50};
+  color: ${(props) => props.theme.colors.ink50};
+  font-size: 1.2rem;
+
+  ::placeholder {
+    font-size: 1.2rem;
+  }
 `;
 
 const Container = styled.div`
@@ -30,10 +38,10 @@ const ButtonWrapper = styled.div`
 const Comment = () => {
   return (
     <Container>
-      <CommentBox autoFocus required />
+      <CommentBox autoFocus required placeholder='감상평을 남겨주세요.' />
       <StarBox className='al-ct js-ct' />
       <ButtonWrapper>
-        <OkButton>확인</OkButton>
+        <OkButton>기록</OkButton>
       </ButtonWrapper>
     </Container>
   );
