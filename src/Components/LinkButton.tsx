@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 import styled from 'styled-components';
 import { BiHomeAlt, BiHeart } from 'react-icons/bi';
 
 interface Props {
   url: string;
   title: string;
-  currentPath: string;
 }
 
 const StyledLink = styled(Link)`
@@ -22,7 +21,7 @@ const StyledLink = styled(Link)`
     color: ${(props) => props.theme.colors.ink50};
   }
 
-  &.currentPath {
+  &.active {
     .icons {
       color: ${(props) => props.theme.colors.primary50};
     }
@@ -33,13 +32,14 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const LinkButton: React.FC<Props> = ({ url, title, currentPath }) => {
+const LinkButton: React.FC<Props> = ({ url, title }) => {
+  let match = useRouteMatch({
+    path: url,
+    exact: true,
+  });
+
   return (
-    <StyledLink
-      to={url}
-      title={title}
-      className={`${currentPath === url && `currentPath`}`}
-    >
+    <StyledLink to={url} title={title} className={`${match && `active`}`}>
       {url === '/' && <BiHomeAlt />}
       {url === '/record' && <BiHeart />}
     </StyledLink>
