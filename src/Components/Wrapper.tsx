@@ -28,3 +28,7 @@ export const SmallWrapper = styled(Wrapper)`
   height: 100%;
   color: ${(props) => props.theme.colors.ink40};
 `;
+
+export const PageWrapper = styled(Wrapper)`
+  width: 100%;
+`;

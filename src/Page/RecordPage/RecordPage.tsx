@@ -1,7 +1,9 @@
 import React from 'react';
+import styled from 'styled-components';
+import { PageWrapper } from '../../Components/Wrapper';
 
 const RecordPage = () => {
-  return <div>기록페이지 & 리스트 만들거임</div>;
+  return <PageWrapper>기록페이지 & 리스트 만들거임</PageWrapper>;
 };
 
 export default RecordPage;
