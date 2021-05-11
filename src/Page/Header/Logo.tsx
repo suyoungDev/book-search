@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { IoBookOutline } from 'react-icons/io5';
 
 const Wrapper = styled.div`
   display: none;
-  width: 100%;
 
   ${(props) => props.theme.media.desktopL} {
     display: flex;
@@ -16,7 +16,9 @@ const Wrapper = styled.div`
 const Logo: React.FC = () => {
   return (
     <Wrapper>
-      <h1>READ</h1>
+      <h1>
+        <IoBookOutline />
+      </h1>
     </Wrapper>
   );
 };
