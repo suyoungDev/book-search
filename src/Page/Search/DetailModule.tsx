@@ -14,7 +14,6 @@ import DetailSection from './section/DetailSection';
 import BookTitle from './section/BookTitle';
 import BookAuthor from './section/BookAuthor';
 import BookDescription from './section/BookDescription';
-import TitleWrapper from './section/TitleWrapper';
 import { StyledLink } from '../../Components/StyledLink';
 
 const DetailModule: React.FC = () => {
