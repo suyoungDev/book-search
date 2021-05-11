@@ -1,6 +1,6 @@
 import React from 'react';
 import { Bar, SectionWrapper, SectionContainer } from '../DetailModule.styles';
-import PubDate from '../PubDate';
+import PubDate from './PubDate';
 
 interface Prop {
   price: string | undefined;

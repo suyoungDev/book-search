@@ -1,19 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
 
-import Title from './Section/Title';
+import LandingTitle from './Section/LandingTitle';
 import LandingContainer from './Section/LandingContainer';
-
-const Main = styled.main`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-`;
+import { Main } from '../../Components/Main';
 
 const LandingPage = () => {
   return (
     <Main>
-      <Title />
+      <LandingTitle />
       <LandingContainer />
     </Main>
   );

@@ -4,14 +4,8 @@ import { RootReducerType } from '../../../reducer/store';
 import { LandingWrapper } from '../../../Components/Wrapper';
 import { useLocation } from 'react-router';
 import DetailModule from '../../Search/DetailModule';
-import Title from './Title';
-import styled from 'styled-components';
-
-const Main = styled.main`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-`;
+import LandingTitle from './LandingTitle';
+import { Main } from '../../../Components/Main';
 
 const LandingResultContainer = () => {
   const { data } = useSelector((state: RootReducerType) => state.detailReducer);
@@ -21,7 +15,7 @@ const LandingResultContainer = () => {
 
   return (
     <Main>
-      <Title />
+      <LandingTitle />
       <LandingWrapper>
         <DetailModule />
       </LandingWrapper>

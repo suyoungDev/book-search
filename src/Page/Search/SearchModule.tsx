@@ -1,6 +1,6 @@
 import React from 'react';
 import StarBox from './StarBox';
-import PubDate from './PubDate';
+import PubDate from './section/PubDate';
 import { Row } from '../../Components/Row';
 import {
   Container,
