@@ -19,6 +19,8 @@ export const fetchBooks = (query: string, page = 1) => async (
   dispatch({ type: FETCH });
 
   cancel && cancel();
+  if (!query) return;
+
   try {
     const {
       data: { items, total },

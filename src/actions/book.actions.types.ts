@@ -39,7 +39,7 @@ export interface fetchFailDispatch {
 // 성공
 export interface fetchSuccessDispatch {
   type: typeof FETCH_SUCCESS;
-  data: Book[];
+  data: Book[] | null;
   hasMore: boolean;
   query: string;
 }
