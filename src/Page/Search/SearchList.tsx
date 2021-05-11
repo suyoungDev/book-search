@@ -9,6 +9,7 @@ import { getBookDetail } from '../../actions/detail.action';
 import { ListContainer } from './SearchList.styles';
 import SearchModule from './SearchModule';
 import LoadingContainer from './LoadingContainer';
+import { StyledLink } from '../../Components/StyledLink';
 
 const SearchList: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -25,6 +26,7 @@ const SearchList: React.FC = () => {
 
   const dispatch = useDispatch();
   const observer = useRef<IntersectionObserver | null>(null);
+
   const lastElement = useCallback(
     (node) => {
       if (isLoading) return;
@@ -49,31 +51,35 @@ const SearchList: React.FC = () => {
       {data?.map((item, index) => {
         if (data.length === index + 1) {
           return (
-            <div
+            <li
               ref={lastElement}
               key={item.isbn}
               onClick={() => viewMoreDetail(item)}
             >
-              <SearchModule
-                image={item.image}
-                title={item.title}
-                pubdate={item.pubdate}
-                author={item.author}
-                description={item.description}
-              />
-            </div>
+              <StyledLink to={`/book/${item.isbn}`}>
+                <SearchModule
+                  image={item.image}
+                  title={item.title}
+                  pubdate={item.pubdate}
+                  author={item.author}
+                  description={item.description}
+                />
+              </StyledLink>
+            </li>
           );
         } else {
           return (
-            <div key={item.isbn} onClick={() => viewMoreDetail(item)}>
-              <SearchModule
-                image={item.image}
-                title={item.title}
-                pubdate={item.pubdate}
-                author={item.author}
-                description={item.description}
-              />
-            </div>
+            <li key={item.isbn} onClick={() => viewMoreDetail(item)}>
+              <StyledLink to={`/book/${item.isbn}`}>
+                <SearchModule
+                  image={item.image}
+                  title={item.title}
+                  pubdate={item.pubdate}
+                  author={item.author}
+                  description={item.description}
+                />
+              </StyledLink>
+            </li>
           );
         }
       })}

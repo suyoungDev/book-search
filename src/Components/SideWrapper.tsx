@@ -47,6 +47,22 @@ export const UpperWrapper = styled.div`
   justify-content: flex-end;
   width: 100%;
   height: 8vh;
+  min-height: 60px;
   background-color: ${(props) => props.theme.colors.body60};
   border-bottom: 1px solid ${(props) => props.theme.colors.border};
+
+  &.goback {
+    justify-content: flex-start;
+    .icons {
+      font-size: 1.2rem;
+    }
+  }
+`;
+
+export const ButtonWrapper = styled.div`
+  margin-left: 1.2rem;
+`;
+
+export const InputWrapper = styled.div`
+  margin-right: 2rem;
 `;

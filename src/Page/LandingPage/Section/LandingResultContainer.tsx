@@ -1,21 +1,31 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootReducerType } from '../../../reducer/store';
 
 import { LandingWrapper } from '../../../Components/Wrapper';
-import { useRouteMatch } from 'react-router';
+import { useLocation } from 'react-router';
+import DetailModule from '../../Search/DetailModule';
+import Title from './Title';
+import styled from 'styled-components';
+
+const Main = styled.main`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
 
 const LandingResultContainer = () => {
   const { data } = useSelector((state: RootReducerType) => state.detailReducer);
-  const customMatch = useRouteMatch('/search/:id');
-  console.log(customMatch?.params);
+  const location = useLocation();
 
   if (!data) return null;
 
   return (
-    <LandingWrapper>
-      <div>검색결과</div>
-    </LandingWrapper>
+    <Main>
+      <Title />
+      <LandingWrapper>
+        <DetailModule />
+      </LandingWrapper>
+    </Main>
   );
 };
 

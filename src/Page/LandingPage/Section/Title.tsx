@@ -1,19 +1,40 @@
 import React from 'react';
-import styled from 'styled-components';
-import { UpperWrapper } from '../../../Components/SideWrapper';
+import {
+  ButtonWrapper,
+  UpperWrapper,
+  InputWrapper,
+} from '../../../Components/SideWrapper';
 import Input from '../../../Components/Input';
-
-const InputWrapper = styled.div`
-  display: flex;
-  margin-right: 2rem;
-`;
+import { useHistory, useLocation } from 'react-router';
+import { BsChevronLeft } from 'react-icons/bs';
+import { CirceButton } from '../../../Components/Button';
+import { Row } from '../../../Components/Row';
 
 const Title = () => {
+  let history = useHistory();
+  let { pathname } = useLocation();
+
+  const goBack = () => {
+    history.goBack();
+  };
+
   return (
-    <UpperWrapper>
-      <InputWrapper>
-        <Input placeholder='책 검색' />
-      </InputWrapper>
+    <UpperWrapper className={`${pathname !== '/' && 'goback'}`}>
+      {pathname !== '/' && (
+        <Row className=' al-ct'>
+          <ButtonWrapper>
+            <CirceButton onClick={goBack}>
+              <BsChevronLeft />
+            </CirceButton>
+          </ButtonWrapper>
+          <InputWrapper>책 소개</InputWrapper>
+        </Row>
+      )}
+      {pathname === '/' && (
+        <InputWrapper>
+          <Input placeholder='책 검색' />
+        </InputWrapper>
+      )}
     </UpperWrapper>
   );
 };

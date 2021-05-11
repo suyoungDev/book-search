@@ -4,8 +4,10 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  max-width: 700px;
 `;
 
 export const StarContainer = styled.div`
@@ -16,7 +18,7 @@ export const StarContainer = styled.div`
 `;
 
 export const Title = styled.div`
-  margin: 2rem 0;
+  margin: 0 0 2rem 0;
   color: ${(props) => props.theme.colors.primary50};
 `;
 
@@ -78,22 +80,18 @@ export const SectionContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
+  max-width: 500px;
   justify-content: space-around;
 `;
 
 export const Section = styled.section`
-  position: absolute;
-  bottom: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-
-  background: linear-gradient(
-    90deg,
-    ${(props) => props.theme.colors.body60} 0%,
-    ${(props) => props.theme.colors.body60} 100%
-  );
-
   padding: 1rem 0;
+
+  ${(props) => props.theme.media.tablet} {
+    width: 100%;
+  }
 `;
