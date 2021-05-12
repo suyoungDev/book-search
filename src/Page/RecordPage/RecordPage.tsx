@@ -16,7 +16,7 @@ const RecordPage = () => {
   }, [dispatch]);
 
   if (isLoading) return <div>가져오는 중</div>;
-  if (!success) return <div>가져오기 실패</div>;
+  if (!success) return <div>감상평을 남겨주세요</div>;
 
   return (
     <PageWrapper>
