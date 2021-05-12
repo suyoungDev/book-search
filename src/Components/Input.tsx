@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 import { BiX, BiSearch } from 'react-icons/bi';
 
 import { fetchBooks } from '../actions/book.actions';
-import { InputContainer, InputBox, Button } from './Input.styles';
 import { cancleFetch, newFetch } from '../actions/book.actions.types';
+import { InputContainer, InputBox, Button } from './Input.styles';
 
 interface Props {
   placeholder?: string;

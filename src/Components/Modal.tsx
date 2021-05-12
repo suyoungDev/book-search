@@ -1,17 +1,24 @@
 import React, { useRef, useCallback, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { CgClose } from 'react-icons/cg';
 
 import { Background, ModalWrapper, ButtonWrapper } from './Modal.styles';
 import { CirceButton } from '../Components/Button';
-import { useHistory } from 'react-router';
 
-const Modal: React.FC = ({ children }) => {
+import { RootReducerType } from '../reducer/store';
+import { openModal } from '../actions/modal.action';
+
+const Modal: React.FC<{}> = ({ children }) => {
+  const { isOpen } = useSelector(
+    (state: RootReducerType) => state.modalReducer
+  );
+  const dispatch = useDispatch();
+
   const modalRef = useRef<HTMLDivElement>(null);
-  const history = useHistory();
 
   const closeModal = useCallback(() => {
-    history.goBack();
-  }, []);
+    dispatch(openModal(false));
+  }, [dispatch]);
 
   const closeModalOutside = useCallback(
     (e) => {
@@ -35,6 +42,8 @@ const Modal: React.FC = ({ children }) => {
       document.addEventListener('keydown', keyPress);
     };
   }, [keyPress]);
+
+  if (!isOpen) return null;
 
   return (
     <Background ref={modalRef} onClick={closeModalOutside}>

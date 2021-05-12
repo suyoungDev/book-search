@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootReducerType } from '../../reducer/store';
 import { ImgDetail } from './SearchModule.styles';
 import {
@@ -14,12 +14,17 @@ import DetailSection from './section/DetailSection';
 import BookTitle from './section/BookTitle';
 import BookAuthor from './section/BookAuthor';
 import BookDescription from './section/BookDescription';
-import { StyledLink } from '../../Components/StyledLink';
+import { openModal } from '../../actions/modal.action';
 
 const DetailModule: React.FC = () => {
   const { data } = useSelector((state: RootReducerType) => state.detailReducer);
+  const dispatch = useDispatch();
 
   if (!data) return null;
+
+  const handleModal = () => {
+    dispatch(openModal(true));
+  };
 
   return (
     <Container>
@@ -41,9 +46,7 @@ const DetailModule: React.FC = () => {
             사러가기
           </a>
         </Link>
-        <StyledLink to={`/record/${data.isbn}`}>
-          <SaveComment>감상평 남기기</SaveComment>
-        </StyledLink>
+        <SaveComment onClick={handleModal}>감상평 남기기</SaveComment>
       </Section>
     </Container>
   );
