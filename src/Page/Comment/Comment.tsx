@@ -1,45 +1,39 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import StarBox from '../Search/StarBox';
 import { OkButton } from '../../Components/Button';
-
-const CommentBox = styled.textarea`
-  width: 100%;
-  height: 200px;
-  resize: none;
-  outline: none;
-  border: 2px solid ${(props) => props.theme.colors.hoverBorder};
-  border-radius: 0.5rem;
-  padding: 0.8rem;
-  background-color: ${(props) => props.theme.colors.body50};
-  color: ${(props) => props.theme.colors.ink50};
-  font-size: 1.2rem;
-
-  ::placeholder {
-    font-size: 1.2rem;
-  }
-`;
-
-const Container = styled.div`
-  width: 100%;
-  height: 100%;
-  padding: 1rem;
-
-  display: grid;
-  grid-template-rows: 200px 1fr 1fr;
-`;
-
-const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: flex-end;
-`;
+import { Container, CommentBox, ButtonWrapper } from './Comment.styles';
+import { RootReducerType } from '../../reducer/store';
+import { saveComment } from '../../actions/record.action';
+import { openModal } from '../../actions/modal.action';
 
 const Comment = () => {
+  const [comment, setComment] = useState('');
+
+  const update = (event: any) => {
+    setComment(event.target.value);
+  };
+
+  const dispatch = useDispatch();
+  const { data } = useSelector((state: RootReducerType) => state.detailReducer);
+
+  const submit = () => {
+    dispatch(saveComment(comment, data?.isbn));
+    dispatch(openModal(false));
+  };
+
   return (
     <Container>
-      <CommentBox autoFocus required placeholder='감상평을 남겨주세요.' />
+      <CommentBox
+        autoFocus
+        required
+        placeholder='감상평을 남겨주세요.'
+        value={comment}
+        onChange={update}
+      />
       <StarBox className='al-ct js-ct' />
-      <ButtonWrapper>
+      <ButtonWrapper onClick={submit}>
         <OkButton>기록</OkButton>
       </ButtonWrapper>
     </Container>
