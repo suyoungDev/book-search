@@ -4,7 +4,7 @@ import { lightTheme, darkTheme, GlobalStyles } from './theme';
 import { IconContext } from 'react-icons';
 
 import LandingPage from './Page/LandingPage/LandingPage';
-import Header from './Page/Header/Head';
+import Header from './Page/Header/Header';
 
 import { Route, Switch, Redirect } from 'react-router-dom';
 import NotFound from './Page/NotFound/NotFound';

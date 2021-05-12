@@ -4,8 +4,6 @@ import Toggle from './Toggle';
 import { BsHeartFill } from 'react-icons/bs';
 
 const Container = styled.section`
-  position: absolute;
-  bottom: 0;
   display: flex;
   width: 100%;
   flex-direction: row;
