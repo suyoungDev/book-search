@@ -19,7 +19,9 @@ const Comment = () => {
   const { data } = useSelector((state: RootReducerType) => state.detailReducer);
 
   const submit = () => {
-    dispatch(saveComment(comment, data?.isbn));
+    if (data?.isbn && data?.title && data?.image) {
+      dispatch(saveComment(comment, data?.isbn, data?.image, data?.title));
+    }
     dispatch(openModal(false));
   };
 

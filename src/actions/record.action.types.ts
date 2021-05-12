@@ -9,8 +9,9 @@ export const loadFailComments = () => ({ type: LOAD_COMMENTS_FAIL });
 
 export type Comment = {
   isbn: string;
-  title: string;
   comment: string;
+  title: string;
+  image: string;
   rate?: number;
 };
 
