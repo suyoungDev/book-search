@@ -10,11 +10,6 @@ const Container = styled.div`
   font-size: 0.7rem;
   font-weight: 200;
   color: ${(props) => props.theme.colors.ink30};
-  display: none;
-
-  ${(props) => props.theme.media.tablet} {
-    display: flex;
-  }
 `;
 
 interface Props {

@@ -11,6 +11,7 @@ export const LandingWrapper = styled(Wrapper)`
   height: 92vh;
   overflow-y: auto;
   width: 100%;
+  height: 100%;
 
   &::-webkit-scrollbar {
     background-color: ${(props) => props.theme.colors.body40};

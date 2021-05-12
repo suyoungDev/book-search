@@ -11,25 +11,33 @@ export const ImgBook = styled.div<ImgProps>`
   background-size: cover;
   width: 82px;
   height: 116px;
-  margin-right: 1rem;
 `;
 
 export const ImgDetail = styled(ImgBook)<ImgProps>`
   width: 164px;
   height: 232px;
   border-radius: 10px;
-  margin: 0 0 1.5rem 0;
+  margin: 2rem 0;
+
+  ${(props) => props.theme.media.tablet} {
+    margin-bottom: 3rem;
+  }
+  ${(props) => props.theme.media.desktop} {
+  }
 `;
 
 export const TitleDetail = styled.div`
   font-size: 1rem;
   color: ${(props) => props.theme.colors.ink50};
   font-weight: bold;
-  display: -webkit-box;
   margin-bottom: 0.2rem;
-  text-align: left;
-  overflow: visible;
+  text-align: center;
   word-break: normal;
+  width: 100%;
+
+  ${(props) => props.theme.media.phone} {
+    font-size: 1.2rem;
+  }
 `;
 
 export const TitleBook = styled(TitleDetail)`
@@ -39,6 +47,7 @@ export const TitleBook = styled(TitleDetail)`
   -webkit-box-orient: vertical;
   margin-bottom: 0.2rem;
   word-break: keep-all;
+  text-align: left;
 `;
 
 export const AuthorBook = styled.div`
@@ -51,6 +60,10 @@ export const AuthorBook = styled.div`
 export const AuthorDetail = styled(AuthorBook)`
   color: ${(props) => props.theme.colors.ink50};
   margin: 0.5rem 0;
+
+  ${(props) => props.theme.media.tablet} {
+    font-size: 1rem;
+  }
 `;
 
 export const ContainerButton = styled.button`
@@ -104,6 +117,8 @@ export const Wrapper = styled.div`
 `;
 
 export const DescriptionDetail = styled.div`
+  margin-top: 1rem;
+
   p {
     color: ${(props) => props.theme.colors.ink40};
     line-height: 1rem;
@@ -112,21 +127,21 @@ export const DescriptionDetail = styled.div`
   }
 
   ${(props) => props.theme.media.tablet} {
-    width: 100%;
+    margin-top: 3rem;
   }
-
-  margin: 2rem 0;
 `;
 
 export const Description = styled(DescriptionDetail)`
   p {
     text-align: left;
     font-size: 0.66rem;
+
+    width: 100%;
     display: -webkit-box;
+    -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
-    -webkit-box-orient: vertical;
-    height: 40px;
+    text-overflow: ellipsis;
   }
   margin: 0;
 `;

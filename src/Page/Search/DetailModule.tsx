@@ -7,7 +7,8 @@ import {
   SaveComment,
   Link,
   StarContainer,
-  Section,
+  DataContainer,
+  ButtonContainer,
 } from './DetailModule.styles';
 import StarBox from './StarBox';
 import DetailSection from './section/DetailSection';
@@ -28,26 +29,29 @@ const DetailModule: React.FC = () => {
 
   return (
     <Container>
-      <ImgDetail source={data.image} />
-      <BookTitle title={data.title} />
-      <BookAuthor author={data.author} />
-      <StarContainer>
-        <StarBox />
-      </StarContainer>
-      <DetailSection
-        price={data.price}
-        publisher={data.publisher}
-        pubdate={data.pubdate}
-      />
-      <BookDescription description={data.description} />
-      <Section>
+      <DataContainer>
+        <ImgDetail source={data.image} />
+        <BookTitle title={data.title} />
+        <BookAuthor author={data.author} />
+        <StarContainer>
+          <StarBox />
+        </StarContainer>
+        <DetailSection
+          price={data.price}
+          publisher={data.publisher}
+          pubdate={data.pubdate}
+        />
+        <BookDescription description={data.description} />
+      </DataContainer>
+
+      <ButtonContainer>
         <Link>
           <a href={data.link} type='text/html' target='_blank' rel='noreferrer'>
             사러가기
           </a>
         </Link>
         <SaveComment onClick={handleModal}>감상평 남기기</SaveComment>
-      </Section>
+      </ButtonContainer>
     </Container>
   );
 };
