@@ -1,4 +1,3 @@
-import { LOAD_MORE_SUCCESS } from '../actions/book.actions.types';
 import {
   Comment,
   commentDispatchType,
