@@ -25,19 +25,18 @@ const SearchModule: React.FC<Book> = ({
       <ContainerButton>
         <ImgBook source={image} />
         <Wrapper>
-          <TitleBook>
-            <p dangerouslySetInnerHTML={{ __html: title }} />
-          </TitleBook>
+          <Row className='js-sb al-ct'>
+            <TitleBook>
+              <p dangerouslySetInnerHTML={{ __html: title }} />
+            </TitleBook>
+            <PubDate pubdate={pubdate} />
+          </Row>
           <AuthorBook>
             <p dangerouslySetInnerHTML={{ __html: author }} />
           </AuthorBook>
           <Description>
             <p dangerouslySetInnerHTML={{ __html: description }} />
           </Description>
-          <Row className='js-sb al-ct'>
-            <StarBox />
-            <PubDate pubdate={pubdate} />
-          </Row>
         </Wrapper>
       </ContainerButton>
     </Container>
