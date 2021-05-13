@@ -15,12 +15,11 @@ const RecordPage = () => {
     dispatch(loadComments());
   }, [dispatch]);
 
-  if (isLoading) return <div>가져오는 중</div>;
-  if (!success) return <div>감상평을 남겨주세요</div>;
-
   return (
     <PageWrapper>
-      <RecordList />
+      {isLoading && <div>가져오는 중</div>}
+      {!success && <div>감상평을 먼저 남겨주세요.</div>}
+      {success && <RecordList />}
     </PageWrapper>
   );
 };
