@@ -1,5 +1,5 @@
 import React from 'react';
-import PubDate from '../../DetailPage/section/PubDate';
+import PubDate from '../../DetailPage/module/PubDate';
 import { Row } from '../../../Components/Row';
 import {
   Container,
@@ -10,6 +10,7 @@ import {
   Description,
 } from './SearchModule.styles';
 import { Book } from '../../../actions/book.actions.types';
+import P from '../../../Components/P';
 
 const SearchModule: React.FC<Book> = ({
   title,
@@ -24,15 +25,15 @@ const SearchModule: React.FC<Book> = ({
       <Wrapper>
         <Row className='js-sb al-ct'>
           <TitleBook>
-            <p dangerouslySetInnerHTML={{ __html: title }} />
+            <P text={title} />
           </TitleBook>
           <PubDate pubdate={pubdate} />
         </Row>
         <AuthorBook>
-          <p dangerouslySetInnerHTML={{ __html: author }} />
+          <P text={author} />
         </AuthorBook>
         <Description>
-          <p dangerouslySetInnerHTML={{ __html: description }} />
+          <P text={description} />
         </Description>
       </Wrapper>
     </Container>

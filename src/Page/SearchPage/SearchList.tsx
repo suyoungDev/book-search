@@ -8,7 +8,7 @@ import { getBookDetail } from '../../actions/detail.action';
 
 import { ListContainer } from './SearchList.styles';
 import SearchModule from './module/SearchModule';
-import LoadingContainer from './LoadingContainer';
+import LoadingContainer from './module/LoadingContainer';
 import { StyledLink } from '../../Components/StyledLink';
 
 const SearchList: React.FC = () => {

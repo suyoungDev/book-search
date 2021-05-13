@@ -7,7 +7,7 @@ import {
   DummyAuthor,
   DummyDescription,
   DummyContainer,
-} from './module/SearchModule.styles';
+} from './SearchModule.styles';
 
 const LoadingContainer: React.FC = () => {
   return (

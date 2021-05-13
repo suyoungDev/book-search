@@ -1,7 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootReducerType } from '../../../reducer/store';
-import { ImgDetail } from '../../SearchPage/module/SearchModule.styles';
+import {
+  AuthorDetail,
+  DescriptionDetail,
+  ImgDetail,
+  TitleDetail,
+} from '../../SearchPage/module/SearchModule.styles';
 import {
   Container,
   SaveComment,
@@ -9,11 +14,9 @@ import {
   DataContainer,
   ButtonContainer,
 } from './DetailModule.styles';
-import DetailSection from '../section/DetailSection';
-import BookTitle from '../section/BookTitle';
-import BookAuthor from '../section/BookAuthor';
-import BookDescription from '../section/BookDescription';
+import DetailSection from './DetailSection';
 import { openModal } from '../../../actions/modal.action';
+import P from '../../../Components/P';
 
 const DetailModule: React.FC = () => {
   const { data } = useSelector((state: RootReducerType) => state.detailReducer);
@@ -29,14 +32,20 @@ const DetailModule: React.FC = () => {
     <Container>
       <DataContainer>
         <ImgDetail source={data.image} />
-        <BookTitle title={data.title} />
-        <BookAuthor author={data.author} />
+        <TitleDetail>
+          <P text={data.title} />
+        </TitleDetail>
+        <AuthorDetail>
+          <P text={data.author} />
+        </AuthorDetail>
         <DetailSection
           price={data.price}
           publisher={data.publisher}
           pubdate={data.pubdate}
         />
-        <BookDescription description={data.description} />
+        <DescriptionDetail>
+          <P text={data.description} />
+        </DescriptionDetail>
       </DataContainer>
 
       <ButtonContainer>
