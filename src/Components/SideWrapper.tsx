@@ -58,11 +58,11 @@ export const InputWrapper = styled.div`
 `;
 
 export const RightWrapper = styled.div`
-  width: 100%;
-  height: 100vh;
   display: none;
-  background-color: ${(props) => props.theme.colors.body60};
+  height: 100vh;
+  width: 100%;
   border-left: 1px solid ${(props) => props.theme.colors.border};
+
   ${(props) => props.theme.media.desktop} {
     display: flex;
   }

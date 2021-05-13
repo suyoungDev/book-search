@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import LinkButton from '../../Components/LinkButton';
+import LinkButton from '../../Components/NavLink';
 
 const NavWrapper = styled.nav`
   display: flex;

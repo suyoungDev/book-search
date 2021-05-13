@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Logo from './Logo';
 import Nav from './Nav';
 import Info from './Info';
 import { Props } from './Toggle';

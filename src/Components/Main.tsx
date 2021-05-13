@@ -13,4 +13,7 @@ export const MainWrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  ${(props) => props.theme.media.desktopM} {
+    min-width: 1000px;
+  }
 `;

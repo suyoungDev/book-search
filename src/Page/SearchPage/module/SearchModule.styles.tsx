@@ -85,7 +85,6 @@ export const Container = styled.div`
   grid-gap: 1rem;
 
   width: 100%;
-  height: 100%;
   padding: 1rem;
   background-color: ${(props) => props.theme.colors.body50};
   border-bottom: 1px solid ${(props) => props.theme.colors.border};
@@ -93,9 +92,6 @@ export const Container = styled.div`
   ${(props) => props.theme.media.tablet} {
     padding: 1rem 3rem;
     max-width: 1000px;
-  }
-  ${(props) => props.theme.media.desktop} {
-    min-width: 800px;
   }
 
   :hover {

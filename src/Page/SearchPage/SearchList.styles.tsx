@@ -8,8 +8,4 @@ export const ListContainer = styled.ul`
   li {
     list-style: none;
   }
-
-  ${(props) => props.theme.media.desktop} {
-    grid-template-columns: 1000px;
-  }
 `;

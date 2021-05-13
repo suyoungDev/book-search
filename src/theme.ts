@@ -35,6 +35,8 @@ declare module 'styled-components' {
       borderRadius40: string;
     };
     media: {
+      desktopXL: string;
+      desktopM: string;
       desktopL: string;
       desktop: string;
       tablet: string;
@@ -48,7 +50,9 @@ const customMediaQuery = (minWidth: number): string => {
 };
 
 const media = {
+  desktopXL: customMediaQuery(1700),
   desktopL: customMediaQuery(1440),
+  desktopM: customMediaQuery(1240),
   desktop: customMediaQuery(1024),
   tablet: customMediaQuery(768),
   phone: customMediaQuery(576),
@@ -87,7 +91,9 @@ export const lightTheme: DefaultTheme = {
     borderRadius40: '0.3rem',
   },
   media: {
+    desktopXL: media.desktopXL,
     desktopL: media.desktopL,
+    desktopM: media.desktopM,
     desktop: media.desktop,
     tablet: media.tablet,
     phone: media.phone,
@@ -128,7 +134,9 @@ export const darkTheme: DefaultTheme = {
     borderRadius50: '0.6rem',
   },
   media: {
+    desktopXL: media.desktopXL,
     desktopL: media.desktopL,
+    desktopM: media.desktopM,
     desktop: media.desktop,
     tablet: media.tablet,
     phone: media.phone,
