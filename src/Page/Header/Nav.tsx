@@ -5,26 +5,27 @@ import LinkButton from '../../Components/LinkButton';
 const NavWrapper = styled.nav`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 4.5rem;
+  align-items: flex-end;
+  margin-top: 2rem;
 
   ul {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
     list-style: none;
 
     li {
-      :not(:first-of-type) {
-        margin-top: 1rem;
-      }
+      padding: 0 1rem;
+    }
+
+    li:not(:first-of-type) {
+      margin-top: 0.5rem;
     }
   }
 `;
 
 const NAV_LIST = [
+  { url: '/', title: 'logo' },
   {
     url: '/',
     title: '첫 화면',

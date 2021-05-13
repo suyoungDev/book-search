@@ -7,7 +7,7 @@ import { fetchBooks } from '../../actions/book.actions';
 import { getBookDetail } from '../../actions/detail.action';
 
 import { ListContainer } from './SearchList.styles';
-import SearchModule from './SearchModule';
+import SearchModule from './module/SearchModule';
 import LoadingContainer from './LoadingContainer';
 import { StyledLink } from '../../Components/StyledLink';
 

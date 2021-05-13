@@ -1,15 +1,13 @@
 import React from 'react';
 
-import LandingTitle from './Section/LandingTitle';
 import LandingContainer from './Section/LandingContainer';
-import { Main } from '../../Components/Main';
+import MainPage from '../../Components/MainPage';
 
 const LandingPage = () => {
   return (
-    <Main>
-      <LandingTitle />
+    <MainPage>
       <LandingContainer />
-    </Main>
+    </MainPage>
   );
 };
 

@@ -1,5 +1,9 @@
 import React from 'react';
-import { Bar, SectionWrapper, SectionContainer } from '../DetailModule.styles';
+import {
+  Bar,
+  SectionWrapper,
+  SectionContainer,
+} from '../module/DetailModule.styles';
 import PubDate from './PubDate';
 
 interface Prop {

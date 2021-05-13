@@ -1,5 +1,5 @@
 import React from 'react';
-import { AuthorDetail } from '../SearchModule.styles';
+import { AuthorDetail } from '../../SearchPage/module/SearchModule.styles';
 
 interface Prop {
   author: string;

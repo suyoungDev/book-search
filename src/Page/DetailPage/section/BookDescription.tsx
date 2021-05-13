@@ -1,5 +1,5 @@
 import React from 'react';
-import { DescriptionDetail } from '../SearchModule.styles';
+import { DescriptionDetail } from '../../SearchPage/module/SearchModule.styles';
 
 interface Prop {
   description: string;

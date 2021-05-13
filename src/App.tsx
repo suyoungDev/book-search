@@ -9,8 +9,8 @@ import Header from './Page/Header/Header';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import NotFound from './Page/NotFound/NotFound';
 import RecordPage from './Page/RecordPage/RecordPage';
-import LandingResultContainer from './Page/LandingPage/Section/LandingResultContainer';
-import CommentContainer from './Page/Comment/CommentContainer';
+import DetailPage from './Page/DetailPage/DetailPage';
+import CommentContainer from './Page/RecordPage/section/Comment/CommentContainer';
 
 const Container = styled.div`
   display: flex;
@@ -33,7 +33,7 @@ function App() {
           <Header toggle={themeToggler} />
           <Switch>
             <Route exact path='/' component={LandingPage} />
-            <Route exact path='/book/:id' component={LandingResultContainer} />
+            <Route exact path='/book/:id' component={DetailPage} />
             <Route exact path='/record' component={RecordPage} />
             <Route path='/404' component={NotFound} />
             <Redirect to='/404' />

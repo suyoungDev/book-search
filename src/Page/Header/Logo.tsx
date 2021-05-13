@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { IoBookOutline } from 'react-icons/io5';
+import { BiBookReader } from 'react-icons/bi';
 
 const Wrapper = styled.div`
   display: none;
@@ -9,16 +9,13 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 2rem;
   }
 `;
 
 const Logo: React.FC = () => {
   return (
     <Wrapper>
-      <h1>
-        <IoBookOutline />
-      </h1>
+      <BiBookReader />
     </Wrapper>
   );
 };

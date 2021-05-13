@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { RootReducerType } from '../../../reducer/store';
 
 import { LandingWrapper, SmallWrapper } from '../../../Components/Wrapper';
-import SearchResultContainer from '../../Search/SearchResultContainer';
+import SearchPage from '../../SearchPage/SearchPage';
 import BookStore from './BookStore';
 
 const LandingContainer: React.FC = () => {
@@ -13,11 +13,9 @@ const LandingContainer: React.FC = () => {
 
   return (
     <LandingWrapper>
+      {success && <SearchPage />}
       {!success && !isLoading && <BookStore />}
-      {!success && isLoading && (
-        <SmallWrapper>데이터를 가져오는 중..</SmallWrapper>
-      )}
-      {success && <SearchResultContainer />}
+      {isLoading && <SmallWrapper>데이터를 가져오는 중..</SmallWrapper>}
       {!success && isError && <SmallWrapper>에러가 발생했습니다.</SmallWrapper>}
     </LandingWrapper>
   );

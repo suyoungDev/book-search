@@ -8,14 +8,15 @@ export const Wrapper = styled.div`
 `;
 
 export const LandingWrapper = styled(Wrapper)`
-  height: 92vh;
+  height: 90vh;
   overflow-y: auto;
   width: 100%;
   height: 100%;
+  display: flex;
+  align-items: flex-start;
 
   &::-webkit-scrollbar {
     background-color: ${(props) => props.theme.colors.body40};
-
     width: 10px;
   }
   &::-webkit-scrollbar-thumb {
@@ -32,4 +33,6 @@ export const SmallWrapper = styled(Wrapper)`
 
 export const PageWrapper = styled(Wrapper)`
   width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
 `;

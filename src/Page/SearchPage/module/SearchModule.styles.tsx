@@ -30,12 +30,14 @@ export const TitleDetail = styled.div`
   font-size: 1rem;
   color: ${(props) => props.theme.colors.ink50};
   font-weight: bold;
-  margin-bottom: 0.2rem;
-  text-align: center;
   word-break: normal;
   width: 100%;
+  text-align: left;
+  margin-bottom: 0.1rem;
 
   ${(props) => props.theme.media.phone} {
+    margin-bottom: 0.2rem;
+    text-align: center;
     font-size: 1.2rem;
   }
 `;
@@ -55,53 +57,53 @@ export const AuthorBook = styled.div`
   color: ${(props) => props.theme.colors.ink40};
   font-weight: 200;
   margin-bottom: 0.4rem;
+  width: 100%;
+  text-align: left;
 `;
 
 export const AuthorDetail = styled(AuthorBook)`
   color: ${(props) => props.theme.colors.ink50};
-  margin: 0.5rem 0;
+  margin: 0.3rem 0;
 
-  ${(props) => props.theme.media.tablet} {
-    font-size: 1rem;
+  ${(props) => props.theme.media.phone} {
+    text-align: center;
   }
 `;
 
 export const ContainerButton = styled.button`
-  display: grid;
-  grid-template-columns: 82px 1fr;
-  grid-gap: 1rem;
   background: transparent;
-
-  width: 100%;
-  height: 100%;
-  padding: 1rem;
 
   margin: 0;
   border: none;
   outline: none;
-  border: 3px solid transparent;
   border-radius: ${(props) => props.theme.size.borderRadius50};
-
-  :hover {
-    border: 3px solid ${(props) => props.theme.colors.hoverBorder};
-  }
-  :focus {
-    border: 3px solid ${(props) => props.theme.colors.hoverBorder};
-  }
 `;
 
 export const Container = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 82px 1fr;
+  grid-gap: 1rem;
 
-  background-color: ${(props) => props.theme.colors.body40};
-  border-radius: ${(props) => props.theme.size.borderRadius50};
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  background-color: ${(props) => props.theme.colors.body50};
+  border-bottom: 1px solid ${(props) => props.theme.colors.border};
 
   ${(props) => props.theme.media.tablet} {
-    max-width: 700px;
+    padding: 1rem 3rem;
+    max-width: 1000px;
+  }
+  ${(props) => props.theme.media.desktop} {
+    min-width: 800px;
   }
 
-  margin: 0 1rem;
-  border-radius: ${(props) => props.theme.size.borderRadius50};
+  :hover {
+    background-color: ${(props) => props.theme.colors.body40};
+  }
+  :focus {
+    background-color: ${(props) => props.theme.colors.body40};
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -127,7 +129,7 @@ export const DescriptionDetail = styled.div`
   }
 
   ${(props) => props.theme.media.tablet} {
-    margin-top: 3rem;
+    margin-top: 2rem;
   }
 `;
 

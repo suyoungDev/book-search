@@ -3,11 +3,13 @@ import styled from 'styled-components';
 export const ListContainer = styled.ul`
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 1rem;
+  grid-template-rows: 157px;
   height: 100%;
-  padding: 2rem 0;
-
   li {
     list-style: none;
+  }
+
+  ${(props) => props.theme.media.desktop} {
+    grid-template-columns: 1000px;
   }
 `;

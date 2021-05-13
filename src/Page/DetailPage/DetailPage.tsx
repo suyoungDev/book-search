@@ -1,10 +1,9 @@
 import { useSelector } from 'react-redux';
-import { RootReducerType } from '../../../reducer/store';
+import { RootReducerType } from '../../reducer/store';
 
-import { LandingWrapper } from '../../../Components/Wrapper';
-import DetailModule from '../../Search/DetailModule';
-import LandingTitle from './LandingTitle';
-import { Main } from '../../../Components/Main';
+import { LandingWrapper } from '../../Components/Wrapper';
+import DetailModule from './module/DetailModule';
+import MainPage from '../../Components/MainPage';
 
 const LandingResultContainer = () => {
   const { data } = useSelector((state: RootReducerType) => state.detailReducer);
@@ -12,12 +11,11 @@ const LandingResultContainer = () => {
   if (!data) return null;
 
   return (
-    <Main>
-      <LandingTitle />
+    <MainPage>
       <LandingWrapper>
         <DetailModule />
       </LandingWrapper>
-    </Main>
+    </MainPage>
   );
 };
 

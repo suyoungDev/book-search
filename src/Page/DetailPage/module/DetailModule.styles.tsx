@@ -8,18 +8,10 @@ export const Container = styled.div`
   width: 100%;
   max-width: 300px;
   height: 100%;
-  padding: 0 1rem;
 
   ${(props) => props.theme.media.tablet} {
     max-width: 500px;
   }
-`;
-
-export const StarContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0rem 0 1.2rem 0;
 `;
 
 export const Title = styled.div`
@@ -80,12 +72,12 @@ export const SectionWrapper = styled.div`
 
   p {
     font-weight: bold;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     margin-bottom: 0.3rem;
     color: ${(props) => props.theme.colors.ink40};
   }
   span {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     color: ${(props) => props.theme.colors.ink30};
   }
 `;
@@ -97,6 +89,9 @@ export const SectionContainer = styled.div`
   justify-content: space-around;
   max-width: 300px;
   margin: 1rem 0;
+  background: ${(props) => props.theme.colors.body60};
+  padding: 1rem 0.5rem;
+  border-radius: 0.5rem;
 
   ${(props) => props.theme.media.tablet} {
     max-width: 100%;
@@ -115,7 +110,8 @@ export const ButtonContainer = styled.div`
   align-items: center;
   justify-content: space-around;
   width: 100%;
-  margin: 3rem 0 3rem 0;
+  margin: 3rem 0 0 0;
+  padding: 0 0 3rem 0;
 
   ${(props) => props.theme.media.phone} {
     flex-direction: row;

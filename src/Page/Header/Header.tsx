@@ -9,10 +9,7 @@ import { LeftWrapper } from '../../Components/SideWrapper';
 const Header: React.FC<Props> = ({ toggle }) => {
   return (
     <LeftWrapper>
-      <div>
-        <Logo />
-        <Nav />
-      </div>
+      <Nav />
       <Info toggle={toggle} />
     </LeftWrapper>
   );

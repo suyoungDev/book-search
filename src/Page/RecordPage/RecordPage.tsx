@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { PageWrapper } from '../../Components/Wrapper';
 import { RootReducerType } from '../../reducer/store';
 import { loadComments } from '../../actions/record.action';
-import RecordModule from './section/RecordModule';
+import RecordList from './section/RecordList';
 
 const RecordPage = () => {
-  const { isLoading, success, comments } = useSelector(
+  const { isLoading, success } = useSelector(
     (state: RootReducerType) => state.recordReducer
   );
   const dispatch = useDispatch();
@@ -20,14 +20,7 @@ const RecordPage = () => {
 
   return (
     <PageWrapper>
-      {comments?.map((item) => (
-        <RecordModule
-          key={item.isbn}
-          title={item.title}
-          image={item.image}
-          comment={item.comment}
-        />
-      ))}
+      <RecordList />
     </PageWrapper>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { TitleDetail } from '../SearchModule.styles';
+import { TitleDetail } from '../../SearchPage/module/SearchModule.styles';
 
 interface Prop {
   title: string;

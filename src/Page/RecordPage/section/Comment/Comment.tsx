@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import StarBox from '../Search/StarBox';
-import { OkButton } from '../../Components/Button';
+import StarBox from '../../../../Components/StarBox';
+import { OkButton } from '../../../../Components/Button';
 import { Container, CommentBox, ButtonWrapper } from './Comment.styles';
-import { RootReducerType } from '../../reducer/store';
-import { saveComment } from '../../actions/record.action';
-import { openModal } from '../../actions/modal.action';
+import { RootReducerType } from '../../../../reducer/store';
+import { saveComment } from '../../../../actions/record.action';
+import { openModal } from '../../../../actions/modal.action';
 
 const Comment = () => {
   const [comment, setComment] = useState('');

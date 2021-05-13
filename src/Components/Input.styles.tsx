@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const InputContainer = styled.div`
   padding: 1em;
   background-color: ${(props) => props.theme.colors.inputBg};
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   height: 48px;
   display: flex;
   align-items: center;

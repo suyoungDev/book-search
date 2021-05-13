@@ -1,21 +1,19 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootReducerType } from '../../reducer/store';
-import { ImgDetail } from './SearchModule.styles';
+import { RootReducerType } from '../../../reducer/store';
+import { ImgDetail } from '../../SearchPage/module/SearchModule.styles';
 import {
   Container,
   SaveComment,
   Link,
-  StarContainer,
   DataContainer,
   ButtonContainer,
 } from './DetailModule.styles';
-import StarBox from './StarBox';
-import DetailSection from './section/DetailSection';
-import BookTitle from './section/BookTitle';
-import BookAuthor from './section/BookAuthor';
-import BookDescription from './section/BookDescription';
-import { openModal } from '../../actions/modal.action';
+import DetailSection from '../section/DetailSection';
+import BookTitle from '../section/BookTitle';
+import BookAuthor from '../section/BookAuthor';
+import BookDescription from '../section/BookDescription';
+import { openModal } from '../../../actions/modal.action';
 
 const DetailModule: React.FC = () => {
   const { data } = useSelector((state: RootReducerType) => state.detailReducer);
@@ -33,9 +31,6 @@ const DetailModule: React.FC = () => {
         <ImgDetail source={data.image} />
         <BookTitle title={data.title} />
         <BookAuthor author={data.author} />
-        <StarContainer>
-          <StarBox />
-        </StarContainer>
         <DetailSection
           price={data.price}
           publisher={data.publisher}
