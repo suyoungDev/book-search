@@ -5,6 +5,8 @@ export const Button = styled.button`
   outline: none;
   background-color: transparent;
   cursor: pointer;
+
+  transition: all ease 0.5s;
 `;
 
 export const CirceButton = styled(Button)`
@@ -37,5 +39,23 @@ export const OkButton = styled(Button)`
 
   :hover {
     background-color: ${(props) => props.theme.colors.primary60};
+  }
+`;
+
+export const CircleReverseButton = styled(CirceButton)`
+  display: none;
+  height: 1.3rem;
+  width: 1.3rem;
+  padding: 0.2rem;
+  margin: 0 1rem 0 0;
+  background-color: ${(props) => props.theme.colors.primary50};
+  .icons {
+    color: white;
+  }
+  :hover {
+    background-color: ${(props) => props.theme.colors.hover};
+  }
+  &.active {
+    display: flex;
   }
 `;

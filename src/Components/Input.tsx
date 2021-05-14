@@ -4,7 +4,8 @@ import { BiX, BiSearch } from 'react-icons/bi';
 
 import { fetchBooks } from '../actions/book.actions';
 import { cancleFetch, newFetch } from '../actions/book.actions.types';
-import { InputContainer, InputBox, Button } from './Input.styles';
+import { InputContainer, InputBox, ButtonBox } from './Input.styles';
+import { CircleReverseButton } from './Button';
 
 interface Props {
   placeholder?: string;
@@ -25,10 +26,11 @@ const Input: React.FC<Props> = ({ placeholder }) => {
     setQuery(event.target.value);
   };
 
-  const submit = (event: any) => {
-    event.preventDefault();
+  const submit = (event: React.FormEvent<HTMLFormElement>) => {
+    if (event) event.preventDefault();
     dispatch(fetchBooks(query));
   };
+
   const cancel = () => {
     setQuery('');
     dispatch(cancleFetch());
@@ -37,18 +39,22 @@ const Input: React.FC<Props> = ({ placeholder }) => {
   return (
     <form onSubmit={submit}>
       <InputContainer>
-        <Button onClick={submit}>
+        <ButtonBox>
           <BiSearch />
-        </Button>
+        </ButtonBox>
         <InputBox
           placeholder={placeholder}
           type='text'
           value={query}
           onChange={onChange}
         />
-        <Button onClick={cancel} type='button'>
+        <CircleReverseButton
+          onClick={cancel}
+          type='button'
+          className={`${query && 'active'}`}
+        >
           <BiX />
-        </Button>
+        </CircleReverseButton>
       </InputContainer>
     </form>
   );

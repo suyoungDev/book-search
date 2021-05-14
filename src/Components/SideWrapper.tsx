@@ -23,7 +23,7 @@ export const LeftWrapper = styled.header`
 export const UpperWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   width: 100%;
   height: 10vh;
   min-height: 60px;
@@ -35,10 +35,6 @@ export const UpperWrapper = styled.div`
     .icons {
       font-size: 1.2rem;
     }
-  }
-
-  ${(props) => props.theme.media.tablet} {
-    justify-content: flex-end;
   }
 `;
 
