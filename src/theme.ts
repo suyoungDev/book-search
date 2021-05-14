@@ -152,7 +152,7 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
   }
   body{
-    background-color: ${(props) => props.theme.colors.body50};
+    background-color: ${(props) => props.theme.colors.body60};
     color: ${(props) => props.theme.colors.ink50};
   }
 `;

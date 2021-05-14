@@ -4,7 +4,7 @@ export const Main = styled.main`
   width: 100%;
   height: 100vh;
   display: flex;
-
+  background-color: ${(props) => props.theme.colors.body50};
   flex-direction: row;
 `;
 
