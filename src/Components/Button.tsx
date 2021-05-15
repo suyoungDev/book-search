@@ -10,14 +10,15 @@ export const Button = styled.button`
 `;
 
 export const CirceButton = styled(Button)`
-  height: 2rem;
-  width: 2rem;
+  height: 1.5rem;
+  width: 1.6rem;
   border-radius: 1.5rem;
   margin-right: 0.5rem;
 
   display: flex;
   align-items: center;
   justify-content: center;
+
   .icons {
     font-size: 1rem;
     color: ${(props) => props.theme.colors.primary50};
@@ -25,6 +26,10 @@ export const CirceButton = styled(Button)`
 
   :hover {
     background-color: ${(props) => props.theme.colors.hoverButton};
+  }
+
+  &.record {
+    margin: 0;
   }
 `;
 

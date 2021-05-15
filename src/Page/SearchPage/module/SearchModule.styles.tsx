@@ -25,29 +25,34 @@ export const ImgDetail = styled(ImgBook)<ImgProps>`
 `;
 
 export const TitleDetail = styled.div`
-  font-size: 1rem;
-  color: ${(props) => props.theme.colors.ink50};
-  font-weight: bold;
-  word-break: normal;
-  width: 100%;
-  text-align: left;
-  margin-bottom: 0.1rem;
+  p {
+    font-size: 1rem;
+    color: ${(props) => props.theme.colors.ink50};
+    font-weight: bold;
+    word-break: keep-all;
+    width: 100%;
+    text-align: left;
+  }
 
   ${(props) => props.theme.media.phone} {
-    margin-bottom: 0.2rem;
-    text-align: center;
-    font-size: 1.2rem;
+    p {
+      margin-bottom: 0.2rem;
+      text-align: center;
+      font-size: 1.2rem;
+    }
   }
 `;
 
 export const TitleBook = styled(TitleDetail)`
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  margin-bottom: 0.2rem;
-  word-break: keep-all;
-  text-align: left;
+  p {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    margin-bottom: 0.2rem;
+    word-break: keep-all;
+    text-align: left;
+  }
 `;
 
 export const AuthorBook = styled.div`
@@ -78,6 +83,7 @@ export const ContainerButton = styled.button`
 `;
 
 export const Container = styled.div`
+  position: relative;
   display: grid;
   grid-template-columns: 82px 1fr;
   grid-gap: 1rem;
@@ -168,4 +174,34 @@ export const DummyDescription = styled(Description)`
   background: ${(props) => props.theme.colors.dummy02};
   border-radius: ${(props) => props.theme.size.borderRadius40};
   height: 60px;
+`;
+
+export const RecordDescription = styled(Description)`
+  p {
+    -webkit-line-clamp: 3;
+  }
+  &.active {
+    p {
+      display: flex;
+      -webkit-line-clamp: none;
+      overflow: visible;
+    }
+  }
+`;
+
+export const RecordWrapper = styled.div`
+  display: grid;
+  grid-template-rows: 1.5rem 1rem 1fr;
+  grid-gap: 0.2rem;
+  ${(props) => props.theme.media.tablet} {
+    width: 100%;
+  }
+`;
+
+export const RecordTitleBook = styled(TitleBook)`
+  height: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  max-width: 300px;
 `;

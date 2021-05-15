@@ -62,6 +62,11 @@ export const Bar = styled.div`
   border-right: 1px solid ${(props) => props.theme.colors.ink20};
 `;
 
+export const RecordBar = styled(Bar)`
+  margin: 0 0.5rem;
+  height: 20%;
+`;
+
 export const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;

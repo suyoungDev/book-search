@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { RootReducerType } from '../../../reducer/store';
@@ -13,12 +13,13 @@ const RecordList = () => {
   return (
     <ListContainer>
       {comments?.map((item) => (
-        <RecordModule
-          key={item.isbn}
-          title={item.title}
-          image={item.image}
-          comment={item.comment}
-        />
+        <li key={item.isbn}>
+          <RecordModule
+            title={item.title}
+            image={item.image}
+            comment={item.comment}
+          />
+        </li>
       ))}
     </ListContainer>
   );
