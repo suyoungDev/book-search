@@ -9,7 +9,7 @@ import PubDate from '../../DetailPage/module/PubDate';
 import {
   ImgBook,
   Container,
-  RecordWrapper,
+  Wrapper,
   RecordTitleBook,
   RecordDescription,
 } from '../../SearchPage/module/SearchModule.styles';
@@ -31,7 +31,7 @@ const RecordModule: React.FC<Props> = ({ title, comment, image }) => {
   return (
     <Container onClick={clickHandler}>
       <ImgBook source={image} />
-      <RecordWrapper>
+      <Wrapper>
         <Row className='al-fs js-sb'>
           <Row className='al-ct'>
             <RecordTitleBook>
@@ -48,7 +48,7 @@ const RecordModule: React.FC<Props> = ({ title, comment, image }) => {
         <RecordDescription className={`${isClicked && 'active'}`}>
           <P text={comment} />
         </RecordDescription>
-      </RecordWrapper>
+      </Wrapper>
     </Container>
   );
 };

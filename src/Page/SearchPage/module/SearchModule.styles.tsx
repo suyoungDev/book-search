@@ -103,18 +103,6 @@ export const Container = styled.div`
   }
 `;
 
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-around;
-  width: 100%;
-
-  ${(props) => props.theme.media.tablet} {
-    width: 100%;
-  }
-`;
-
 export const DescriptionDetail = styled.div`
   margin-top: 1rem;
 
@@ -189,7 +177,7 @@ export const RecordDescription = styled(Description)`
   }
 `;
 
-export const RecordWrapper = styled.div`
+export const Wrapper = styled.div`
   display: grid;
   grid-template-rows: 1.5rem 1rem 1fr;
   grid-gap: 0.2rem;

@@ -27,7 +27,7 @@ const SearchModule: React.FC<Book> = ({
           <TitleBook>
             <P text={title} />
           </TitleBook>
-          <PubDate pubdate={pubdate} />
+          <PubDate pubdate={pubdate} search />
         </Row>
         <AuthorBook>
           <P text={author} />

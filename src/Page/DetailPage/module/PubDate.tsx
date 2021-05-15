@@ -1,7 +1,11 @@
 import React, { useLayoutEffect, useState } from 'react';
 import styled from 'styled-components';
 
-const Container = styled.div`
+interface ContainerProp {
+  search?: boolean;
+}
+
+const Container = styled.div<ContainerProp>`
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -9,13 +13,16 @@ const Container = styled.div`
   font-size: 0.7rem;
   font-weight: 200;
   color: ${(props) => props.theme.colors.ink30};
+
+  min-width: ${({ search }) => search && `120px`};
 `;
 
 interface Props {
   pubdate: string;
+  search?: boolean;
 }
 
-const PubDate: React.FC<Props> = ({ pubdate }) => {
+const PubDate: React.FC<Props> = ({ pubdate, ...props }) => {
   const [date, setDate] = useState({
     year: '',
     month: '',
@@ -36,7 +43,7 @@ const PubDate: React.FC<Props> = ({ pubdate }) => {
   }, [pubdate]);
 
   return (
-    <Container>
+    <Container {...props}>
       <p>
         {date.year}년 {date.month}월 {date.day}일
       </p>
