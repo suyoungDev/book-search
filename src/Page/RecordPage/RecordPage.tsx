@@ -18,13 +18,11 @@ const RecordPage = () => {
 
   return (
     <MainPage>
-      <PageWrapper>
-        {isLoading && <SmallWrapper>가져오는 중...</SmallWrapper>}
-        {!isLoading && !success && (
-          <SmallWrapper>오류가 발생했습니다.</SmallWrapper>
-        )}
-        {!isLoading && success && <RecordContainer />}
-      </PageWrapper>
+      {isLoading && <SmallWrapper>가져오는 중...</SmallWrapper>}
+      {!isLoading && !success && (
+        <SmallWrapper>오류가 발생했습니다.</SmallWrapper>
+      )}
+      {!isLoading && success && <RecordContainer />}
     </MainPage>
   );
 };

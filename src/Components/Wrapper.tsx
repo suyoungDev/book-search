@@ -17,9 +17,6 @@ export const LandingWrapper = styled(Wrapper)`
   overflow-y: auto;
   overflow-x: hidden;
 
-  ${(props) => props.theme.media.desktop} {
-    min-width: 800px;
-  }
   ::-webkit-scrollbar {
     background-color: ${(props) => props.theme.colors.body40};
     width: 10px;
@@ -27,6 +24,10 @@ export const LandingWrapper = styled(Wrapper)`
   ::-webkit-scrollbar-thumb {
     background-color: ${(props) => props.theme.colors.primary50};
     border-radius: 5px;
+  }
+
+  ${(props) => props.theme.media.desktop} {
+    min-width: 800px;
   }
 `;
 
@@ -37,9 +38,7 @@ export const SmallWrapper = styled(Wrapper)`
 `;
 
 export const PageWrapper = styled(Wrapper)`
-  width: 100%;
   height: 100vh;
-  overflow-y: scroll;
 `;
 
 export const ButtonWrapper = styled.div`
