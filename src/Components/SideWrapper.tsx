@@ -38,21 +38,6 @@ export const UpperWrapper = styled.div`
   }
 `;
 
-export const ButtonWrapper = styled.div`
-  margin-left: 1.2rem;
-`;
-
-export const InputWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-
-  ${(props) => props.theme.media.tablet} {
-    margin-right: 2rem;
-  }
-`;
-
 export const RightWrapper = styled.div`
   display: none;
   height: 100vh;
