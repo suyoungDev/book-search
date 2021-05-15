@@ -3,23 +3,7 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { RootReducerType } from '../../../reducer/store';
 import RecordModule from './RecordModule';
-
-const ListContainer = styled.div`
-  margin: 2rem 0;
-  width: 100%;
-  height: 100%;
-
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  grid-gap: 1rem;
-  padding: 0 2rem;
-
-  ${(props) => props.theme.media.tablet} {
-  }
-  ${(props) => props.theme.media.desktop} {
-    max-width: 1200px;
-  }
-`;
+import { ListContainer } from '../../SearchPage/SearchList.styles';
 
 const RecordList = () => {
   const { comments } = useSelector(

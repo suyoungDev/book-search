@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { PageWrapper } from '../../Components/Wrapper';
+import { PageWrapper, SmallWrapper } from '../../Components/Wrapper';
 import { RootReducerType } from '../../reducer/store';
 import { loadComments } from '../../actions/record.action';
-import RecordList from './section/RecordList';
+import MainPage from '../../Components/MainPage';
+import RecordContainer from './RecordContainer';
 
 const RecordPage = () => {
   const { isLoading, success } = useSelector(
@@ -16,11 +17,15 @@ const RecordPage = () => {
   }, [dispatch]);
 
   return (
-    <PageWrapper>
-      {isLoading && <div>가져오는 중</div>}
-      {!success && <div>감상평을 먼저 남겨주세요.</div>}
-      {success && <RecordList />}
-    </PageWrapper>
+    <MainPage>
+      <PageWrapper>
+        {isLoading && <SmallWrapper>가져오는 중...</SmallWrapper>}
+        {!isLoading && !success && (
+          <SmallWrapper>오류가 발생했습니다.</SmallWrapper>
+        )}
+        {!isLoading && success && <RecordContainer />}
+      </PageWrapper>
+    </MainPage>
   );
 };
 

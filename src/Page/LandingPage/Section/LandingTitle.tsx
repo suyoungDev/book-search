@@ -1,14 +1,15 @@
 import React from 'react';
-import {
-  ButtonWrapper,
-  UpperWrapper,
-  InputWrapper,
-} from '../../../Components/SideWrapper';
+import { UpperWrapper } from '../../../Components/SideWrapper';
 import Input from '../../../Components/Input';
 import { useHistory, useLocation } from 'react-router';
 import { BsChevronLeft } from 'react-icons/bs';
 import { CirceButton } from '../../../Components/Button';
 import { Row } from '../../../Components/Row';
+import {
+  ButtonWrapper,
+  InputWrapper,
+  TitleWrapper,
+} from '../../../Components/Wrapper';
 
 const LandingTitle = () => {
   let history = useHistory();
@@ -20,20 +21,23 @@ const LandingTitle = () => {
 
   return (
     <UpperWrapper className={`${pathname !== '/' && 'goback'}`}>
-      {pathname !== '/' && (
-        <Row className=' al-ct'>
+      {pathname === '/' && (
+        <InputWrapper>
+          <Input placeholder='책 검색' />
+        </InputWrapper>
+      )}
+      {pathname === '/record' && (
+        <TitleWrapper className='margin'>감상 기록</TitleWrapper>
+      )}
+      {pathname !== '/' && pathname !== '/record' && (
+        <Row className='al-ct'>
           <ButtonWrapper>
             <CirceButton onClick={goBack}>
               <BsChevronLeft />
             </CirceButton>
           </ButtonWrapper>
-          <InputWrapper>책 소개</InputWrapper>
+          <TitleWrapper>Detail</TitleWrapper>
         </Row>
-      )}
-      {pathname === '/' && (
-        <InputWrapper>
-          <Input placeholder='책 검색' />
-        </InputWrapper>
       )}
     </UpperWrapper>
   );

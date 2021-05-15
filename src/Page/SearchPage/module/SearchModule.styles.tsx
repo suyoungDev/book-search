@@ -22,8 +22,6 @@ export const ImgDetail = styled(ImgBook)<ImgProps>`
   ${(props) => props.theme.media.tablet} {
     margin-bottom: 3rem;
   }
-  ${(props) => props.theme.media.desktop} {
-  }
 `;
 
 export const TitleDetail = styled.div`
@@ -95,9 +93,6 @@ export const Container = styled.div`
   }
 
   :hover {
-    background-color: ${(props) => props.theme.colors.body40};
-  }
-  :focus {
     background-color: ${(props) => props.theme.colors.body40};
   }
 `;
