@@ -17,8 +17,8 @@ const Container = styled.div`
 `;
 
 const MENU_LIST = [
-  { title: '삭제', id: 'delete' },
   { title: '수정', id: 'modify' },
+  { title: '삭제', id: 'delete' },
 ];
 
 const Menu = () => {
@@ -26,7 +26,7 @@ const Menu = () => {
     <Container>
       <ul>
         {MENU_LIST.map((item) => (
-          <li key={item.id} onClick={() => console.log('hehe')}>
+          <li key={item.id}>
             <MenuModule title={item.title} />
           </li>
         ))}

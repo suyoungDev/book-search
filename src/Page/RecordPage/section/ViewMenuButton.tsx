@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { IoIosMore } from 'react-icons/io';
 import styled from 'styled-components';
 import { CirceButton } from '../../../Components/Button';
@@ -16,24 +16,37 @@ const MenuContainer = styled.div`
 
 const ViewMenuButton = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = (): void => {
-    setIsOpen(!isOpen);
-  };
-
   const menuRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    document.addEventListener('mousedown', (event: MouseEvent) => {
-      const target: HTMLElement | null = event.target;
-      if (!menuRef.current?.contains(target)) setIsOpen(false);
-    });
-    return () => {};
+  const open = () => {
+    setIsOpen(true);
+  };
+
+  const close = () => {
+    setIsOpen(false);
+  };
+
+  const escapeMenu = useCallback((event: KeyboardEvent) => {
+    if (event.key === 'Escape') close();
   }, []);
+
+  const closeMenu = useCallback((event) => {
+    const target: HTMLDivElement = event.target;
+    if (!menuRef.current?.contains(target)) close();
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener('mousedown', closeMenu);
+    document.addEventListener('keydown', escapeMenu);
+    return () => {
+      document.removeEventListener('mousedown', closeMenu);
+      document.removeEventListener('keydown', escapeMenu);
+    };
+  }, [escapeMenu, closeMenu]);
 
   return (
     <>
-      <CirceButton className='record' onClick={toggle}>
+      <CirceButton className='record' onClick={open} title='추가메뉴'>
         <IoIosMore />
       </CirceButton>
       <MenuContainer className={`${isOpen && 'active'}`} ref={menuRef}>
