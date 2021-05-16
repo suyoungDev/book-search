@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { PageWrapper, SmallWrapper } from '../../Components/Wrapper';
+import { SmallWrapper } from '../../Components/Wrapper';
 import { RootReducerType } from '../../reducer/store';
 import { loadComments } from '../../actions/record.action';
 import MainPage from '../../Components/MainPage';
