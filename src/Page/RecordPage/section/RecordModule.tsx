@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { IoIosMore } from 'react-icons/io';
-import { CirceButton } from '../../../Components/Button';
 
 import P from '../../../Components/P';
 import { Row } from '../../../Components/Row';
@@ -14,6 +12,7 @@ import {
   RecordDescription,
 } from '../../SearchPage/module/SearchModule.styles';
 import { RecordBar } from '../../DetailPage/module/DetailModule.styles';
+import ViewMenuButton from './ViewMenuButton';
 
 interface Props {
   title: string;
@@ -40,9 +39,7 @@ const RecordModule: React.FC<Props> = ({ title, comment, image }) => {
             <RecordBar />
             <PubDate pubdate='20200511' />
           </Row>
-          <CirceButton className='record'>
-            <IoIosMore />
-          </CirceButton>
+          <ViewMenuButton />
         </Row>
         <StarBox />
         <RecordDescription className={`${isClicked && 'active'}`}>

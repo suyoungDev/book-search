@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { BiX, BiSearch } from 'react-icons/bi';
+import { CgClose, CgSearch } from 'react-icons/cg';
 
 import { fetchBooks } from '../actions/book.actions';
 import { cancleFetch, newFetch } from '../actions/book.actions.types';
@@ -40,7 +40,7 @@ const Input: React.FC<Props> = ({ placeholder }) => {
     <form onSubmit={submit}>
       <InputContainer>
         <ButtonBox>
-          <BiSearch />
+          <CgSearch />
         </ButtonBox>
         <InputBox
           placeholder={placeholder}
@@ -53,7 +53,7 @@ const Input: React.FC<Props> = ({ placeholder }) => {
           type='button'
           className={`${query && 'active'}`}
         >
-          <BiX />
+          <CgClose />
         </CircleReverseButton>
       </InputContainer>
     </form>
