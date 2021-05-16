@@ -1,7 +1,7 @@
-export const SAVE_COMMENT = 'SAVE_COMMENT';
-export const LOAD_COMMENTS = 'LOAD_COMMENTS';
-export const LOAD_COMMENTS_SUCCESS = 'LOAD_COMMENTS_SUCCESS';
-export const LOAD_COMMENTS_FAIL = 'LOAD_COMMENTS_FAIL';
+export const SAVE_COMMENT = 'SAVE_COMMENT' as const;
+export const LOAD_COMMENTS = 'LOAD_COMMENTS' as const;
+export const LOAD_COMMENTS_SUCCESS = 'LOAD_COMMENTS_SUCCESS' as const;
+export const LOAD_COMMENTS_FAIL = 'LOAD_COMMENTS_FAIL' as const;
 
 // 액션 생성 함수
 export const loadComments = () => ({ type: LOAD_COMMENTS });

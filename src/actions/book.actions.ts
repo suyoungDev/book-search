@@ -11,7 +11,7 @@ import KEY from '../key';
 
 const URL = '/v1/search/book.json';
 
-let cancel: any;
+let cancel: () => void;
 
 export const fetchBooks =
   (query: string, page = 1) =>

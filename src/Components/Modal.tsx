@@ -21,17 +21,15 @@ const Modal: React.FC<{}> = ({ children }) => {
   }, [dispatch]);
 
   const closeModalOutside = useCallback(
-    (e) => {
+    (e: React.MouseEvent<HTMLDivElement>) => {
       if (modalRef.current === e.target) closeModal();
     },
     [closeModal]
   );
 
   const keyPress = useCallback(
-    (e) => {
-      if (e.key === 'Escape') {
-        closeModal();
-      }
+    (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeModal();
     },
     [closeModal]
   );
