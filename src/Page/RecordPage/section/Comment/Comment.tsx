@@ -11,7 +11,7 @@ import { openModal } from '../../../../actions/modal.action';
 const Comment = () => {
   const [comment, setComment] = useState('');
 
-  const update = (event: any) => {
+  const update = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setComment(event.target.value);
   };
 

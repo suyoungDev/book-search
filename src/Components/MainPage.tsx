@@ -4,7 +4,7 @@ import LandingTitle from '../Page/LandingPage/Section/LandingTitle';
 import RightPage from '../Page/RightPage/RightPage';
 import { LandingWrapper } from './Wrapper';
 
-const MainPage = ({ children }: any) => {
+const MainPage: React.FC = ({ children }) => {
   return (
     <Main>
       <MainWrapper>
