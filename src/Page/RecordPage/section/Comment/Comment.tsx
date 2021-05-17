@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import StarBox from '../../../../Components/StarBox';
@@ -18,13 +18,27 @@ const Comment = () => {
   };
 
   const dispatch = useDispatch();
-  const { payload } = useSelector(
+  const { modalPayload } = useSelector(
     (state: RootReducerType) => state.modalReducer
   );
+  const { payload } = useSelector(
+    (state: RootReducerType) => state.recordReducer
+  );
+
+  useEffect(() => {
+    const idToChange = modalPayload?.id;
+
+    if (idToChange) {
+      const originalComment = payload.filter((item) => item.id === idToChange);
+      const item = originalComment[0].comment;
+      setComment(item);
+    }
+  }, [modalPayload, payload]);
 
   const submit = () => {
-    if (payload?.book) dispatch(addComment(comment, payload.book));
-    if (payload?.id) dispatch(modifyComment(payload.id, comment, rate));
+    if (modalPayload?.book) dispatch(addComment(comment, modalPayload.book));
+    if (modalPayload?.id)
+      dispatch(modifyComment(modalPayload.id, comment, rate));
     dispatch(openModal(false));
   };
 

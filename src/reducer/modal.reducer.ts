@@ -6,12 +6,12 @@ import { PayloadType } from '../actions/modal.action.types';
 
 type InitialState = {
   isOpen: boolean;
-  payload?: PayloadType | null;
+  modalPayload?: PayloadType | null;
 };
 
 const initialState: InitialState = {
   isOpen: false,
-  payload: null,
+  modalPayload: null,
 };
 
 const ModalReducer = (
@@ -22,7 +22,7 @@ const ModalReducer = (
     case IS_MODAL_OPEN:
       return {
         isOpen: action.isOpen,
-        payload: action.payload,
+        modalPayload: action.modalPayload,
       };
 
     default:

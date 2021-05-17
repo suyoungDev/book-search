@@ -10,7 +10,7 @@ export interface PayloadType {
 export interface modalDispatch {
   type: typeof IS_MODAL_OPEN;
   isOpen: boolean;
-  payload?: PayloadType;
+  modalPayload?: PayloadType;
 }
 
 export type modalDispatchType = modalDispatch;
