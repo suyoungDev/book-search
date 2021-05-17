@@ -29,14 +29,14 @@ const RecordModule: React.FC<Props> = ({
   createdAt,
   id,
 }) => {
-  const [isClicked, setIsClicked] = useState(false);
+  const [isViewMore, setIsViewMore] = useState(false);
 
-  const clickHandler = () => {
-    setIsClicked(!isClicked);
+  const showMore = () => {
+    setIsViewMore(!isViewMore);
   };
 
   return (
-    <Container onClick={clickHandler}>
+    <Container>
       <ImgBook source={image} />
       <Wrapper>
         <Row className='al-fs js-sb'>
@@ -50,7 +50,10 @@ const RecordModule: React.FC<Props> = ({
           <ViewMenuButton id={id} />
         </Row>
         <StarBox />
-        <RecordDescription className={`${isClicked && 'active'}`}>
+        <RecordDescription
+          className={`${isViewMore && 'active'}`}
+          onClick={showMore}
+        >
           <P text={comment} />
         </RecordDescription>
       </Wrapper>
