@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
 interface ImgProps {
   source?: string;
@@ -133,35 +133,52 @@ export const Description = styled(DescriptionDetail)`
   margin: 0;
 `;
 
+const morph = keyframes`
+  0%{
+    background: #6d6d6d;
+  }
+  50%{
+    background: gray;
+  }
+  100%{
+    background: darkgray;
+
+  }
+`;
+
+const morphAnimation = css`
+  animation: ${morph} 2s infinite ease-in-out;
+`;
+
 export const DummyContainerButton = styled(ContainerButton)``;
 
 export const DummyContainer = styled(Container)`
-  border: 1px solid ${(props) => props.theme.colors.dummy01};
+  border-bottom: 1px solid ${(props) => props.theme.colors.dummyBorder};
 `;
 
 export const DummyImg = styled(ImgBook)`
-  background: ${(props) => props.theme.colors.dummy02};
   border-radius: ${(props) => props.theme.size.borderRadius40};
+  ${morphAnimation}
 `;
 
 export const DummyTitle = styled(TitleBook)`
-  background: ${(props) => props.theme.colors.dummy02};
   border-radius: ${(props) => props.theme.size.borderRadius40};
   width: 70%;
   height: 1rem;
+  ${morphAnimation}
 `;
 
 export const DummyAuthor = styled(AuthorBook)`
-  background: ${(props) => props.theme.colors.dummy02};
   border-radius: ${(props) => props.theme.size.borderRadius40};
   width: 100px;
   height: 1rem;
+  ${morphAnimation}
 `;
 
 export const DummyDescription = styled(Description)`
-  background: ${(props) => props.theme.colors.dummy02};
   border-radius: ${(props) => props.theme.size.borderRadius40};
   height: 60px;
+  ${morphAnimation}
 `;
 
 export const RecordDescription = styled(Description)`

@@ -12,14 +12,12 @@ import {
 const LoadingContainer: React.FC = () => {
   return (
     <DummyContainer>
-      <DummyContainerButton as='div'>
-        <DummyImg />
-        <Wrapper>
-          <DummyTitle />
-          <DummyAuthor />
-          <DummyDescription />
-        </Wrapper>
-      </DummyContainerButton>
+      <DummyImg />
+      <Wrapper>
+        <DummyTitle />
+        <DummyAuthor />
+        <DummyDescription />
+      </Wrapper>
     </DummyContainer>
   );
 };

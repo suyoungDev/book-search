@@ -83,7 +83,6 @@ const SearchList: React.FC = () => {
           );
         }
       })}
-      {loadMore && <LoadingContainer />}
     </ListContainer>
   );
 };

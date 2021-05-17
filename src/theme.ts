@@ -23,8 +23,8 @@ declare module 'styled-components' {
       inputBorder: string;
       border: string;
       invert: string;
-      dummy01: string;
-      dummy02: string;
+      dummyBorder: string;
+      dummyBG: string;
       hoverBorder: string;
       hoverButton: string;
       hover: string;
@@ -80,8 +80,8 @@ export const lightTheme: DefaultTheme = {
     inputBorder: '#c4c4c4',
     border: '#BDC1C6',
     invert: '#E5E7EB',
-    dummy01: '#f0f0f0',
-    dummy02: '#f0f0f0',
+    dummyBorder: '#BDC1C6',
+    dummyBG: '#dfdfdf',
     hoverBorder: 'rgba(94, 183, 186, 0.5)',
     hoverButton: 'rgba(94, 183, 186, 0.15)',
     hover: 'rgba(94, 183, 186, 0.97)',
@@ -123,8 +123,8 @@ export const darkTheme: DefaultTheme = {
     inputBorder: '#747474',
     border: '#747474',
     invert: '#282828',
-    dummy01: '#4b4b4b',
-    dummy02: '#717171',
+    dummyBorder: '#747474',
+    dummyBG: '#717171',
     hoverBorder: 'rgba(94, 183, 186, 0.5)',
     hoverButton: 'rgba(94, 183, 186, 0.15)',
     hover: 'rgba(94, 183, 186, 0.97)',
