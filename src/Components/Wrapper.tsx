@@ -12,7 +12,7 @@ export const LandingWrapper = styled(Wrapper)`
   width: 100%;
 
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   overflow-y: auto;
   overflow-x: hidden;

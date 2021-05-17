@@ -63,8 +63,13 @@ export const Bar = styled.div`
 `;
 
 export const RecordBar = styled(Bar)`
+  display: none;
   margin: 0 0.5rem;
   height: 20%;
+
+  ${(props) => props.theme.media.tablet} {
+    display: flex;
+  }
 `;
 
 export const SectionWrapper = styled.div`
