@@ -6,7 +6,7 @@ interface ContainerProp {
 }
 
 const Container = styled.div<ContainerProp>`
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: flex-end;
 
@@ -15,6 +15,10 @@ const Container = styled.div<ContainerProp>`
   color: ${(props) => props.theme.colors.ink30};
 
   min-width: ${({ search }) => search && `120px`};
+
+  ${(props) => props.theme.media.tablet} {
+    display: flex;
+  }
 `;
 
 interface Props {

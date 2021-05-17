@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import P from '../../../Components/P';
 import { Row } from '../../../Components/Row';
 import StarBox from '../../../Components/StarBox';
-import PubDate from '../../DetailPage/module/PubDate';
 import {
   ImgBook,
   Container,
@@ -13,12 +12,14 @@ import {
 } from '../../SearchPage/module/SearchModule.styles';
 import { RecordBar } from '../../DetailPage/module/DetailModule.styles';
 import ViewMenuButton from './ViewMenuButton';
+import PubDateContainer from '../../DetailPage/module/PubDateContainer';
 
 interface Props {
   title: string;
   comment: string;
   image: string;
   createdAt: Date;
+  id: string;
 }
 
 const RecordModule: React.FC<Props> = ({
@@ -26,6 +27,7 @@ const RecordModule: React.FC<Props> = ({
   comment,
   image,
   createdAt,
+  id,
 }) => {
   const [isClicked, setIsClicked] = useState(false);
 
@@ -43,8 +45,9 @@ const RecordModule: React.FC<Props> = ({
               <P text={title} />
             </RecordTitleBook>
             <RecordBar />
+            <PubDateContainer createdAt={createdAt} />
           </Row>
-          <ViewMenuButton />
+          <ViewMenuButton id={id} />
         </Row>
         <StarBox />
         <RecordDescription className={`${isClicked && 'active'}`}>
