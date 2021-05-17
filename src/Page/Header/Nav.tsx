@@ -41,7 +41,7 @@ const Nav: React.FC = () => {
     <NavWrapper>
       <ul>
         {NAV_LIST.map((item) => (
-          <li key={item.url}>
+          <li key={item.title}>
             <LinkButton url={item.url} title={item.title} />
           </li>
         ))}
