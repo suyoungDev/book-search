@@ -14,11 +14,16 @@ const MenuContainer = styled.div`
   }
 `;
 
-const ViewMenuButton = () => {
+interface Prop {
+  id: string;
+}
+
+const ViewMenuButton = ({ id }: Prop) => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  const open = () => {
+  const open = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
     setIsOpen(true);
   };
 
@@ -50,7 +55,7 @@ const ViewMenuButton = () => {
         <IoIosMore />
       </CirceButton>
       <MenuContainer className={`${isOpen && 'active'}`} ref={menuRef}>
-        <Menu />
+        <Menu id={id} />
       </MenuContainer>
     </>
   );

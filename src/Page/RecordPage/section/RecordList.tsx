@@ -17,6 +17,7 @@ const RecordList: React.FC<Prop> = ({ payload }) => {
             image={item.bookInfo.image}
             comment={item.comment}
             createdAt={item.createdAt}
+            id={item.id}
           />
         </li>
       ))}

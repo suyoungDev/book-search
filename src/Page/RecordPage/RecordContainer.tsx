@@ -8,7 +8,6 @@ const RecordContainer = () => {
   const { payload } = useSelector(
     (state: RootReducerType) => state.recordReducer
   );
-  console.log(payload);
 
   if (!payload.length)
     return <SmallWrapper>먼저 감상을 남겨주세요.</SmallWrapper>;

@@ -8,12 +8,12 @@ import {
 } from './record.action.types';
 
 // 액션 생성 함수
-export const removeComment = (id: number) => ({
+export const removeComment = (id: string) => ({
   type: REMOVE_COMMENT,
   payload: id,
 });
 
-export const modifyComment = (id: number, comment: string, rate: number) => ({
+export const modifyComment = (id: string, comment: string, rate: number) => ({
   type: MODIFY_COMMENT,
   payload: { id, comment, rate },
 });

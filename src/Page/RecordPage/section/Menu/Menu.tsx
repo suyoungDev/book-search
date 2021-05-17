@@ -1,35 +1,39 @@
 import React from 'react';
-import styled from 'styled-components';
-import MenuModule from './MenuModule';
+import { CgClose, CgBandAid } from 'react-icons/cg';
+import { Container, Module } from './Menu.styles';
+import { useDispatch } from 'react-redux';
+import { removeComment } from '../../../../actions/record.action';
+import { openModal } from '../../../../actions/modal.action';
 
-const Container = styled.div`
-  border: 1px solid ${(props) => props.theme.colors.border};
-  background-color: ${(props) => props.theme.colors.body60};
-  color: ${(props) => props.theme.colors.ink50};
+interface Prop {
+  id: string;
+}
 
-  ul {
-    list-style: none;
-  }
+const Menu = ({ id }: Prop) => {
+  const dispatch = useDispatch();
 
-  li:first-child {
-    border-bottom: 1px solid ${(props) => props.theme.colors.border};
-  }
-`;
+  const modifyComment = () => {
+    dispatch(openModal(true));
+  };
 
-const MENU_LIST = [
-  { title: '수정', id: 'modify' },
-  { title: '삭제', id: 'delete' },
-];
+  const deleteComment = () => {
+    dispatch(removeComment(id));
+  };
 
-const Menu = () => {
   return (
     <Container>
       <ul>
-        {MENU_LIST.map((item) => (
-          <li key={item.id}>
-            <MenuModule title={item.title} />
-          </li>
-        ))}
+        <li>
+          <Module onClick={modifyComment}>
+            <CgBandAid /> <span>수정</span>
+          </Module>
+        </li>
+        <li>
+          <Module onClick={deleteComment}>
+            <CgClose />
+            <span>삭제</span>
+          </Module>
+        </li>
       </ul>
     </Container>
   );
