@@ -1,46 +1,34 @@
 import { Dispatch } from 'redux';
+import { Book } from './book.actions.types';
 import {
-  SAVE_COMMENT,
-  LOAD_COMMENTS,
+  ADD_COMMENT,
+  REMOVE_COMMENT,
+  MODIFY_COMMENT,
   commentDispatchType,
-  LOAD_COMMENTS_SUCCESS,
-  LOAD_COMMENTS_FAIL,
 } from './record.action.types';
 
-export const saveComment =
-  (
-    comment: string,
-    isbn: string | undefined,
-    image: string,
-    title: string,
-    rate = 0
-  ) =>
+// 액션 생성 함수
+export const removeComment = (id: number) => ({
+  type: REMOVE_COMMENT,
+  payload: id,
+});
+export const modifyComment = (id: number, comment: string, rate: number) => ({
+  type: MODIFY_COMMENT,
+  payload: { id, comment, rate },
+});
+
+export const addComment =
+  (comment: string, bookInfo: Book, rate = 0) =>
   (dispatch: Dispatch<commentDispatchType>) => {
-    dispatch({ type: SAVE_COMMENT, isSaved: false });
+    const id: string = Math.random().toString(36).substr(2, 9);
 
-    const savedData = localStorage.getItem('book_comments');
-    let savingData = [];
+    const payload = {
+      comment,
+      bookInfo,
+      rate,
+      createdAt: new Date(),
+      id,
+    };
 
-    if (savedData) {
-      const parsedItem = JSON.parse(savedData);
-      savingData.push(...parsedItem);
-    }
-
-    const data = { comment, isbn, image, title, rate };
-    savingData.push(data);
-
-    localStorage.setItem('book_comments', JSON.stringify(savingData));
-
-    dispatch({ type: SAVE_COMMENT, isSaved: true });
+    dispatch({ type: ADD_COMMENT, isSaved: true, payload });
   };
-
-export const loadComments = () => (dispatch: Dispatch<commentDispatchType>) => {
-  dispatch({ type: LOAD_COMMENTS });
-  const savedData = localStorage.getItem('book_comments');
-
-  // 가져온게 없으면 리턴
-  if (!savedData) return dispatch({ type: LOAD_COMMENTS_FAIL });
-
-  let parsedItem = JSON.parse(savedData);
-  dispatch({ type: LOAD_COMMENTS_SUCCESS, comments: parsedItem });
-};

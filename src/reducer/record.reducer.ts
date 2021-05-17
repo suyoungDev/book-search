@@ -1,53 +1,61 @@
 import {
-  Comment,
   commentDispatchType,
-  LOAD_COMMENTS,
-  LOAD_COMMENTS_FAIL,
-  LOAD_COMMENTS_SUCCESS,
-  SAVE_COMMENT,
+  CommentType,
+  ADD_COMMENT,
+  REMOVE_COMMENT,
+  MODIFY_COMMENT,
 } from '../actions/record.action.types';
 
 type InitialState = {
-  comments: Comment[] | null;
+  payload: CommentType[];
   isLoading: boolean;
-  isSaved: boolean;
   success: boolean;
 };
 
 const initialState: InitialState = {
-  comments: null,
+  payload: [],
   isLoading: false,
-  isSaved: false,
   success: false,
 };
 
 const RecordReducer = (
-  state = initialState,
+  state: InitialState = initialState,
   action: commentDispatchType
 ): InitialState => {
   switch (action.type) {
-    case LOAD_COMMENTS:
-      return { ...state, isLoading: true };
-
-    case LOAD_COMMENTS_FAIL:
+    case ADD_COMMENT:
       return {
         ...state,
-        isLoading: false,
-        success: false,
-      };
-
-    case LOAD_COMMENTS_SUCCESS:
-      return {
-        ...state,
-        isLoading: false,
-        comments: action.comments,
+        payload: state.payload?.concat({
+          id: action.payload.id,
+          comment: action.payload.comment,
+          bookInfo: action.payload.bookInfo,
+          rate: action.payload.rate,
+          createdAt: action.payload.createdAt,
+        }),
         success: true,
       };
 
-    case SAVE_COMMENT:
+    case REMOVE_COMMENT:
       return {
         ...state,
-        isSaved: action.isSaved,
+        payload: state.payload.filter(
+          (comment) => comment.id !== action.payload
+        ),
+      };
+
+    case MODIFY_COMMENT:
+      return {
+        ...state,
+        payload: state.payload.map((item) =>
+          item.id === action.payload.id
+            ? {
+                ...item,
+                comment: action.payload.comment,
+                rate: action.payload.rate,
+              }
+            : item
+        ),
       };
 
     default:

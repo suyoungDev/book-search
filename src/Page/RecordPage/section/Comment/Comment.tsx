@@ -20,7 +20,7 @@ const Comment = () => {
 
   const submit = () => {
     if (data?.isbn && data?.title && data?.image) {
-      dispatch(saveComment(comment, data?.isbn, data?.image, data?.title));
+      dispatch(saveComment(comment, data));
     }
     dispatch(openModal(false));
   };

@@ -1,40 +1,39 @@
-export const SAVE_COMMENT = 'SAVE_COMMENT' as const;
-export const LOAD_COMMENTS = 'LOAD_COMMENTS' as const;
-export const LOAD_COMMENTS_SUCCESS = 'LOAD_COMMENTS_SUCCESS' as const;
-export const LOAD_COMMENTS_FAIL = 'LOAD_COMMENTS_FAIL' as const;
+import { Book } from './book.actions.types';
 
-// 액션 생성 함수
-export const loadComments = () => ({ type: LOAD_COMMENTS });
-export const loadFailComments = () => ({ type: LOAD_COMMENTS_FAIL });
+export const ADD_COMMENT = 'ADD_COMMENT' as const;
+export const REMOVE_COMMENT = 'REMOVE_COMMENT' as const;
+export const MODIFY_COMMENT = 'MODIFY_COMMENT' as const;
 
-export type Comment = {
-  isbn: string;
+export interface CommentType {
+  id: string;
   comment: string;
-  title: string;
-  image: string;
-  rate?: number;
-};
+  bookInfo: Book;
+  rate: number;
+  createdAt: Date;
+}
 
-export interface SaveCommentDispatch {
-  type: typeof SAVE_COMMENT;
+export interface AddCommentDispatch {
+  type: typeof ADD_COMMENT;
+  payload: CommentType;
   isSaved: boolean;
 }
-
-export interface LoadDispatch {
-  type: typeof LOAD_COMMENTS;
+export interface RemoveCommentDispatch {
+  type: typeof REMOVE_COMMENT;
+  payload: string;
 }
 
-export interface LoadSuccessDispatch {
-  type: typeof LOAD_COMMENTS_SUCCESS;
-  comments: Comment[];
+export interface ModifyType {
+  id: string;
+  rate: number;
+  comment: string;
 }
 
-export interface LoadFailDispatch {
-  type: typeof LOAD_COMMENTS_FAIL;
+export interface ModifyCommentDispatch {
+  type: typeof MODIFY_COMMENT;
+  payload: ModifyType;
 }
 
 export type commentDispatchType =
-  | SaveCommentDispatch
-  | LoadDispatch
-  | LoadSuccessDispatch
-  | LoadFailDispatch;
+  | AddCommentDispatch
+  | RemoveCommentDispatch
+  | ModifyCommentDispatch;
