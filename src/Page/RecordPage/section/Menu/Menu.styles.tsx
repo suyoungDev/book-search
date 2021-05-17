@@ -12,10 +12,12 @@ export const Container = styled.div`
   li:first-child {
     border-bottom: 1px solid ${(props) => props.theme.colors.border};
   }
+
+  box-shadow: 0 0px 6px 1px ${(props) => props.theme.colors.border};
 `;
 
 export const Module = styled.div`
-  padding: 0.3rem 0.5rem;
+  padding: 0.6rem 0.8rem;
   width: 100%;
   display: flex;
   align-items: center;
