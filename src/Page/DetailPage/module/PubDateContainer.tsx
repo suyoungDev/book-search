@@ -10,10 +10,13 @@ const PubDateContainer: React.FC<Prop> = ({ createdAt }) => {
 
   useEffect(() => {
     const date: number = createdAt.getDate();
-    const month: number = createdAt.getMonth();
+    let month: number | string = createdAt.getMonth() + 1;
     const year: number = createdAt.getFullYear();
 
+    if (month < 10) month = '0' + month;
+
     const fullDate: string = '' + year + month + date;
+
     setPubDate(fullDate);
   }, [createdAt]);
 
