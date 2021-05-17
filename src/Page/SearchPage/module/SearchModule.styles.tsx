@@ -149,8 +149,6 @@ const morphAnimation = css`
   animation: ${morph} 2s infinite ease-in-out;
 `;
 
-export const DummyContainerButton = styled(ContainerButton)``;
-
 export const DummyContainer = styled(Container)`
   border-bottom: 1px solid ${(props) => props.theme.colors.dummyBorder};
 `;

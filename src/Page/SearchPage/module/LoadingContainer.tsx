@@ -2,7 +2,6 @@ import React from 'react';
 import {
   DummyImg,
   Wrapper,
-  DummyContainerButton,
   DummyTitle,
   DummyAuthor,
   DummyDescription,

@@ -8,12 +8,11 @@ import { getBookDetail } from '../../actions/detail.action';
 
 import { ListContainer } from './SearchList.styles';
 import SearchModule from './module/SearchModule';
-import LoadingContainer from './module/LoadingContainer';
 import { StyledLink } from '../../Components/StyledLink';
 
 const SearchList: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const { data, isLoading, hasMore, query, pageNumber, loadMore } = useSelector(
+  const { data, isLoading, hasMore, query, pageNumber } = useSelector(
     (state: RootReducerType) => state.bookReducer
   );
 
