@@ -25,7 +25,7 @@ const DetailModule: React.FC = () => {
   if (!data) return null;
 
   const handleModal = () => {
-    dispatch(openModal(true));
+    dispatch(openModal(true, { book: data }));
   };
 
   return (

@@ -7,19 +7,24 @@ import { Container, CommentBox, ButtonWrapper } from './Comment.styles';
 import { RootReducerType } from '../../../../reducer/store';
 import { addComment } from '../../../../actions/record.action';
 import { openModal } from '../../../../actions/modal.action';
+import { modifyComment } from '../../../../actions/record.action';
 
 const Comment = () => {
   const [comment, setComment] = useState('');
+  const [rate, setRate] = useState(0);
 
   const update = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setComment(event.target.value);
   };
 
   const dispatch = useDispatch();
-  const { data } = useSelector((state: RootReducerType) => state.detailReducer);
+  const { payload } = useSelector(
+    (state: RootReducerType) => state.modalReducer
+  );
 
   const submit = () => {
-    if (data) dispatch(addComment(comment, data));
+    if (payload?.book) dispatch(addComment(comment, payload.book));
+    if (payload?.id) dispatch(modifyComment(payload.id, comment, rate));
     dispatch(openModal(false));
   };
 

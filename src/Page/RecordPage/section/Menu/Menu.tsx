@@ -13,7 +13,7 @@ const Menu = ({ id }: Prop) => {
   const dispatch = useDispatch();
 
   const modifyComment = () => {
-    dispatch(openModal(true));
+    dispatch(openModal(true, { id }));
   };
 
   const deleteComment = () => {
