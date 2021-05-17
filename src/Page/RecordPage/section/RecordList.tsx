@@ -1,22 +1,22 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { RootReducerType } from '../../../reducer/store';
 import RecordModule from './RecordModule';
 import { ListContainer } from '../../SearchPage/SearchList.styles';
+import { CommentType } from '../../../actions/record.action.types';
 
-const RecordList = () => {
-  const { comments } = useSelector(
-    (state: RootReducerType) => state.recordReducer
-  );
+interface Prop {
+  payload: CommentType[];
+}
 
+const RecordList: React.FC<Prop> = ({ payload }) => {
   return (
     <ListContainer>
-      {comments?.map((item) => (
-        <li key={item.isbn}>
+      {payload?.map((item) => (
+        <li key={item.id}>
           <RecordModule
-            title={item.title}
-            image={item.image}
+            title={item.bookInfo.title}
+            image={item.bookInfo.image}
             comment={item.comment}
+            createdAt={item.createdAt}
           />
         </li>
       ))}

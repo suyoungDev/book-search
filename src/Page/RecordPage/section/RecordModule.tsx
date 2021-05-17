@@ -18,9 +18,15 @@ interface Props {
   title: string;
   comment: string;
   image: string;
+  createdAt: Date;
 }
 
-const RecordModule: React.FC<Props> = ({ title, comment, image }) => {
+const RecordModule: React.FC<Props> = ({
+  title,
+  comment,
+  image,
+  createdAt,
+}) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const clickHandler = () => {
@@ -37,7 +43,6 @@ const RecordModule: React.FC<Props> = ({ title, comment, image }) => {
               <P text={title} />
             </RecordTitleBook>
             <RecordBar />
-            <PubDate pubdate='20200511' />
           </Row>
           <ViewMenuButton />
         </Row>

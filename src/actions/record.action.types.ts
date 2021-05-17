@@ -15,7 +15,6 @@ export interface CommentType {
 export interface AddCommentDispatch {
   type: typeof ADD_COMMENT;
   payload: CommentType;
-  isSaved: boolean;
 }
 export interface RemoveCommentDispatch {
   type: typeof REMOVE_COMMENT;

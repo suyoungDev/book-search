@@ -12,6 +12,7 @@ export const removeComment = (id: number) => ({
   type: REMOVE_COMMENT,
   payload: id,
 });
+
 export const modifyComment = (id: number, comment: string, rate: number) => ({
   type: MODIFY_COMMENT,
   payload: { id, comment, rate },
@@ -30,5 +31,5 @@ export const addComment =
       id,
     };
 
-    dispatch({ type: ADD_COMMENT, isSaved: true, payload });
+    dispatch({ type: ADD_COMMENT, payload });
   };

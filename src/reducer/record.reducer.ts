@@ -8,14 +8,10 @@ import {
 
 type InitialState = {
   payload: CommentType[];
-  isLoading: boolean;
-  success: boolean;
 };
 
 const initialState: InitialState = {
   payload: [],
-  isLoading: false,
-  success: false,
 };
 
 const RecordReducer = (
@@ -25,7 +21,6 @@ const RecordReducer = (
   switch (action.type) {
     case ADD_COMMENT:
       return {
-        ...state,
         payload: state.payload?.concat({
           id: action.payload.id,
           comment: action.payload.comment,
@@ -33,12 +28,10 @@ const RecordReducer = (
           rate: action.payload.rate,
           createdAt: action.payload.createdAt,
         }),
-        success: true,
       };
 
     case REMOVE_COMMENT:
       return {
-        ...state,
         payload: state.payload.filter(
           (comment) => comment.id !== action.payload
         ),
@@ -46,7 +39,6 @@ const RecordReducer = (
 
     case MODIFY_COMMENT:
       return {
-        ...state,
         payload: state.payload.map((item) =>
           item.id === action.payload.id
             ? {

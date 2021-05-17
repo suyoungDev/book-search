@@ -33,14 +33,14 @@ const Count = styled.div`
 
 const Heart = () => {
   const [numberOfLikes, setNumberOfLikes] = useState(0);
-  const { comments } = useSelector(
+  const { payload } = useSelector(
     (state: RootReducerType) => state.recordReducer
   );
 
   useEffect(() => {
-    let number = comments?.length;
+    let number = payload?.length;
     if (number) setNumberOfLikes(number);
-  }, [comments]);
+  }, [payload]);
 
   return (
     <HeartWrapper>
