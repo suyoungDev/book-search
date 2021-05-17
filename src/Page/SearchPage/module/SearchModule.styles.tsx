@@ -135,14 +135,13 @@ export const Description = styled(DescriptionDetail)`
 
 const morph = keyframes`
   0%{
-    background: #6d6d6d;
+    opacity: 1;
   }
   50%{
-    background: gray;
+    opacity: .7;
   }
   100%{
-    background: darkgray;
-
+    opacity: 1;
   }
 `;
 
@@ -158,11 +157,14 @@ export const DummyContainer = styled(Container)`
 
 export const DummyImg = styled(ImgBook)`
   border-radius: ${(props) => props.theme.size.borderRadius40};
+  background-color: ${(props) => props.theme.colors.dummyBG};
   ${morphAnimation}
 `;
 
 export const DummyTitle = styled(TitleBook)`
   border-radius: ${(props) => props.theme.size.borderRadius40};
+  background-color: ${(props) => props.theme.colors.dummyBG};
+
   width: 70%;
   height: 1rem;
   ${morphAnimation}
@@ -170,6 +172,8 @@ export const DummyTitle = styled(TitleBook)`
 
 export const DummyAuthor = styled(AuthorBook)`
   border-radius: ${(props) => props.theme.size.borderRadius40};
+  background-color: ${(props) => props.theme.colors.dummyBG};
+
   width: 100px;
   height: 1rem;
   ${morphAnimation}
@@ -177,6 +181,8 @@ export const DummyAuthor = styled(AuthorBook)`
 
 export const DummyDescription = styled(Description)`
   border-radius: ${(props) => props.theme.size.borderRadius40};
+  background-color: ${(props) => props.theme.colors.dummyBG};
+
   height: 60px;
   ${morphAnimation}
 `;
