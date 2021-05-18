@@ -2,13 +2,11 @@ import React, { useRef, useCallback, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { RootReducerType } from '../../reducer/store';
-import { loadMoreData, Book } from '../../actions/book.actions.types';
+import { loadMoreData } from '../../actions/book.actions.types';
 import { fetchBooks } from '../../actions/book.actions';
-import { getBookDetail } from '../../actions/detail.action';
 
 import { ListContainer } from './SearchList.styles';
-import SearchModule from './module/SearchModule';
-import { StyledLink } from '../../Components/StyledLink';
+import SearchModuleContainer from './module/SearchModuleContainer';
 
 const SearchList: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -41,48 +39,26 @@ const SearchList: React.FC = () => {
     [isLoading, hasMore, pageNumber, dispatch, query]
   );
 
-  const viewMoreDetail = (item: Book) => {
-    dispatch(getBookDetail(item));
-  };
-
   return (
-    <ListContainer>
-      {data?.map((item, index) => {
-        if (data.length === index + 1) {
-          return (
-            <li
-              ref={lastElement}
-              key={item.isbn}
-              onClick={() => viewMoreDetail(item)}
-            >
-              <StyledLink to={`/book/${item.isbn}`}>
-                <SearchModule
-                  image={item.image}
-                  title={item.title}
-                  pubdate={item.pubdate}
-                  author={item.author}
-                  description={item.description}
-                />
-              </StyledLink>
-            </li>
-          );
-        } else {
-          return (
-            <li key={item.isbn} onClick={() => viewMoreDetail(item)}>
-              <StyledLink to={`/book/${item.isbn}`}>
-                <SearchModule
-                  image={item.image}
-                  title={item.title}
-                  pubdate={item.pubdate}
-                  author={item.author}
-                  description={item.description}
-                />
-              </StyledLink>
-            </li>
-          );
-        }
-      })}
-    </ListContainer>
+    <>
+      <ListContainer>
+        {data?.map((item, index) => {
+          if (data.length === index + 1) {
+            return (
+              <li key={item.isbn} ref={lastElement}>
+                <SearchModuleContainer item={item} />
+              </li>
+            );
+          } else {
+            return (
+              <li key={item.isbn}>
+                <SearchModuleContainer item={item} />
+              </li>
+            );
+          }
+        })}
+      </ListContainer>
+    </>
   );
 };
 
