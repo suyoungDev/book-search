@@ -7,6 +7,8 @@ const LoadingList = () => {
       <LoadingContainer />
       <LoadingContainer />
       <LoadingContainer />
+      <LoadingContainer />
+      <LoadingContainer />
     </>
   );
 };
