@@ -121,7 +121,7 @@ export const darkTheme: DefaultTheme = {
     secondary60: '#905E4F',
     inputBg: '#747474',
     inputBorder: '#747474',
-    border: '#747474',
+    border: 'rgb(47,51,54)',
     invert: '#282828',
     dummyBorder: '#747474',
     dummyBG: '#717171',

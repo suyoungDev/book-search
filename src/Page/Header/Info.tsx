@@ -5,11 +5,16 @@ import Heart from './Heart';
 
 const Container = styled.section`
   display: flex;
-  width: 100%;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
+  justify-content: center;
+  padding: 0.5rem;
+  width: 50%;
+
+  ${(props) => props.theme.media.phone} {
+    width: 100%;
+    justify-content: space-around;
+  }
 
   ${(props) => props.theme.media.tablet} {
     flex-direction: row;

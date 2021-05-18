@@ -1,34 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
-import LinkButton from '../../Components/NavLink';
-
-const NavWrapper = styled.nav`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  margin-top: 2rem;
-
-  ul {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    list-style: none;
-
-    li {
-      padding: 0 1rem;
-    }
-
-    li:not(:first-of-type) {
-      margin-top: 0.5rem;
-    }
-  }
-`;
+import NavLink from './NavLink';
+import { NavWrapper, NavLi, NavUL } from './Nav.styles';
 
 const NAV_LIST = [
-  { url: '/', title: 'logo' },
   {
     url: '/',
-    title: '첫 화면',
+    title: '처음으로',
   },
   {
     url: '/record',
@@ -39,13 +16,16 @@ const NAV_LIST = [
 const Nav: React.FC = () => {
   return (
     <NavWrapper>
-      <ul>
+      <NavUL>
+        <NavLi className='logo'>
+          <NavLink url='/' title='logo' />
+        </NavLi>
         {NAV_LIST.map((item) => (
-          <li key={item.title}>
-            <LinkButton url={item.url} title={item.title} />
-          </li>
+          <NavLi key={item.title}>
+            <NavLink url={item.url} title={item.title} />
+          </NavLi>
         ))}
-      </ul>
+      </NavUL>
     </NavWrapper>
   );
 };

@@ -14,7 +14,10 @@ import CommentContainer from './Page/RecordPage/section/Comment/CommentContainer
 
 const Container = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column-reverse;
+  ${(props) => props.theme.media.phone} {
+    flex-direction: row;
+  }
 `;
 
 function App() {

@@ -8,9 +8,8 @@ export const Wrapper = styled.div`
 `;
 
 export const LandingWrapper = styled(Wrapper)`
-  height: 90vh;
   width: 100%;
-
+  height: 80vh;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -26,6 +25,9 @@ export const LandingWrapper = styled(Wrapper)`
     border-radius: 5px;
   }
 
+  ${(props) => props.theme.media.phone} {
+    height: 90vh;
+  }
   ${(props) => props.theme.media.desktop} {
     min-width: 800px;
   }
@@ -38,7 +40,10 @@ export const SmallWrapper = styled(Wrapper)`
 `;
 
 export const PageWrapper = styled(Wrapper)`
-  height: 100vh;
+  height: 90vh;
+  ${(props) => props.theme.media.phone} {
+    height: 100vh;
+  }
 `;
 
 export const ButtonWrapper = styled.div`
