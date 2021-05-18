@@ -67,10 +67,7 @@ export const AuthorBook = styled.div`
 export const AuthorDetail = styled(AuthorBook)`
   color: ${(props) => props.theme.colors.ink50};
   margin: 0.3rem 0;
-
-  ${(props) => props.theme.media.phone} {
-    text-align: center;
-  }
+  text-align: center;
 `;
 
 export const ContainerButton = styled.button`
