@@ -1,11 +1,19 @@
 import styled from 'styled-components';
 
-export const Container = styled.section`
+export const SectionContainer = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+`;
+
+export const Container = styled.div`
+  width: 85%;
   display: grid;
   grid-template-rows: repeat(5, minmax(1fr, 1fr));
   grid-template-areas: 'txt' 'txt' 'img' 'img' 'img';
   background-color: ${(props) => props.theme.colors.body40};
-  margin: 3rem 2rem 4rem 2rem;
   max-width: 800px;
   border-radius: 50px;
 
