@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import P from '../../../Components/P';
@@ -39,13 +39,16 @@ const RecordModule: React.FC<Props> = ({
 
   const [isViewMore, setIsViewMore] = useState(false);
 
-  const showMore = () => {
+  const showMore = useCallback(() => {
     setIsViewMore(!isViewMore);
-  };
+  }, [isViewMore]);
 
-  const viewMoreDetail = (item: Book) => {
-    dispatch(getBookDetail(item));
-  };
+  const viewMoreDetail = useCallback(
+    (item: Book) => {
+      dispatch(getBookDetail(item));
+    },
+    [dispatch]
+  );
 
   return (
     <Container>

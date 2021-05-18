@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootReducerType } from '../../../reducer/store';
 import {
@@ -22,11 +22,11 @@ const DetailModule: React.FC = () => {
   const { data } = useSelector((state: RootReducerType) => state.detailReducer);
   const dispatch = useDispatch();
 
-  if (!data) return null;
+  const addNewComment = useCallback(() => {
+    if (data) dispatch(openModal(true, { book: data }));
+  }, [dispatch, data]);
 
-  const handleModal = () => {
-    dispatch(openModal(true, { book: data }));
-  };
+  if (!data) return null;
 
   return (
     <Container>
@@ -54,7 +54,7 @@ const DetailModule: React.FC = () => {
             사러가기
           </a>
         </Link>
-        <SaveComment onClick={handleModal}>감상평 남기기</SaveComment>
+        <SaveComment onClick={addNewComment}>감상평 남기기</SaveComment>
       </ButtonContainer>
     </Container>
   );

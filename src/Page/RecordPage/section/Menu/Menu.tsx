@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { CgClose, CgBandAid } from 'react-icons/cg';
 import { Container, Module } from './Menu.styles';
 import { useDispatch } from 'react-redux';
@@ -12,13 +12,13 @@ interface Prop {
 const Menu = ({ id }: Prop) => {
   const dispatch = useDispatch();
 
-  const modifyComment = () => {
+  const modifyComment = useCallback(() => {
     dispatch(openModal(true, { id }));
-  };
+  }, [dispatch, id]);
 
-  const deleteComment = () => {
+  const deleteComment = useCallback(() => {
     dispatch(removeComment(id));
-  };
+  }, [dispatch, id]);
 
   return (
     <Container>

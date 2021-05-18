@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { UpperWrapper } from '../../../Components/SideWrapper';
 import Input from '../../../Components/Input';
 import { useHistory, useLocation } from 'react-router';
@@ -15,9 +15,9 @@ const LandingTitle = () => {
   let history = useHistory();
   let { pathname } = useLocation();
 
-  const goBack = () => {
+  const goBack = useCallback(() => {
     history.goBack();
-  };
+  }, [history]);
 
   return (
     <UpperWrapper className={`${pathname !== '/' && 'goback'}`}>

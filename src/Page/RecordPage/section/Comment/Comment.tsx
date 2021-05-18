@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import StarBox from '../../../../Components/StarBox';
@@ -12,10 +12,6 @@ import { modifyComment } from '../../../../actions/record.action';
 const Comment = () => {
   const [comment, setComment] = useState('');
   const [rate, setRate] = useState(0);
-
-  const update = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setComment(event.target.value);
-  };
 
   const dispatch = useDispatch();
   const { modalPayload } = useSelector(
@@ -35,12 +31,19 @@ const Comment = () => {
     }
   }, [modalPayload, payload]);
 
-  const submit = () => {
+  const update = useCallback(
+    (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+      setComment(event.target.value);
+    },
+    []
+  );
+
+  const submit = useCallback(() => {
     if (modalPayload?.book) dispatch(addComment(comment, modalPayload.book));
     if (modalPayload?.id)
       dispatch(modifyComment(modalPayload.id, comment, rate));
     dispatch(openModal(false));
-  };
+  }, [modalPayload, dispatch, comment, rate]);
 
   return (
     <Container>
