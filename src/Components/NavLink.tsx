@@ -34,7 +34,6 @@ const LinkWrapper = styled.div`
   .icons {
     display: flex;
     font-weight: bold;
-    font-size: 2.5rem;
     color: ${(props) => props.theme.colors.ink50};
   }
 
@@ -42,13 +41,6 @@ const LinkWrapper = styled.div`
     font-weight: bold;
     color: ${(props) => props.theme.colors.ink50};
     display: none;
-
-    ${(props) => props.theme.media.desktopL} {
-      border: none;
-      display: flex;
-      margin-left: 1rem;
-      font-size: 1.5rem;
-    }
   }
 
   &.active {
@@ -58,6 +50,25 @@ const LinkWrapper = styled.div`
 
     span {
       color: ${(props) => props.theme.colors.primary50};
+    }
+  }
+
+  ${(props) => props.theme.media.phone} {
+    .icons {
+      font-size: 1.5rem;
+    }
+  }
+  ${(props) => props.theme.media.tablet} {
+    .icons {
+      font-size: 2rem;
+    }
+  }
+  ${(props) => props.theme.media.desktopL} {
+    span {
+      border: none;
+      display: flex;
+      margin-left: 1rem;
+      font-size: 1.5rem;
     }
   }
 `;

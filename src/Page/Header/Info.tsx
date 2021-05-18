@@ -6,10 +6,14 @@ import Heart from './Heart';
 const Container = styled.section`
   display: flex;
   width: 100%;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
+
+  ${(props) => props.theme.media.tablet} {
+    flex-direction: row;
+  }
 `;
 
 export interface Props {

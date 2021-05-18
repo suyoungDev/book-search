@@ -12,6 +12,11 @@ const HeartWrapper = styled.div`
   .icons {
     font-size: 1.4rem;
   }
+
+  margin: 1rem 0 0 0;
+  ${(props) => props.theme.media.tablet} {
+    margin: 0;
+  }
 `;
 
 const Count = styled.div`

@@ -56,7 +56,7 @@ const media = {
   desktopM: customMediaQuery(1240),
   desktop: customMediaQuery(1024),
   tablet: customMediaQuery(768),
-  phone: customMediaQuery(576),
+  phone: customMediaQuery(500),
 };
 
 export const lightTheme: DefaultTheme = {

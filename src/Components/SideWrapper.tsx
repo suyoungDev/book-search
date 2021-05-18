@@ -1,16 +1,19 @@
 import styled from 'styled-components';
 
 export const LeftWrapper = styled.header`
-  display: none;
-  height: 100vh;
   background-color: ${(props) => props.theme.colors.body60};
   border-right: 1px solid ${(props) => props.theme.colors.border};
+  display: none;
 
-  ${(props) => props.theme.media.tablet} {
+  ${(props) => props.theme.media.phone} {
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    width: 60px;
+  }
+  ${(props) => props.theme.media.tablet} {
     width: 150px;
   }
 

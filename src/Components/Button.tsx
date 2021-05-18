@@ -30,6 +30,9 @@ export const CirceButton = styled(Button)`
 
   &.record {
     margin: 0;
+    .icons {
+      color: ${(props) => props.theme.colors.ink40};
+    }
   }
 `;
 
