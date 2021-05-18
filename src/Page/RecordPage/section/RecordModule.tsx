@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import P from '../../../Components/P';
 import { Row } from '../../../Components/Row';
@@ -13,6 +14,9 @@ import {
 import { RecordBar } from '../../DetailPage/module/DetailModule.styles';
 import ViewMenuButton from './ViewMenuButton';
 import PubDateContainer from '../../DetailPage/module/PubDateContainer';
+import { StyledLink } from '../../../Components/StyledLink';
+import { Book } from '../../../actions/book.actions.types';
+import { getBookDetail } from '../../../actions/detail.action';
 
 interface Props {
   title: string;
@@ -20,6 +24,7 @@ interface Props {
   image: string;
   createdAt: Date;
   id: string;
+  bookInfo: Book;
 }
 
 const RecordModule: React.FC<Props> = ({
@@ -28,22 +33,39 @@ const RecordModule: React.FC<Props> = ({
   image,
   createdAt,
   id,
+  bookInfo,
 }) => {
+  const dispatch = useDispatch();
+
   const [isViewMore, setIsViewMore] = useState(false);
 
   const showMore = () => {
     setIsViewMore(!isViewMore);
   };
 
+  const viewMoreDetail = (item: Book) => {
+    dispatch(getBookDetail(item));
+  };
+
   return (
     <Container>
-      <ImgBook source={image} />
+      <StyledLink
+        to={`/book/${bookInfo.isbn}`}
+        onClick={() => viewMoreDetail(bookInfo)}
+      >
+        <ImgBook source={image} />
+      </StyledLink>
       <Wrapper>
         <Row className='al-fs js-sb'>
           <Row className='al-ct'>
-            <RecordTitleBook>
-              <P text={title} />
-            </RecordTitleBook>
+            <StyledLink
+              to={`/book/${bookInfo.isbn}`}
+              onClick={() => viewMoreDetail(bookInfo)}
+            >
+              <RecordTitleBook>
+                <P text={title} />
+              </RecordTitleBook>
+            </StyledLink>
             <RecordBar />
             <PubDateContainer createdAt={createdAt} />
           </Row>
