@@ -7,29 +7,33 @@ import {
   FETCH,
   LOAD_MORE_SUCCESS,
 } from './book.actions.types';
-import KEY from '../key';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const URL = '/v1/search/book.json';
 
 let cancel: () => void;
 
+const instance = axios.create({
+  headers: {
+    'X-Naver-Client-Id': process.env.REACT_APP_CLIENT_ID,
+    'X-Naver-Client-Secret': process.env.REACT_APP_CLIENT_SERVER,
+  },
+});
+
 export const fetchBooks =
   (query: string, page = 1) =>
   async (dispatch: Dispatch<fetchDispatchType>) => {
+    if (!query) return;
     dispatch({ type: FETCH });
 
     cancel && cancel();
-    if (!query) return;
 
     try {
       const {
         data: { items, total },
-      } = await axios.get(URL, {
+      } = await instance.get(URL, {
         params: { query, display: 8 * page, start: page },
-        headers: {
-          'X-Naver-Client-Id': KEY.CLIENT_ID,
-          'X-Naver-Client-Secret': KEY.CLIENT_SERVER,
-        },
         cancelToken: new axios.CancelToken((c) => (cancel = c)),
       });
 
