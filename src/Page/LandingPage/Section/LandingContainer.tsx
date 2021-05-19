@@ -4,7 +4,7 @@ import { RootReducerType } from '../../../reducer/store';
 
 import { SmallWrapper } from '../../../Components/Wrapper';
 import BookStore from './BookStore';
-import LoadingList from '../../SearchPage/module/LoadingList';
+import LoadingList from '../../../Components/LoadingList';
 import SearchPage from '../../SearchPage/SearchPage';
 
 const LandingContainer: React.FC = () => {

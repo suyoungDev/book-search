@@ -6,7 +6,7 @@ import {
   DummyAuthor,
   DummyDescription,
   DummyContainer,
-} from './SearchModule.styles';
+} from '../Page/SearchPage/module/SearchModule.styles';
 
 const LoadingContainer: React.FC = () => {
   return (

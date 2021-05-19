@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import MainPage from '../../Components/MainPage';
-import LoadingList from '../SearchPage/module/LoadingList';
+import LoadingList from '../../Components/LoadingList';
 const RecordContainer = React.lazy(() => import('./RecordContainer'));
 
 const RecordPage = () => {
