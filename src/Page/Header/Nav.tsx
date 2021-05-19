@@ -5,11 +5,11 @@ import { NavWrapper, NavLi, NavUL } from './Nav.styles';
 const NAV_LIST = [
   {
     url: '/',
-    title: '처음으로',
+    title: '검색',
   },
   {
     url: '/record',
-    title: '기록',
+    title: '감상',
   },
 ];
 

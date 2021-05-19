@@ -1,7 +1,8 @@
-import SearchList from './SearchList';
+import React, { Suspense } from 'react';
 import { useSelector } from 'react-redux';
 import { RootReducerType } from '../../reducer/store';
 import LoadingList from './module/LoadingList';
+const SearchList = React.lazy(() => import('./SearchList'));
 
 const SearchResultContainer = () => {
   const { loadMore } = useSelector(
@@ -10,7 +11,9 @@ const SearchResultContainer = () => {
 
   return (
     <>
-      <SearchList />
+      <Suspense fallback={<LoadingList />}>
+        <SearchList />
+      </Suspense>
       {loadMore && <LoadingList />}
     </>
   );

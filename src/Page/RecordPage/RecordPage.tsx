@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import MainPage from '../../Components/MainPage';
-import RecordContainer from './RecordContainer';
+import LoadingList from '../SearchPage/module/LoadingList';
+const RecordContainer = React.lazy(() => import('./RecordContainer'));
 
 const RecordPage = () => {
   return (
     <MainPage>
-      <RecordContainer />
+      <Suspense fallback={<LoadingList />}>
+        <RecordContainer />
+      </Suspense>
     </MainPage>
   );
 };

@@ -82,6 +82,7 @@ const BookReducer = (
     case CANCLE_FETCH:
       return {
         ...state,
+        isError: false,
         data: [],
         isLoading: false,
         success: false,
