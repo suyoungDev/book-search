@@ -23,6 +23,7 @@ const Input: React.FC<Props> = ({ placeholder }) => {
   }, [query, dispatch]);
 
   const onChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(cancleFetch());
     setQuery(event.target.value);
   }, []);
 
