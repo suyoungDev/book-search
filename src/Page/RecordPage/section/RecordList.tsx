@@ -19,6 +19,7 @@ const RecordList: React.FC<Prop> = ({ payload }) => {
             createdAt={item.createdAt}
             id={item.id}
             bookInfo={item.bookInfo}
+            rate={item.rate}
           />
         </li>
       ))}

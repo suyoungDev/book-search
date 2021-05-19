@@ -19,7 +19,7 @@ export const modifyComment = (id: string, comment: string, rate: number) => ({
 });
 
 export const addComment =
-  (comment: string, bookInfo: Book, rate = 0) =>
+  (comment: string, bookInfo: Book, rate: number = 0) =>
   (dispatch: Dispatch<commentDispatchType>) => {
     const id: string = Math.random().toString(36).substr(2, 9);
 

@@ -20,8 +20,14 @@ export const RowStars = styled.div`
 
   align-items: center;
   justify-content: center;
+`;
 
+export const RatedInputLabel = styled(InputLabel)`
   .icons {
-    color: ${(props) => props.theme.colors.primary50};
+    font-size: 1.1rem;
   }
+`;
+
+export const RatedRowStars = styled(RowStars)`
+  justify-content: flex-start;
 `;

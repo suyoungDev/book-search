@@ -26,8 +26,11 @@ const Comment = () => {
 
     if (idToChange) {
       const originalComment = payload.filter((item) => item.id === idToChange);
-      const item = originalComment[0].comment;
-      setComment(item);
+      const OriginalText = originalComment[0].comment;
+      setComment(OriginalText);
+
+      const originalRate = originalComment[0].rate;
+      setRate(originalRate);
     }
   }, [modalPayload, payload]);
 
@@ -43,7 +46,8 @@ const Comment = () => {
   };
 
   const submit = useCallback(() => {
-    if (modalPayload?.book) dispatch(addComment(comment, modalPayload.book));
+    if (modalPayload?.book)
+      dispatch(addComment(comment, modalPayload.book, rate));
     if (modalPayload?.id)
       dispatch(modifyComment(modalPayload.id, comment, rate));
     dispatch(openModal(false));

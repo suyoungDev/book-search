@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 
 import P from '../../../Components/P';
 import { Row } from '../../../Components/Row';
-import StarBox from '../../../Components/StarBox';
 import {
   ImgBook,
   Container,
@@ -15,8 +14,10 @@ import { RecordBar } from '../../DetailPage/module/DetailModule.styles';
 import ViewMenuButton from './ViewMenuButton';
 import PubDateContainer from '../../DetailPage/module/PubDateContainer';
 import { StyledLink } from '../../../Components/StyledLink';
+
 import { Book } from '../../../actions/book.actions.types';
 import { getBookDetail } from '../../../actions/detail.action';
+import RatedStarBox from '../../../Components/RatedStarBox';
 
 interface Props {
   title: string;
@@ -25,6 +26,7 @@ interface Props {
   createdAt: Date;
   id: string;
   bookInfo: Book;
+  rate: number;
 }
 
 const RecordModule: React.FC<Props> = ({
@@ -33,6 +35,7 @@ const RecordModule: React.FC<Props> = ({
   image,
   createdAt,
   id,
+  rate,
   bookInfo,
 }) => {
   const dispatch = useDispatch();
@@ -74,7 +77,7 @@ const RecordModule: React.FC<Props> = ({
           </Row>
           <ViewMenuButton id={id} />
         </Row>
-        <StarBox />
+        <RatedStarBox rate={rate} />
         <RecordDescription
           className={`${isViewMore && 'active'}`}
           onClick={showMore}
