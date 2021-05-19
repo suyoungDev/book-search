@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
@@ -19,9 +19,9 @@ const NavLink: React.FC<Props> = ({ url, title }) => {
     exact: true,
   });
 
-  const goHome = () => {
+  const goHome = useCallback(() => {
     dispatch(cancleFetch());
-  };
+  }, [dispatch]);
 
   if (title === 'logo') {
     return (
