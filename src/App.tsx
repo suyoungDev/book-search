@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme, GlobalStyles } from './theme';
 import { IconContext } from 'react-icons';
@@ -21,19 +21,19 @@ const Container = styled.div`
 `;
 
 function App() {
-  const [theme, setTheme] = React.useState('light');
+  const [theme, setTheme] = React.useState(true);
 
-  const themeToggler = () => {
-    theme === 'light' ? setTheme('dark') : setTheme('light');
-  };
+  const themeToggler = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setTheme(e.currentTarget.checked);
+  }, []);
 
   return (
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+    <ThemeProvider theme={theme ? lightTheme : darkTheme}>
       <IconContext.Provider value={{ className: 'icons' }}>
         <GlobalStyles />
         <Container>
           <CommentContainer />
-          <Header toggle={themeToggler} />
+          <Header toggle={themeToggler} theme={theme} />
           <Switch>
             <Route exact path='/' component={LandingPage} />
             <Route exact path='/book/:id' component={DetailPage} />

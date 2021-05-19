@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Toggle from './Toggle';
 import Heart from './Heart';
+import { Props } from './Toggle';
 
 const Container = styled.section`
   display: flex;
@@ -14,21 +15,19 @@ const Container = styled.section`
   ${(props) => props.theme.media.phone} {
     width: 100%;
     justify-content: space-around;
+    margin-bottom: 0.7rem;
   }
 
   ${(props) => props.theme.media.tablet} {
     flex-direction: row;
+    margin-bottom: 1rem;
   }
 `;
 
-export interface Props {
-  toggle: (e: React.MouseEvent<HTMLButtonElement>) => void;
-}
-
-const Info: React.FC<Props> = ({ toggle }) => {
+const Info: React.FC<Props> = ({ toggle, theme }) => {
   return (
     <Container>
-      <Toggle toggle={toggle} />
+      <Toggle toggle={toggle} theme={theme} />
       <Heart />
     </Container>
   );
