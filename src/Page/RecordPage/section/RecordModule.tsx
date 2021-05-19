@@ -40,8 +40,8 @@ const RecordModule: React.FC<Props> = ({
   const [isViewMore, setIsViewMore] = useState(false);
 
   const showMore = useCallback(() => {
-    setIsViewMore(!isViewMore);
-  }, [isViewMore]);
+    setIsViewMore((prev) => !prev);
+  }, []);
 
   const viewMoreDetail = useCallback(
     (item: Book) => {
@@ -86,4 +86,4 @@ const RecordModule: React.FC<Props> = ({
   );
 };
 
-export default RecordModule;
+export default React.memo(RecordModule);

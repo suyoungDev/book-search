@@ -22,7 +22,7 @@ export const Module = styled.div`
   display: flex;
   align-items: center;
   font-size: 0.85rem;
-
+  cursor: pointer;
   .icons {
     margin-right: 0.5rem;
   }

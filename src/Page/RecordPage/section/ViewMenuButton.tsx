@@ -22,23 +22,29 @@ const ViewMenuButton = ({ id }: Prop) => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  const open = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const open = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     setIsOpen(true);
-  };
+  }, []);
 
-  const close = () => {
+  const close = useCallback(() => {
     setIsOpen(false);
-  };
-
-  const escapeMenu = useCallback((event: KeyboardEvent) => {
-    if (event.key === 'Escape') close();
   }, []);
 
-  const closeMenu = useCallback((event) => {
-    const target: HTMLDivElement = event.target;
-    if (!menuRef.current?.contains(target)) close();
-  }, []);
+  const escapeMenu = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.key === 'Escape') close();
+    },
+    [close]
+  );
+
+  const closeMenu = useCallback(
+    (event) => {
+      const target: HTMLDivElement = event.target;
+      if (!menuRef.current?.contains(target)) close();
+    },
+    [close]
+  );
 
   useEffect(() => {
     document.addEventListener('mousedown', closeMenu);
@@ -61,4 +67,4 @@ const ViewMenuButton = ({ id }: Prop) => {
   );
 };
 
-export default ViewMenuButton;
+export default React.memo(ViewMenuButton);

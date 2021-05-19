@@ -26,4 +26,4 @@ const RecordList: React.FC<Prop> = ({ payload }) => {
   );
 };
 
-export default RecordList;
+export default React.memo(RecordList);

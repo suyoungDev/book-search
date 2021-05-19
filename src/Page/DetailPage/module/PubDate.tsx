@@ -55,4 +55,4 @@ const PubDate: React.FC<Props> = ({ pubdate, ...props }) => {
   );
 };
 
-export default PubDate;
+export default React.memo(PubDate);

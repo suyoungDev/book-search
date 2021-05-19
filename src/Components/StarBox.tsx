@@ -18,4 +18,4 @@ const StarBox = ({ ...props }) => {
   );
 };
 
-export default StarBox;
+export default React.memo(StarBox);

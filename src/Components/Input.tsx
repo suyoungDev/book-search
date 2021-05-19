@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { CgClose, CgSearch } from 'react-icons/cg';
 
@@ -22,19 +22,22 @@ const Input: React.FC<Props> = ({ placeholder }) => {
     }
   }, [query, dispatch]);
 
-  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
-  };
+  }, []);
 
-  const submit = (event: React.FormEvent<HTMLFormElement>) => {
-    if (event) event.preventDefault();
-    dispatch(fetchBooks(query));
-  };
+  const submit = useCallback(
+    (event: React.FormEvent<HTMLFormElement>) => {
+      if (event) event.preventDefault();
+      dispatch(fetchBooks(query));
+    },
+    [dispatch, query]
+  );
 
-  const cancel = () => {
+  const cancel = useCallback(() => {
     setQuery('');
     dispatch(cancleFetch());
-  };
+  }, [dispatch]);
 
   return (
     <form onSubmit={submit}>
@@ -60,4 +63,4 @@ const Input: React.FC<Props> = ({ placeholder }) => {
   );
 };
 
-export default Input;
+export default React.memo(Input);

@@ -25,4 +25,4 @@ const PubDateContainer: React.FC<Prop> = ({ createdAt }) => {
   return <PubDate pubdate={pubDate} />;
 };
 
-export default PubDateContainer;
+export default React.memo(PubDateContainer);

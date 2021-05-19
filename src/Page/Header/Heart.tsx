@@ -25,4 +25,4 @@ const Heart = () => {
   );
 };
 
-export default Heart;
+export default React.memo(Heart);

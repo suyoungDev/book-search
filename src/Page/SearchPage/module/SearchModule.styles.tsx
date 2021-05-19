@@ -193,6 +193,7 @@ export const RecordDescription = styled(Description)`
       overflow: visible;
     }
   }
+  cursor: pointer;
 `;
 
 export const Wrapper = styled.div`
