@@ -33,13 +33,29 @@ const PubDate: React.FC<Props> = ({ pubdate, ...props }) => {
     day: '',
   });
 
-  const settingDate = useCallback((pubDay: string) => {
-    let date = pubDay.split('');
-    const year = date.splice(0, 4).splice(2, 2).join('');
-    const month = date.splice(0, 2).join('');
-    const day = date.join('');
+  const settingDate = useCallback((pubDate: string) => {
+    let pubday = Number(pubDate);
+    let day: number | string = pubday % 100;
+    if (day < 10) day = '0' + day;
 
-    setDate({ year, month, day });
+    pubday = Math.trunc(pubday / 100);
+    let month: number | string = pubday % 100;
+    if (month < 10) month = '0' + month;
+
+    pubday = Math.trunc(pubday / 100);
+    let year: number | string = pubday % 100;
+    if (year < 10) year = '0' + year;
+
+    day = day.toString();
+    month = month.toString();
+    year = year.toString();
+
+    if (
+      typeof day === 'string' &&
+      typeof month === 'string' &&
+      typeof year === 'string'
+    )
+      setDate({ year, month, day });
   }, []);
 
   useLayoutEffect(() => {
