@@ -3,14 +3,14 @@ import styled from 'styled-components';
 export const NavWrapper = styled.nav`
   display: flex;
   flex-direction: row;
-  width: 100%;
   align-items: center;
+  width: 100%;
 
   ${(props) => props.theme.media.phone} {
-    align-items: flex-end;
-    justify-content: flex-end;
+    justify-content: center;
   }
   ${(props) => props.theme.media.desktop} {
+    justify-content: flex-end;
     margin-right: 2rem;
   }
 `;

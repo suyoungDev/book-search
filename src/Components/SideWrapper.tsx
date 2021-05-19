@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const LeftWrapper = styled.header`
   background-color: ${(props) => props.theme.colors.body60};
   display: flex;
+
   border-top: 1px solid ${(props) => props.theme.colors.border};
   height: 10vh;
 

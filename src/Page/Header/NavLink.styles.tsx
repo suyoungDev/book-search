@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 
 export const StyledLink = styled(Link)`
   display: flex;
+
   text-decoration: none;
-  padding: 0.7rem;
+  padding: 0.4rem;
   border-radius: 5rem;
   margin: 0;
 
