@@ -14,7 +14,7 @@ const LandingContainer: React.FC = () => {
 
   return (
     <>
-      {isLoading && <LoadingList />}
+      {!success && isLoading && <LoadingList />}
       {success && <SearchPage />}
       {!isLoading && success && !data && (
         <SmallWrapper>데이터가 없습니다.</SmallWrapper>
