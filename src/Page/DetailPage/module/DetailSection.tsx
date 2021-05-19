@@ -22,8 +22,8 @@ const DetailSection: React.FC<Prop> = ({ price, pubdate, publisher }) => {
         )}
         <span>출판사</span>
       </SectionWrapper>
-      <Bar />
-      <SectionWrapper>
+      <Bar className='pubdate' />
+      <SectionWrapper className='pubdate'>
         <PubDate pubdate={pubdate} />
         <span>출판일</span>
       </SectionWrapper>

@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState, useCallback } from 'react';
 import styled from 'styled-components';
 
 interface ContainerProp {
@@ -33,18 +33,18 @@ const PubDate: React.FC<Props> = ({ pubdate, ...props }) => {
     day: '',
   });
 
-  const settingDate = (pubDay: string) => {
+  const settingDate = useCallback((pubDay: string) => {
     let date = pubDay.split('');
-    const year = date.splice(0, 4).join('');
+    const year = date.splice(0, 4).splice(2, 2).join('');
     const month = date.splice(0, 2).join('');
     const day = date.join('');
 
     setDate({ year, month, day });
-  };
+  }, []);
 
   useLayoutEffect(() => {
     settingDate(pubdate);
-  }, [pubdate]);
+  }, [settingDate, pubdate]);
 
   return (
     <Container {...props}>

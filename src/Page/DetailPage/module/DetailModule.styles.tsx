@@ -60,6 +60,13 @@ export const Bar = styled.div`
   height: 100%;
   width: 1px;
   border-right: 1px solid ${(props) => props.theme.colors.ink20};
+
+  &.pubdate {
+    display: none;
+    ${(props) => props.theme.media.tablet} {
+      display: flex;
+    }
+  }
 `;
 
 export const RecordBar = styled(Bar)`
@@ -89,6 +96,13 @@ export const SectionWrapper = styled.div`
   span {
     font-size: 0.6rem;
     color: ${(props) => props.theme.colors.ink30};
+  }
+
+  &.pubdate {
+    display: none;
+    ${(props) => props.theme.media.tablet} {
+      display: flex;
+    }
   }
 `;
 
