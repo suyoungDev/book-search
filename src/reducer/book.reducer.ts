@@ -92,6 +92,10 @@ const BookReducer = (
     case NEW_FETCH:
       return {
         ...state,
+        isError: false,
+        data: [],
+        isLoading: false,
+        success: false,
         pageNumber: 1,
       };
 

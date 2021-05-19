@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { CgClose, CgSearch } from 'react-icons/cg';
 
 import { fetchBooks } from '../actions/book.actions';
-import { cancleFetch, newFetch } from '../actions/book.actions.types';
+import { newFetch } from '../actions/book.actions.types';
 import { InputContainer, InputBox, ButtonBox } from './Input.styles';
 import { CircleReverseButton } from './Button';
 
@@ -23,7 +23,6 @@ const Input: React.FC<Props> = ({ placeholder }) => {
   }, [query, dispatch]);
 
   const onChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(cancleFetch());
     setQuery(event.target.value);
   }, []);
 
@@ -37,8 +36,7 @@ const Input: React.FC<Props> = ({ placeholder }) => {
 
   const cancel = useCallback(() => {
     setQuery('');
-    dispatch(cancleFetch());
-  }, [dispatch]);
+  }, []);
 
   return (
     <form onSubmit={submit}>
