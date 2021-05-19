@@ -38,6 +38,10 @@ const Comment = () => {
     []
   );
 
+  const rating = (ratingValue: number) => {
+    setRate(ratingValue);
+  };
+
   const submit = useCallback(() => {
     if (modalPayload?.book) dispatch(addComment(comment, modalPayload.book));
     if (modalPayload?.id)
@@ -54,7 +58,7 @@ const Comment = () => {
         value={comment}
         onChange={update}
       />
-      <StarBox className='al-ct js-ct' />
+      <StarBox rate={rate} rating={rating} />
       <ButtonWrapper onClick={submit}>
         <OkButton>기록</OkButton>
       </ButtonWrapper>

@@ -19,9 +19,3 @@ export const Row = styled.div`
     justify-content: space-between;
   }
 `;
-
-export const RowStars = styled(Row)`
-  .icons {
-    color: ${(props) => props.theme.colors.primary50};
-  }
-`;
