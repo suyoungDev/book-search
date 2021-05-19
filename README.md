@@ -1,6 +1,6 @@
-# 소개
+# 프로젝트 소개
 
-- **독서 및 기록 앱**
+- **독서 기록 앱**
 - 네이버 open api를 활용한다.
 - 책에 별점과 감상평을 남길 수 있다.
 - 책의 주요 정보를 확인할 수 있다.
@@ -16,40 +16,136 @@
 
 ## 작업 기간
 
-- 21.05. ~ 21.05.
+- 21.04.22 ~ 21.05.20
 - 1인 프로젝트
 
 # 주요 기능
 
-- 검색어 자동 완성
-- 무한 스크롤
-
 ## 사용된 기술 & 주요 라이브러리
 
 - React
-- redux, redux thunk
+- redux, redux-thunk
 - react-router-dom
 - axios
 - typescript
 - styled-components
+- **responsive design**
+
+## 검색어 자동 완성
+
+![auto-search](read-me-image/auto_search.gif)
+
+## 무한 스크롤
+
+![infinite](read-me-image/infinite_scroll.gif)
+
+## light / dark theme
+
+![theme](read-me-image/theme.gif)
+
+## 기타
+
+### 전반적인 ux flow
+
+![overall](read-me-image/overall.gif)
+
+### 감상평 수정
+
+![edit](read-me-image/edit.gif)
+
+- 감상평, 별점을 수정할 수 있다.
+
+### 바깥을 클릭하여 닫기
+
+![click_outside](read-me-image/click_outside.gif)
 
 # 주요 코드
 
-## 메뉴창 바깥을 클릭하여 메뉴창 꺼지기
+## 1. 날짜 포맷 변환 코드
+
+- 첫번째 함수:
+
+  - `new Date()`로 생성한 날짜의 포맷을
+  - `YYYYMMDD:string`로 포맷 변환
+
+- 두번째 함수:
+
+  - `YYYYMMDD:string`의 포맷을 `YY년 MM월 DD일`로 포맷 변환
+
+- 두개로 나눠서 제작한 이유
+  - `naver open api`로 가져오는 `pubdate`변수가 `string 타입`임
+  - `감상평`의 작성시간은 `new Date()`로 만들었음
+  - 따라서 두개로 나누는게 관리하기 편하고 확장성면에서 좋다고 판단함
+
+### 첫번째 함수
+
+```js
+useEffect(() => {
+  const date: number = createdAt.getDate();
+  let month: number | string = createdAt.getMonth() + 1;
+  const year: number = createdAt.getFullYear();
+
+  if (month < 10) month = '0' + month;
+
+  const fullDate: string = '' + year + month + date;
+
+  setPubDate(fullDate);
+}, [createdAt]);
+```
+
+### 두번째 함수
+
+```js
+const settingDate = useCallback((pubDate: string) => {
+  let date = pubDate.split('');
+  const year = date.splice(0, 4).splice(2, 2).join('');
+  const month = date.splice(0, 2).join('');
+  const day = date.join('');
+
+  setDate({ year, month, day });
+}, []);
+```
+
+#### 다른 버젼
+
+- 위의 버젼은 시간복잡도가 `On`이지만
+- 아래의 버젼은 시간복잡도가 `O1`이다.
+- 하지만 더 코드양이 더 길고, 뭔가 쉽게 읽혀지지 않는 것 같다. 🤔
+- 이런 경우는 어떤걸 쓰는게 좋을지 모르겠다...
+
+```js
+const settingDate = useCallback((pubDate: string) => {
+  let pubday = Number(pubDate);
+  let day: number | string = pubday % 100;
+  if (day < 10) day = '0' + day;
+
+  pubday = Math.trunc(pubday / 100);
+  let month: number | string = pubday % 100;
+  if (month < 10) month = '0' + month;
+
+  pubday = Math.trunc(pubday / 100);
+  let year: number | string = pubday % 100;
+  if (year < 10) year = '0' + year;
+
+  day = day.toString();
+  month = month.toString();
+  year = year.toString();
+
+  if (
+    typeof day === 'string' &&
+    typeof month === 'string' &&
+    typeof year === 'string'
+  )
+    setDate({ year, month, day });
+}, []);
+```
+
+## 2. 메뉴창 바깥을 클릭하여 메뉴창 꺼지기
 
 ```JS
-const ViewMenuButton = ({ id }: Prop) => {
-  const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  const open = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
-    setIsOpen(true);
-  };
-
-  const close = () => {
-    setIsOpen(false);
-  };
+  // ...
 
   // 키보드의 Escape 를 누르면 꺼짐
   const escapeMenu = useCallback((event: KeyboardEvent) => {
@@ -70,27 +166,15 @@ const ViewMenuButton = ({ id }: Prop) => {
       document.removeEventListener('keydown', escapeMenu);
     };
   }, [escapeMenu, closeMenu]);
-
-  return (
-    <>
-      <CirceButton className='record' onClick={open} title='추가메뉴'>
-        <IoIosMore />
-      </CirceButton>
-      <MenuContainer className={`${isOpen && 'active'}`} ref={menuRef}>
-        <Menu id={id} />
-      </MenuContainer>
-    </>
-  );
-};
 ```
 
-## 무한 스크롤
+## 3. 무한 스크롤
 
 - 마지막 node가 보일 때, (`IntersectionObserver`사용하여 판별)
--
+- 검색을 더 하도록 함
 
 ```js
-  const observer = useRef<IntersectionObserver | null>(null);
+  const observer = useRef<IntersectionObserver>(null);
 
   const lastElement = useCallback(
     (node) => {
@@ -133,7 +217,7 @@ const ViewMenuButton = ({ id }: Prop) => {
   );
 ```
 
-## 모달의 두가지 기능(추가, 수정)
+## 4. 모달의 두가지 기능(추가, 수정)
 
 ### 감상평 추가인지 기존 감상평의 수정인지 판별
 
@@ -154,37 +238,29 @@ const modifyComment = useCallback(() => {
 }, [dispatch, id]);
 ```
 
-- 코멘트 컴포넌트에서 `modal.reducer`을 가져와서 가지고있는게 `book`인지 `id`인지 확인 후, 모달을 닫음
+- 코멘트 컴포넌트에서 `modal.reducer`을 가져와서 가지고있는게 `book`인지 `id`인지 확인 후, `payload`를 전달함
 
 ```js
-const Comment = () => {
-  const [comment, setComment] = useState('');
-  const [rate, setRate] = useState(0);
+const { modalPayload } = useSelector(
+  (state: RootReducerType) => state.modalReducer
+);
+const { payload } = useSelector(
+  (state: RootReducerType) => state.recordReducer
+);
 
-  const dispatch = useDispatch();
+const submit = useCallback(() => {
+  // 새로운 감상평 추가일 경우
+  if (modalPayload?.book) dispatch(addComment(comment, modalPayload.book));
 
-  const { modalPayload } = useSelector(
-    (state: RootReducerType) => state.modalReducer
-  );
-  const { payload } = useSelector(
-    (state: RootReducerType) => state.recordReducer
-  );
+  // 기존 감상평 수정일 경우
+  if (modalPayload?.id) dispatch(modifyComment(modalPayload.id, comment, rate));
 
-  const submit = useCallback(() => {
-    // 새로운 감상평 추가일 경우
-    if (modalPayload?.book) dispatch(addComment(comment, modalPayload.book));
-
-    // 기존 감상평 수정일 경우
-    if (modalPayload?.id)
-      dispatch(modifyComment(modalPayload.id, comment, rate));
-
-    // 모달 창 닫기
-    dispatch(openModal(false));
-  }, [modalPayload, dispatch, comment, rate]);
-
+  // 모달 창 닫기
+  dispatch(openModal(false));
+}, [modalPayload, dispatch, comment, rate]);
 ```
 
-## 검색 액션
+## 5. 검색 액션
 
 ```js
 const URL = '/v1/search/book.json';
@@ -240,67 +316,34 @@ export const fetchBooks =
 
 # 문제 해결 경험
 
-## 무한 스크롤을 리덕스로 만들 때
+## 검색어를 변경해도 기존의 스크롤위치때문에 fetch가 더 많이 되는 버그
 
 ### 원인
 
-- `초기 검색`인지 `추가 검색`인지 판별이 필요
+- 무한스크롤은 스크롤위치에 의해 fetch가 더 됨
+- 스크롤을 내려서 검색 결과가 `기존 검색결과 갯수인 8개` 보다 더 많을 때,
+- 검색어를 수정해도 기존의 스크롤 위치에 영향을 받아서 _`8개` 보다 많은 검색결과가 도출됨_
+
+### 해결 시도
+
+- 매 검색마다 `window.scroll(0,0)`으로 스크롤을 올리려 하였으나 해결되지 못함
 
 ### 해결
 
-- 다양한 케이스에 해당하는 `action type`을 생성하여 적용함
+- `input`의 값이 update 될 때마다, 기존 검색결과를 초기화함
 
 ```js
-const BookReducer = (
-  state = initialState,
-  action: fetchDispatchType
-): InitialState => {
-  switch (action.type) {
-    case FETCH:
-    // ... 초기 검색 용
-
-    case FETCH_FAIL:
-    // ... 검색 실패
-
-    case FETCH_SUCCESS:
-    // ... 검색 성공 시
-
-    case LOAD_MORE_DATA:
-    // ... 추가 검색 (무한 스크롤)
-
-    case LOAD_MORE_SUCCESS:
-    // ...
-
-    case CANCLE_FETCH:
-    // ...
-
-    case NEW_FETCH:
-    // ... 검색어를 달리 해서 새로 검색할 경우
+useEffect(() => {
+  if (query.length) {
+    dispatch(newFetch()); // 기존 검색 결과 초기화
+    dispatch(fetchBooks(query, 1)); // 검색
   }
-};
+}, [query, dispatch]);
+
+const onChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+  setQuery(event.target.value);
+}, []);
 ```
-
-## 검색어를 변경할 때 스크롤 위치가 수정되지않는 버그로 인한 추가 검색이 되는 버그
-
-### 문제
-
-- 다른 검색어로 검색할 때, 기본 검색양이 8개이지만, 스크롤 위치에 따라 8개 이상의 검색결과가 나옴
-
-### 원인
-
-- 검색어를 변경하여도, 스크롤 위치가 유지됨
-
-### 해결
-
-#### 방법1)
-
-- 자료구조 `stack`방식을 사용하여, 이전 검색어와 다른 검색어일 경우
-  `window.scroll(0,0)`으로 스크롤을 올리려 하였으나 안됨
-- 근데 이거 적용위치가 달라서 그런거 아닌가 몰라 🤔 다른 컴포넌트에다 하면 될지도...?
-
-### 방법2)
-
-아직 안해봄~~~~
 
 ## 모달에 다양한 방법을 시도
 
