@@ -10,7 +10,9 @@ import {
 import dotenv from 'dotenv';
 dotenv.config();
 
-const URL = '/v1/search/book.json';
+const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
+
+const URL = `${PROXY}/v1/search/book.json`;
 
 let cancel: () => void;
 
