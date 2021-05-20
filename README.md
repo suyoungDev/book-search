@@ -7,7 +7,7 @@
 
 ## 배포
 
-[**사용해보기**](https://sharp-hopper-d20800.netlify.app/)
+[**사용해보기**](https://mocha-book-search.netlify.app/)
 
 ## 목적
 
