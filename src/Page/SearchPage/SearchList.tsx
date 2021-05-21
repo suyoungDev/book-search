@@ -3,23 +3,15 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { RootReducerType } from '../../reducer/store';
 import { loadMoreData } from '../../actions/book.actions.types';
-import { fetchBooks } from '../../actions/book.actions';
+import { searchBooks } from '../../actions/book.actions';
 
 import { ListContainer } from './SearchList.styles';
 import SearchModuleContainer from './module/SearchModuleContainer';
 
 const SearchList: React.FC = () => {
-  const [searchQuery, setSearchQuery] = useState('');
   const { data, isLoading, hasMore, query, pageNumber } = useSelector(
     (state: RootReducerType) => state.bookReducer
   );
-
-  useEffect(() => {
-    if (query !== searchQuery) {
-      setSearchQuery(query);
-      window.scrollTo(0, 0);
-    }
-  }, [query, searchQuery]);
 
   const dispatch = useDispatch();
   const observer = useRef<IntersectionObserver | null>(null);
@@ -31,7 +23,7 @@ const SearchList: React.FC = () => {
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && hasMore) {
           dispatch(loadMoreData());
-          dispatch(fetchBooks(query, pageNumber));
+          dispatch(searchBooks(query, pageNumber));
         }
       });
       if (node) observer.current.observe(node);

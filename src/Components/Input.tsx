@@ -2,10 +2,10 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { CgClose, CgSearch } from 'react-icons/cg';
 
-import { fetchBooks } from '../actions/book.actions';
-import { newFetch } from '../actions/book.actions.types';
+import { searchBooks } from '../actions/book.actions';
 import { InputContainer, InputBox, ButtonBox } from './Input.styles';
 import { CircleReverseButton } from './Button';
+import { cancleFetch } from '../actions/book.actions.types';
 
 interface Props {
   placeholder?: string;
@@ -17,8 +17,8 @@ const Input: React.FC<Props> = ({ placeholder }) => {
 
   useEffect(() => {
     if (query.length) {
-      dispatch(newFetch());
-      dispatch(fetchBooks(query, 1));
+      dispatch(cancleFetch());
+      dispatch(searchBooks(query, 1));
     }
   }, [query, dispatch]);
 
@@ -29,7 +29,7 @@ const Input: React.FC<Props> = ({ placeholder }) => {
   const submit = useCallback(
     (event: React.FormEvent<HTMLFormElement>) => {
       if (event) event.preventDefault();
-      dispatch(fetchBooks(query));
+      dispatch(searchBooks(query));
     },
     [dispatch, query]
   );

@@ -7,7 +7,6 @@ import {
   CANCLE_FETCH,
   Book,
   fetchDispatchType,
-  NEW_FETCH,
 } from '../actions/book.actions.types';
 
 interface InitialState {
@@ -80,16 +79,6 @@ const BookReducer = (
       };
 
     case CANCLE_FETCH:
-      return {
-        ...state,
-        isError: false,
-        data: [],
-        isLoading: false,
-        success: false,
-        pageNumber: 1,
-      };
-
-    case NEW_FETCH:
       return {
         ...state,
         isError: false,

@@ -6,6 +6,7 @@ import {
   FETCH_FAIL,
   FETCH,
   LOAD_MORE_SUCCESS,
+  CANCLE_FETCH,
 } from './book.actions.types';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -23,7 +24,7 @@ const instance = axios.create({
   },
 });
 
-export const fetchBooks =
+export const searchBooks =
   (query: string, page = 1) =>
   async (dispatch: Dispatch<fetchDispatchType>) => {
     if (!query) return;
