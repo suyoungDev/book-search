@@ -23,8 +23,6 @@
 - 21.04.22 ~ 21.05.20
 - 1인 프로젝트
 
-# 주요 기능
-
 ## 사용된 기술 & 주요 라이브러리
 
 - React
@@ -34,6 +32,8 @@
 - typescript
 - styled-components
 - **responsive design**
+
+# 주요 기능
 
 ## 검색어 자동 완성
 
