@@ -6,7 +6,6 @@ import {
   FETCH_FAIL,
   FETCH,
   LOAD_MORE_SUCCESS,
-  CANCLE_FETCH,
 } from './book.actions.types';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -27,12 +26,13 @@ const instance = axios.create({
 export const searchBooks =
   (query: string, page = 1) =>
   async (dispatch: Dispatch<fetchDispatchType>) => {
-    if (!query) return;
     dispatch({ type: FETCH });
 
     cancel && cancel();
 
     try {
+      if (!query) throw new Error('검색어가 없습니다.');
+
       const {
         data: { items, total },
       } = await instance.get(URL, {
@@ -56,6 +56,8 @@ export const searchBooks =
       }
     } catch (error) {
       if (axios.isCancel(error)) return;
+      console.error(error);
+
       dispatch({
         type: FETCH_FAIL,
       });
