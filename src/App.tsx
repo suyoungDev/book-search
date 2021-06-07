@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import { lightTheme, darkTheme, GlobalStyles } from './theme';
+import { lightTheme, darkTheme } from './theme';
+import { GlobalStyles } from './GlobalStyles';
 import { IconContext } from 'react-icons';
 
 import LandingPage from './Page/LandingPage/LandingPage';

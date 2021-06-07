@@ -1,5 +1,5 @@
 import 'styled-components';
-import { createGlobalStyle, DefaultTheme } from 'styled-components';
+import { DefaultTheme } from 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
@@ -144,15 +144,3 @@ export const darkTheme: DefaultTheme = {
     phone: media.phone,
   },
 };
-
-export const GlobalStyles = createGlobalStyle`
-  *{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  body{
-    background-color: ${(props) => props.theme.colors.body60};
-    color: ${(props) => props.theme.colors.ink50};
-  }
-`;
