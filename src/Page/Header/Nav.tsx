@@ -18,7 +18,7 @@ const Nav: React.FC = () => {
     <NavWrapper>
       <NavUL>
         <NavLi className='logo'>
-          <NavLink url='/' title='logo' />
+          <NavLink url='/' title='로고' />
         </NavLi>
         {NAV_LIST.map((item) => (
           <NavLi key={item.title}>

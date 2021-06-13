@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled, { css } from 'styled-components';
+import { Link, NavLink } from 'react-router-dom';
 
-export const StyledLink = styled(Link)`
+const LinkStyles = css`
   display: flex;
 
   text-decoration: none;
@@ -15,6 +15,18 @@ export const StyledLink = styled(Link)`
 
   :hover {
     background-color: ${(props) => props.theme.colors.hoverButton};
+  }
+`;
+
+export const StyledLink = styled(Link)`
+  ${LinkStyles}
+`;
+
+export const StyledNavLink = styled(NavLink)`
+  ${LinkStyles}
+
+  &.active :is(.icons, span) {
+    color: ${(props) => props.theme.colors.primary50};
   }
 `;
 
@@ -33,14 +45,6 @@ export const LinkWrapper = styled.div`
     display: none;
   }
 
-  &.active {
-    .icons {
-      color: ${(props) => props.theme.colors.primary50};
-    }
-    span {
-      color: ${(props) => props.theme.colors.primary50};
-    }
-  }
   font-size: 2rem;
 
   ${(props) => props.theme.media.phone} {

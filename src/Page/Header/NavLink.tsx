@@ -1,10 +1,9 @@
 import React, { useCallback } from 'react';
-import { useRouteMatch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { BiHash, BiMessageSquareDetail } from 'react-icons/bi';
 import Logo from './Logo';
-import { StyledLink, LinkWrapper } from './NavLink.styles';
+import { StyledLink, LinkWrapper, StyledNavLink } from './NavLink.styles';
 import { cancleFetch } from '../../actions/book.actions.types';
 
 interface Props {
@@ -14,16 +13,12 @@ interface Props {
 
 const NavLink: React.FC<Props> = ({ url, title }) => {
   const dispatch = useDispatch();
-  let match = useRouteMatch({
-    path: url,
-    exact: true,
-  });
 
   const goHome = useCallback(() => {
     dispatch(cancleFetch());
   }, [dispatch]);
 
-  if (title === 'logo') {
+  if (title === '로고') {
     return (
       <StyledLink to={url} title={title} onClick={goHome}>
         <LinkWrapper>
@@ -34,13 +29,13 @@ const NavLink: React.FC<Props> = ({ url, title }) => {
   }
 
   return (
-    <StyledLink to={url} title={title}>
-      <LinkWrapper className={`${match && `active`}`}>
+    <StyledNavLink exact to={url} title={title} activeClassName='active'>
+      <LinkWrapper>
         {url === '/' && <BiHash />}
         {url === '/record' && <BiMessageSquareDetail />}
         <span>{title}</span>
       </LinkWrapper>
-    </StyledLink>
+    </StyledNavLink>
   );
 };
 
