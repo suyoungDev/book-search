@@ -392,7 +392,7 @@ const onChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
 
 ### 결론
 
-- [이전 프로젝트](https://github.com/mochapoke/design-system#%ED%95%B4%EA%B2%B0)와 마찬가지로 redux를 이용하여 on/off 함
+- [이전 프로젝트](https://github.com/suyoungDev/design-system#%ED%95%B4%EA%B2%B0)와 마찬가지로 redux를 이용하여 on/off 함
 - 모달은 `App`파일 내 다른 페이지보다 상위에 작성함.
 
 ```js
